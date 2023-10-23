@@ -18,10 +18,10 @@ namespace PSPDFKit {
 		public static void Initialize (Context context, string? licenseKey, IList<string> fontPaths)
 		{
 			if (context is null)
-				throw new NullReferenceException ($"context");
+				throw new NullReferenceException (nameof (context));
 
 			if (fontPaths is null)
-				throw new NullReferenceException ($"fontPaths");
+				throw new NullReferenceException (nameof (fontPaths));
 
 			Initialize (context, licenseKey, fontPaths, ProductIdentifier);
 		}
