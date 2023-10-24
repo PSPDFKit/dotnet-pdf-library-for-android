@@ -124,6 +124,7 @@
   <attr path="/api/package[@name='com.pspdfkit.ui.redaction']" name="managedName">PSPDFKit.UI.Redaction</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.rendering']" name="managedName">PSPDFKit.UI.Rendering</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.scrollbar']" name="managedName">PSPDFKit.UI.Scrollbar</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui.scale']" name="managedName">PSPDFKit.UI.Scale</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.search']" name="managedName">PSPDFKit.UI.Search</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.settings']" name="managedName">PSPDFKit.UI.Settings</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.signatures']" name="managedName">PSPDFKit.UI.Signatures</attr>
@@ -267,6 +268,12 @@
   <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfActivityIntentBuilder']/method[@name='contentSignatures' and @return='java.lang.Object']" name="managedName">ContentSignaturesObject</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfActivityIntentBuilder']/method[@name='passwords' and @return='java.lang.Object']" name="managedName">PasswordsObject</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfActivityIntentBuilder']/method[@name='visibleDocument' and @return='java.lang.Object']" name="managedName">VisibleDocumentObject</attr>
+
+  <remove-node path="/api/package[@name='com.pspdfkit']/class[@name='PSPDFKit']/method[@name='initialize' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String']]" />
+  <remove-node path="/api/package[@name='com.pspdfkit']/class[@name='PSPDFKit']/method[@name='initialize' and count(parameter)=3 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='com.pspdfkit.configuration.policy.ApplicationPolicy']]" />
+  <remove-node path="/api/package[@name='com.pspdfkit']/class[@name='PSPDFKit']/method[@name='initialize' and count(parameter)=4 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='com.pspdfkit.configuration.policy.ApplicationPolicy'] and parameter[4][@type='java.util.List&lt;java.lang.String&gt;']]" />
+  <remove-node path="/api/package[@name='com.pspdfkit']/class[@name='PSPDFKit']/method[@name='initialize' and count(parameter)=3 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='java.util.List&lt;java.lang.String&gt;']]" />
+  <attr path="/api/package[@name='com.pspdfkit']/class[@name='PSPDFKit']/method[@name='initialize' and count(parameter)=4 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='java.util.List&lt;java.lang.String&gt;'] and parameter[4][@type='java.lang.String']]" name="visibility">private</attr>
 
   <!-- Manually bound in Additions/PSPDFKit.Instant.IInstantPdfDocument.cs -->
   <remove-node path="/api/package[@name='com.pspdfkit.instant.document']/interface[@name='InstantPdfDocument']/method[@name='getAnnotationProvider' and count(parameter)=0]" />
