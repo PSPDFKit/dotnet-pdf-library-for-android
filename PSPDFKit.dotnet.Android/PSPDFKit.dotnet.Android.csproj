@@ -9,8 +9,8 @@
     <AndroidGenerateResourceDesigner>false</AndroidGenerateResourceDesigner>
   </PropertyGroup>
   <PropertyGroup>
-    <PackageId>PSPDFKit.dotnet.Android</PackageId>
-    <Title>PSPDFKit for .NET Android</Title>
+    <PackageId>PSPDFKit.NET.Android</PackageId>
+    <Title>PSPDFKit.NET (Android)</Title>
     <Summary>A high-performance viewer, extensive annotation and document editing tools, digital signatures, and more. All engineered for the best possible user and developer experience. PSPDFKit — the Android PDF SDK made for you.</Summary>
     <Description>The leading framework for displaying, annotating and editing PDFs on iOS, Android, Windows, Electron and the Web.</Description>
     <Authors>PSPDFKit GmbH</Authors>

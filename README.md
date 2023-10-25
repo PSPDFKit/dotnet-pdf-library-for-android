@@ -1,4 +1,4 @@
-# .NET Bindings for PSPDFKit for Android
+# .NET PDF Library for Android
 
 Xamarin.Android Bindings for PSPDFKit `v8.9.0`.
 
@@ -37,7 +37,7 @@ There's 2 ways to integrate PSPDFKit into your project. We highly recommend usin
 
 1. Right-Click on your project in Visual Studio and select "Manage Nuget Packages…"
 2. In the `Browse` section for "nuget.org" search for "PSPDFKit"
-<img width="500" src="https://user-images.githubusercontent.com/21023299/75026406-38564d00-549d-11ea-8229-34f91362f3d7.png"> 
+<img width="500" src="https://user-images.githubusercontent.com/21023299/75026406-38564d00-549d-11ea-8229-34f91362f3d7.png">
 
 3. Select the `PSPDFKit.dotnet.Android` package.
 4. Tap on "Add Package" to add the nuget package to your project.
