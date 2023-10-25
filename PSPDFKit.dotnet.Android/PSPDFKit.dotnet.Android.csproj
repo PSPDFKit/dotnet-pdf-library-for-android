@@ -20,7 +20,7 @@
     <PackageProjectUrl>https://pspdfkit.com/</PackageProjectUrl>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageTags>pdf, pdf document, pdf document view, pdf sdk, pdf annotation, edit pdf, display pdf, display pdf, xamarin, maui, ios</PackageTags>
+    <PackageTags>pdf-viewer , pdf-editor , dotnet , csharp , net-android , android , pdf , library</PackageTags>
     <PackageReleaseNotes>For changelog go to: https://pspdfkit.com/changelog/android/</PackageReleaseNotes>
     <RepositoryUrl>https://github.com/PSPDFKit/dotnet-android</RepositoryUrl>
     <PackageVersion>$(PSVersion)</PackageVersion>
