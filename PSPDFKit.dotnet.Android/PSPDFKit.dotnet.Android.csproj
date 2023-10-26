@@ -9,7 +9,7 @@
     <AndroidGenerateResourceDesigner>false</AndroidGenerateResourceDesigner>
   </PropertyGroup>
   <PropertyGroup>
-    <PackageId>PSPDFKit.NET.Android</PackageId>
+    <PackageId>PSPDFKit.dotnet.Android</PackageId>
     <Title>PSPDFKit.NET (Android)</Title>
     <Summary>A high-performance viewer, extensive annotation and document editing tools, digital signatures, and more. All engineered for the best possible user and developer experience. PSPDFKit — the Android PDF SDK made for you.</Summary>
     <Description>The leading framework for displaying, annotating and editing PDFs on iOS, Android, Windows, Electron and the Web.</Description>
@@ -20,7 +20,7 @@
     <PackageProjectUrl>https://pspdfkit.com/</PackageProjectUrl>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <PackageTags>pdf-viewer , pdf-editor , dotnet , csharp , net-android , android , pdf , library</PackageTags>
+    <PackageTags>pdf-viewer , pdf-editor , dotnet , csharp , net-android , android , pdf , library , maui</PackageTags>
     <PackageReleaseNotes>For changelog go to: https://pspdfkit.com/changelog/android/</PackageReleaseNotes>
     <RepositoryUrl>https://github.com/PSPDFKit/dotnet-android</RepositoryUrl>
     <PackageVersion>$(PSVersion)</PackageVersion>

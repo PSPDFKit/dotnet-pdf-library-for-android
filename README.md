@@ -1,4 +1,4 @@
-# .NET PDF Library for Android
+# PSPDFKit.NET (Android)
 
 Xamarin.Android Bindings for PSPDFKit `v8.9.0`.
 
