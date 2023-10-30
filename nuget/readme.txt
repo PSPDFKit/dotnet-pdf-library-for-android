@@ -6,7 +6,7 @@ PSPDFKit Instant adds real-time collaboration features to seamlessly share, edit
 
 ## Setup
 
-PSPDFKit offers support for customers with an active SDK license via https://pspdfkit.com/support/request/.
+PSPDFKit offers support via https://pspdfkit.com/support/request/.
 
 Are you evaluating our SDK? That's great, we're happy to help out! To make sure this is fast, please use a work email and have someone from your company fill out our sales form: https://pspdfkit.com/sales/
 
