@@ -10,7 +10,7 @@ The [PSPDFKit SDK](https://pspdfkit.com/) is a framework that allows you to view
 
 #### Related
 
-- PSPDFKit.NET (iOS): [PSPDFKit/dotnet-ios](https://github.com/PSPDFKit/dotnet-ios)
+- PSPDFKit.NET (iOS): [PSPDFKit/dotnet-pdf-library-for-ios](https://github.com/PSPDFKit/dotnet-pdf-library-for-ios)
 
 ## Support, Issues and License Questions
 
