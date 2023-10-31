@@ -23,7 +23,7 @@ To make sure this is fast, please use a work email and have someone from your co
 
 PSPDFKit runs on Android devices running:
 
-* **Xamarin.NET.Android >= 13.2.1.2**
+* **NET for Android workload >= 33.0.95/7.0.100**
 * **Microsoft Mobile OpenJDK >= 11.0**
 * Android **5** or newer / API level **21** or higher
 * 32-bit or 64-bit ARM (armeabi-v7a with NEON / arm64-v8a) or 32-bit or 64-bit Intel x86 CPU.
