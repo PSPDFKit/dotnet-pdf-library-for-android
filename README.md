@@ -1,6 +1,6 @@
 # PSPDFKit.NET (Android)
 
-Xamarin.dotnet.Android Bindings for PSPDFKit `v8.9.0`.
+.NET for Android C# Bindings for PSPDFKit `v8.9.0`.
 
 #### PSPDFKit
 
