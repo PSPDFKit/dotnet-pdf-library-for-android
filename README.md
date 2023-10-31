@@ -1,6 +1,6 @@
 # PSPDFKit.NET (Android)
 
-Xamarin.Android Bindings for PSPDFKit `v8.9.0`.
+.NET for Android C# Bindings for PSPDFKit `v8.9.0`.
 
 #### PSPDFKit
 
@@ -10,11 +10,11 @@ The [PSPDFKit SDK](https://pspdfkit.com/) is a framework that allows you to view
 
 #### Related
 
-- .NET Bindings for PSPDFKit for iOS: [PSPDFKit/dotnet-ios](https://github.com/PSPDFKit/dotnet-ios)
+- PSPDFKit.NET (iOS): [PSPDFKit/dotnet-pdf-library-for-ios](https://github.com/PSPDFKit/dotnet-pdf-library-for-ios)
 
 ## Support, Issues and License Questions
 
-PSPDFKit offers support for customers with an active SDK license via https://pspdfkit.com/support/request/
+PSPDFKit offers support via https://pspdfkit.com/support/request/.
 
 Are you evaluating our SDK? That's great, we're happy to help out!
 To make sure this is fast, please use a work email and have someone from your company fill out our sales form: https://pspdfkit.com/sales/
@@ -23,7 +23,7 @@ To make sure this is fast, please use a work email and have someone from your co
 
 PSPDFKit runs on Android devices running:
 
-* **Xamarin.Android >= 13.2.1.2**
+* **NET for Android workload >= 33.0.95/7.0.100**
 * **Microsoft Mobile OpenJDK >= 11.0**
 * Android **5** or newer / API level **21** or higher
 * 32-bit or 64-bit ARM (armeabi-v7a with NEON / arm64-v8a) or 32-bit or 64-bit Intel x86 CPU.
@@ -58,7 +58,7 @@ Visual Studio will use the default Java, but this can be customized in Preferenc
 
 You have two options to get it:
 
-#### Build from PSPDFKit.Android.sln
+#### Build from PSPDFKit.dotnet.Android.sln
 
 1. Open `PSPDFKit.dotnet.Android.sln` in `Visual Studio`.
 2. Build the project.
@@ -276,9 +276,9 @@ For more information about Instant, please have a look at our [website](https://
 
 You can find several sample projects in the `samples` folder.
 
-### AndroidSimple
+### AndroidSample
 
-`AndroidSimple` is an example project showing showing how to open and present document, or how to open a document from various file providers or the local file directory.
+`AndroidSample` is an example project showing showing how to open and present document, or how to open a document from various file providers or the local file directory.
 
 ### Contributing
 
