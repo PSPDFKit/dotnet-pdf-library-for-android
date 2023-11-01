@@ -23,15 +23,17 @@ namespace PSPDFKit {
 			if (fontPaths is null)
 				throw new NullReferenceException (nameof (fontPaths));
 
+			InitializeInternal (context, null);
 			Initialize (context, licenseKey, fontPaths, ProductIdentifier);
 		}
 
 		public static void Initialize (Context context, string? licenseKey)
 		{
 			if (context is null)
-				throw new NullReferenceException($"context");
+				throw new NullReferenceException ($"context");
 
-			Initialize (context, licenseKey, Array.Empty<string>(), ProductIdentifier);
+			InitializeInternal (context, null);
+			Initialize (context, licenseKey, Array.Empty<string> (), ProductIdentifier);
 		}
 	}
 }

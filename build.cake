@@ -5,7 +5,7 @@ var target = Argument ("target", "Default");
 // https://jar-download.com/
 
 var PSPDFKIT_VERSION = "8.9.0";
-var SERVICERELEASE_VERSION = "0"; // This is combined with the PSPDFKIT_VERSION variable for the NuGet Package version
+var SERVICERELEASE_VERSION = "1"; // This is combined with the PSPDFKIT_VERSION variable for the NuGet Package version
 var RXANDROID_VERSION = "2.1.0";
 var RXJAVA_VERSION = "2.2.4"; // Check Reactive-Streams if updated.
 var REACTIVESTREAMS_VERSION = "1.0.2";
