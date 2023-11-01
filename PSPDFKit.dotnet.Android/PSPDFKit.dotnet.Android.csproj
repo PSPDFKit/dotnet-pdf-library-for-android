@@ -22,7 +22,7 @@
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageTags>pdf-viewer , pdf-editor , dotnet , csharp , net-android , android , pdf , library , maui</PackageTags>
     <PackageReleaseNotes>For changelog go to: https://pspdfkit.com/changelog/android/</PackageReleaseNotes>
-    <RepositoryUrl>https://github.com/PSPDFKit/dotnet-android</RepositoryUrl>
+    <RepositoryUrl>https://github.com/PSPDFKit/dotnet-pdf-library-for-android</RepositoryUrl>
     <PackageVersion>$(PSVersion)</PackageVersion>
   </PropertyGroup>
   <ItemGroup>
