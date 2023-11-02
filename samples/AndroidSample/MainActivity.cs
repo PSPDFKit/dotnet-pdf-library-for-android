@@ -18,13 +18,6 @@ using PSPDFKit.UI;
 using SampleTools;
 using AndroidHUD;
 
-// This will add your license key into AndroidManifest.xml at build time. For more info on how this Attribute works see:
-// https://developer.xamarin.com/guides/android/advanced_topics/working_with_androidmanifest.xml/
-//[assembly: MetaData (
-//	name:"pspdfkit_license_key",
-//	Value = "LICENSE_KEY_GOES_HERE"
-//)]
-
 namespace AndroidSample;
 
 [Activity(Label = "@string/app_name", MainLauncher = true, Theme = "@style/AppTheme")]
@@ -44,6 +37,9 @@ public class MainActivity : Activity
     protected override void OnCreate(Bundle savedInstanceState)
     {
         base.OnCreate(savedInstanceState);
+
+        // Set your licenseKey key here and Initialize PSPDFKit.
+        PSPDFKitGlobal.Initialize (this, licenseKey: null);
 
         // Set our view from the "main" layout resource
         SetContentView(Resource.Layout.activity_main);
