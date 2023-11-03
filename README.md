@@ -33,16 +33,17 @@ PSPDFKit runs on Android devices running:
 
 There's 2 ways to integrate PSPDFKit into your project. We highly recommend using our nuget packages from nuget.org in Visual Studio as it requires less work for the customer and also eliminates the possibility of build errors, which can happen from time to time.
 
-### Integrating PSPDFKit via Nuget (Recommended)
+### Integrating PSPDFKit via NuGet (Recommended)
 
-1. Right-Click on your project in Visual Studio and select "Manage Nuget Packages…"
-2. In the `Browse` section for "nuget.org" search for "PSPDFKit"
-<img width="500" src="https://user-images.githubusercontent.com/21023299/75026406-38564d00-549d-11ea-8229-34f91362f3d7.png">
+1. Right-Click on your project in Visual Studio and select "Manage NuGet Packages..."
+2. In the `Browse` section for "nuget.org" search for "PSPDFKit.dotnet":
+
+<img width="70%" src="Images/Add-NuGet-package.png"/>
 
 3. Select the `PSPDFKit.dotnet.Android` package.
-4. Tap on "Add Package" to add the nuget package to your project.
+4. Tap on "Add Package" to add the NuGet package to your project.
 
-Now you are done and can skip to [Adding additional resources!](https://github.com/PSPDFKit/dotnet-android#adding-additional-resources)
+Now you are done and can skip to [Adding additional resources](https://github.com/PSPDFKit/dotnet-android#adding-additional-resources)!
 
 ### Integrating PSPDFKit via DLLs (Advanced)
 
