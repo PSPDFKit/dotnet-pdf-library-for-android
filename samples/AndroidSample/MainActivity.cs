@@ -39,7 +39,7 @@ public class MainActivity : Activity
         base.OnCreate(savedInstanceState);
 
         // Set your licenseKey key here and Initialize PSPDFKit.
-        PSPDFKitGlobal.Initialize (this, licenseKey: null);
+        PSPDFKitGlobal.Initialize(this, licenseKey: null);
 
         // Set our view from the "main" layout resource
         SetContentView(Resource.Layout.activity_main);
