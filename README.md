@@ -160,11 +160,13 @@ R8 : error : Compilation can't be completed because some library classes are mis
 
 ### Checking for Compatibility
 
-You can include PSPDFKit into applications which will be distributed to devices not supported by PSPDFkit. In that case you can attempt initializing and catch `PSPDFKitInitializationFailedException` to check for device compatibility.
+You can include PSPDFKit into applications which will be distributed to devices not supported by PSPDFKit. In that case you can attempt initializing and catch `PSPDFKitInitializationFailedException` to check for device compatibility.
+
+* Initialize PSPDFKit early in your application lifecycle. You can get your license key from your [customer portal](https://customers.pspdfkit.com/) if you haven't done so already. Pass `null` to use the trial version.
 
 ```csharp
 try {
-	PSPDFKitGlobal.Initialize(this, "<YOUR LICENSE>");
+	PSPDFKitGlobal.Initialize(this, licenseKey: null);
 } catch (PSPDFKitInitializationFailedException ex) {
 	Console.WriteLine ("Current device is not compatible with PSPDFKit: {0}", ex.Message);
 }
@@ -189,7 +191,12 @@ try {
 
 ```csharp
 var pdfDocument = Android.Net.Uri.FromFile (new Java.IO.File (Android.OS.Environment.ExternalStorageDirectory, "document.pdf"));
-var configuration = new PdfActivityConfiguration.Builder("<YOUR_LICENSE>").Build();
+var configuration = new PdfActivityConfiguration.Builder(ApplicationContext)
+            .ScrollDirection(PageScrollDirection.Horizontal)
+            .ShowPageNumberOverlay()
+            .ShowThumbnailGrid()
+            .FitMode(PageFitMode.FitToWidth)
+            .Build();
 PdfActivity.ShowDocument(this, pdfDocument, configuration);
 ```
 
@@ -210,9 +217,12 @@ PdfActivity.ShowDocument(this, pdfDocument, configuration);
 
 ```csharp
 var pdfDocument = Android.Net.Uri.FromFile (new Java.IO.File (Android.OS.Environment.ExternalStorageDirectory, "document.pdf"));
-var configuration = new PdfConfiguration.Builder("<YOUR_LICENSE>")
-	.ScrollDirection (PageScrollDirection.Horizontal)
-	.Build();
+var configuration = new PdfActivityConfiguration.Builder(ApplicationContext)
+            .ScrollDirection(PageScrollDirection.Horizontal)
+            .ShowPageNumberOverlay()
+            .ShowThumbnailGrid()
+            .FitMode(PageFitMode.FitToWidth)
+            .Build();
 
 var fragment = PdfFragment.NewInstance(pdfDocument, configuration);
 SupportFragmentManager.BeginTransaction().Replace(Resource.Id.Content, fragment).Commit();
@@ -227,7 +237,6 @@ You can use PSPDFKit to render PDF to bitmaps without showing them in activities
 Example:
 
 ```csharp
-PSPDFKitGlobal.Initialize (this, "<YOUR LICENSE>");
 try {
 	var pdfDocument = PSPDFKitGlobal.OpenDocument (this, Android.Net.Uri.FromFile (new Java.IO.File(Android.OS.Environment.ExternalStorageDirectory, "document.pdf")));
 	var pageToRender = 1; // This is 0-indexed, use pdfDocument.PageCount to retrieve number of pages
