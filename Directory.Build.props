@@ -1,5 +1,5 @@
 ﻿<Project>
     <PropertyGroup>
-        <PSVersion>8.9.1</PSVersion>
+        <PSVersion>8.10.0</PSVersion>
     </PropertyGroup>
 </Project>
