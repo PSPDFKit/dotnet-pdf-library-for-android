@@ -35,12 +35,13 @@
   <ItemGroup>
     <AndroidLibrary Include="Jars\relinker-1.4.5.jar" Bind="false" Pack="true" />
     <AndroidLibrary Include="Jars\yearclass-2.0.0.jar" Bind="false" Pack="true" />
-    <AndroidLibrary Include="Jars\pspdfkit-8.10.0.aar" Bind="true" Pack="true" />
+    <AndroidLibrary Include="Jars\pspdfkit-2024.1.0.aar" Bind="true" Pack="true" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.AndroidX.Legacy.Support.V4" Version="1.0.0.22" />
     <PackageReference Include="Xamarin.AndroidX.AppCompat" Version="1.6.1.6" />
     <PackageReference Include="Xamarin.AndroidX.Core" Version="1.12.0.3" />
+    <PackageReference Include="Xamarin.AndroidX.Compose.UI" Version="1.5.4.1" />
     <PackageReference Include="Xamarin.AndroidX.Compose.Runtime" Version="1.5.4.1" />
     <PackageReference Include="Xamarin.AndroidX.Compose.Runtime.RxJava3" Version="1.5.4.1" />
     <PackageReference Include="Xamarin.AndroidX.ConstraintLayout" Version="2.1.4.9" />
@@ -62,6 +63,7 @@
     <PackageReference Include="Square.OkHttp3" Version="4.12.0.1" />
     <PackageReference Include="Xamarin.Kotlin.StdLib" Version="1.9.22" />
     <PackageReference Include="Xamarin.Kotlin.StdLib.Jdk8" Version="1.9.22" />
+    <PackageReference Include="nventive.binding.kotlinx.serialization.json" Version="1.2.2" />
     <PackageReference Include="Xamarin.Android.ReactiveX.RxJava3.RxAndroid" Version="3.0.2.7" />
     <PackageReference Include="Xamarin.Android.ReactiveX.RxJava3.RxJava" Version="3.1.8.2" />
   </ItemGroup>
