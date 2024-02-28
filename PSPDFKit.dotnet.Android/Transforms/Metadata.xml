@@ -22,33 +22,40 @@
   <remove-node path="//constructor/parameter[contains(@type, 'z1.k')]" />
   <remove-node path="//constructor/parameter[contains(@type, 'f1.a')]" />
   <remove-node path="//constructor/parameter[contains(@type, 'e1.m')]" />
-  <remove-node path="//constructor/parameter[contains(@type, 'r4.j')]" />
+  <remove-node path="//constructor/parameter[contains(@type, 'w4.j')]" />
+  
   <!-- Not creating a general rule to avoid bug reported by David -->
   <!-- <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal')]" />-->
 
   <!-- Removes any "method" that any of its parameters uses any of the types contained in com.pspdfkit.internal.* -->
   <remove-node path="//method/parameter[contains(@type, 'com.pspdfkit.internal')]" />
   <remove-node path="//method[contains(@return, 'com.pspdfkit.internal')]" />
-  <remove-node path="//method[contains(@return, 's3.g')]" />
   <remove-node path="//method[contains(@return, 'r.v1')]" />
   <remove-node path="//method[contains(@return, 'v1.c0')]" />
   <remove-node path="//method[contains(@return, 'v1.d0')]" />
   <remove-node path="//method[contains(@return, 'u0.a')]" />
   <remove-node path="//method[contains(@return, 'i.k')]" />
-  <remove-node path="//method[contains(@return, 'e4.g')]" />
   <remove-node path="//method[contains(@return, 'a1.m1')]" />
   <remove-node path="//method[contains(@return, 'w0.j')]" />
-  <remove-node path="//method[contains(@return, 'o2.e')]" />
-  <remove-node path="//method[contains(@return, 'u2.l')]" />
   <remove-node path="//method[contains(@return, 'h1.n')]" />
+  <remove-node path="//method[contains(@return, 'x3.g')]" />
+  <remove-node path="//method[contains(@return, 's.c')]" />
+  <remove-node path="//method[contains(@return, 'j4.g')]" />
+  <remove-node path="//method[contains(@return, 'a1.v1')]" />
+  <remove-node path="//method[contains(@return, 'r2.e')]" />
+  <remove-node path="//method[contains(@return, 'a1.l2')]" />
+  <remove-node path="//method[contains(@return, 'z2.l')]" />
   <remove-node path="//method/parameter[contains(@type, 'r.q1')]" />
   <remove-node path="//method/parameter[contains(@type, 'z1.k')]" />
   <remove-node path="//method/parameter[contains(@type, 'f1.a')]" />
-  <remove-node path="//method/parameter[contains(@type, 'a1.m1')]" />
-  <remove-node path="//method/parameter[contains(@type, 'o2.e')]" />
-  <remove-node path="//method/parameter[contains(@type, 'r4.j')]" />
   <remove-node path="//method/parameter[contains(@type, 'w4.i')]" />
-  <remove-node path="//method/parameter[contains(@type, 'j3.o')]" />
+  <remove-node path="//method/parameter[contains(@type, 's.c')]" />
+  <remove-node path="//method/parameter[contains(@type, 'a1.v1')]" />
+  <remove-node path="//method/parameter[contains(@type, 'a1.l2')]" />
+  <remove-node path="//method/parameter[contains(@type, 'a1.k0')]" />
+  <remove-node path="//method/parameter[contains(@type, 'r2.e')]" />
+  <remove-node path="//method/parameter[contains(@type, 'b5.i')]" />
+  <remove-node path="//method/parameter[contains(@type, 'o3.o')]" />
 
   <!-- Removes any "field" of type com.pspdfkit.internal.* -->
   <remove-node path="//field[contains(@type, 'com.pspdfkit.internal')]" />
@@ -57,21 +64,20 @@
   <!-- Removes any "interface" of type java.lang.Comparable -->
   <remove-node path="//implements[contains(@name, 'java.lang.Comparable')]" />
   <remove-node path="//implements[contains(@name, 'com.pspdfkit.internal')]" />
-  <remove-node path="//implements[contains(@name, 'm3.g')]" />
-  <remove-node path="//implements[contains(@name, 's4.b')]" />
   <remove-node path="//implements[contains(@name, 'z1.j')]" />
   <remove-node path="//implements[contains(@name, 'e1.f')]" />
-  <remove-node path="//implements[contains(@name, 'f4.k')]" />
-  <remove-node path="//implements[contains(@name, 'y2.b')]" />
-  <remove-node path="//implements[contains(@name, 'o2.d')]" />
-  <remove-node path="//implements[contains(@name, 'j3.n')]" />
-  <remove-node path="//implements[contains(@name, '12.a')]" />
-  <remove-node path="//implements[contains(@name, 'w4.i')]" />
   <remove-node path="//implements[contains(@name, 'p1.c')]" />
-  <remove-node path="//implements[contains(@name, 'c3.c')]" />
   <remove-node path="//implements[contains(@name, 'h1.o')]" />
-  <remove-node path="//implements[contains(@name, 't3.a')]" />
   <remove-node path="//implements[contains(@name, 'i2.a')]" />
+  <remove-node path="//implements[contains(@name, 'r3.g')]" />
+  <remove-node path="//implements[contains(@name, 'x4.b')]" />
+  <remove-node path="//implements[contains(@name, 'k4.k')]" />
+  <remove-node path="//implements[contains(@name, 'd3.b')]" />
+  <remove-node path="//implements[contains(@name, 'r2.d')]" />
+  <remove-node path="//implements[contains(@name, 'b5.i')]" />
+  <remove-node path="//implements[contains(@name, 'h3.c')]" />
+  <remove-node path="//implements[contains(@name, 'y3.a')]" />
+  <remove-node path="//implements[contains(@name, 'o3.n')]" />
 
   <!-- C# friendly namespaces -->
   <attr path="/api/package[@name='com.pspdfkit']" name="managedName">PSPDFKit</attr>
