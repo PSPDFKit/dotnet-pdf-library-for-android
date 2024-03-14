@@ -81,9 +81,9 @@ In order to use **PSPDFKit.dotnet.Android.dll** with your own project you will n
 
 ### Adding additional resources
 
-First you need to add the [pspdfkit-proguard.cfg](samples/AndroidSample/AndroidSample/pspdfkit-proguard.cfg) file to your project, see [Xamarin Android and ProGuard](#xamarin-android-and-proguard) section.
+First you need to add the [pspdfkit-proguard.cfg](samples/AndroidSample/pspdfkit-proguard.cfg) file to your project, see [.NET Android and ProGuard](#net-for-android-and-proguard) section.
 
-**💡 Note:** If you do not add the [pspdfkit-proguard.cfg](samples/AndroidSample/AndroidSample/pspdfkit-proguard.cfg) file to your project you will run into errors
+**💡 Note:** If you do not add the [pspdfkit-proguard.cfg](samples/AndroidSample/pspdfkit-proguard.cfg) file to your project you will run into errors
 
 Once you have done this you will need to add some [NuGet](https://www.nuget.org/) packages to you project
 
