@@ -5,7 +5,7 @@
     <SupportedOSPlatformVersion>21</SupportedOSPlatformVersion>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <NoWarn>0109,0618,0114,0108,0672,0169</NoWarn>
+    <NoWarn>0109,0618,0114,0108,0672,0169,XAOBS001,CS8603,CS8625,CS8764,CS8765,CS8766,CS8767</NoWarn>
     <AndroidGenerateResourceDesigner>false</AndroidGenerateResourceDesigner>
   </PropertyGroup>
   <PropertyGroup>
@@ -35,36 +35,36 @@
   <ItemGroup>
     <AndroidLibrary Include="Jars\relinker-1.4.5.jar" Bind="false" Pack="true" />
     <AndroidLibrary Include="Jars\yearclass-2.0.0.jar" Bind="false" Pack="true" />
-    <AndroidLibrary Include="Jars\pspdfkit-2024.1.0.aar" Bind="true" Pack="true" />
+    <AndroidLibrary Include="Jars\pspdfkit-2024.1.2.aar" Bind="true" Pack="true" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Xamarin.AndroidX.Legacy.Support.V4" Version="1.0.0.22" />
-    <PackageReference Include="Xamarin.AndroidX.AppCompat" Version="1.6.1.6" />
-    <PackageReference Include="Xamarin.AndroidX.Core" Version="1.12.0.3" />
-    <PackageReference Include="Xamarin.AndroidX.Compose.UI" Version="1.5.4.1" />
-    <PackageReference Include="Xamarin.AndroidX.Compose.Runtime" Version="1.5.4.1" />
-    <PackageReference Include="Xamarin.AndroidX.Compose.Runtime.RxJava3" Version="1.5.4.1" />
-    <PackageReference Include="Xamarin.AndroidX.ConstraintLayout" Version="2.1.4.9" />
-    <PackageReference Include="Xamarin.AndroidX.ExifInterface" Version="1.3.7" />
-    <PackageReference Include="Xamarin.AndroidX.Fragment" Version="1.6.2.1" />
-    <PackageReference Include="Xamarin.AndroidX.RecyclerView" Version="1.3.2.1" />
-    <PackageReference Include="Xamarin.AndroidX.CardView" Version="1.0.0.24" />
-    <PackageReference Include="Xamarin.AndroidX.GridLayout" Version="1.0.0.22" />
-    <PackageReference Include="Xamarin.AndroidX.Palette" Version="1.0.0.22" />
-    <PackageReference Include="Xamarin.AndroidX.Preference" Version="1.2.1.3" />
-    <PackageReference Include="Xamarin.AndroidX.ViewPager2" Version="1.0.0.24" />
-    <PackageReference Include="Xamarin.AndroidX.WebKit" Version="1.9.0" />
-    <PackageReference Include="Xamarin.Google.Android.Material" Version="1.10.0.2" />
-    <PackageReference Include="Xamarin.AndroidX.Lifecycle.Common" Version="2.7.0" />
-    <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData" Version="2.7.0" />
-    <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData.Core" Version="2.7.0" />
-    <PackageReference Include="Xamarin.AndroidX.MultiDex" Version="2.0.1.22" />
-    <PackageReference Include="Xamarin.AndroidX.Browser" Version="1.7.0.1" />
-    <PackageReference Include="Square.OkHttp3" Version="4.12.0.1" />
-    <PackageReference Include="Xamarin.Kotlin.StdLib" Version="1.9.22" />
-    <PackageReference Include="Xamarin.Kotlin.StdLib.Jdk8" Version="1.9.22" />
+    <PackageReference Include="Xamarin.AndroidX.Legacy.Support.V4" Version="1.0.0.23" />
+    <PackageReference Include="Xamarin.AndroidX.AppCompat" Version="1.6.1.7" />
+    <PackageReference Include="Xamarin.AndroidX.Core" Version="1.12.0.4" />
+    <PackageReference Include="Xamarin.AndroidX.Compose.UI" Version="1.6.4" />
+    <PackageReference Include="Xamarin.AndroidX.Compose.Runtime" Version="1.6.4" />
+    <PackageReference Include="Xamarin.AndroidX.Compose.Runtime.RxJava3" Version="1.6.4" />
+    <PackageReference Include="Xamarin.AndroidX.ConstraintLayout" Version="2.1.4.10" />
+    <PackageReference Include="Xamarin.AndroidX.ExifInterface" Version="1.3.7.1" />
+    <PackageReference Include="Xamarin.AndroidX.Fragment" Version="1.6.2.2" />
+    <PackageReference Include="Xamarin.AndroidX.RecyclerView" Version="1.3.2.2" />
+    <PackageReference Include="Xamarin.AndroidX.CardView" Version="1.0.0.25" />
+    <PackageReference Include="Xamarin.AndroidX.GridLayout" Version="1.0.0.23" />
+    <PackageReference Include="Xamarin.AndroidX.Palette" Version="1.0.0.23" />
+    <PackageReference Include="Xamarin.AndroidX.Preference" Version="1.2.1.4" />
+    <PackageReference Include="Xamarin.AndroidX.ViewPager2" Version="1.0.0.25" />
+    <PackageReference Include="Xamarin.AndroidX.WebKit" Version="1.10.0.1" />
+    <PackageReference Include="Xamarin.Google.Android.Material" Version="1.10.0.3" />
+    <PackageReference Include="Xamarin.AndroidX.Lifecycle.Common" Version="2.7.0.1" />
+    <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData" Version="2.7.0.1" />
+    <PackageReference Include="Xamarin.AndroidX.Lifecycle.LiveData.Core" Version="2.7.0.1" />
+    <PackageReference Include="Xamarin.AndroidX.MultiDex" Version="2.0.1.23" />
+    <PackageReference Include="Xamarin.AndroidX.Browser" Version="1.8.0" />
+    <PackageReference Include="Square.OkHttp3" Version="4.12.0.2" />
+    <PackageReference Include="Xamarin.Kotlin.StdLib" Version="1.9.23" />
+    <PackageReference Include="Xamarin.Kotlin.StdLib.Jdk8" Version="1.9.23" />
     <PackageReference Include="nventive.binding.kotlinx.serialization.json" Version="1.2.2" />
-    <PackageReference Include="Xamarin.Android.ReactiveX.RxJava3.RxAndroid" Version="3.0.2.7" />
-    <PackageReference Include="Xamarin.Android.ReactiveX.RxJava3.RxJava" Version="3.1.8.2" />
+    <PackageReference Include="Xamarin.Android.ReactiveX.RxJava3.RxAndroid" Version="3.0.2.8" />
+    <PackageReference Include="Xamarin.Android.ReactiveX.RxJava3.RxJava" Version="3.1.8.3" />
   </ItemGroup>
 </Project>
