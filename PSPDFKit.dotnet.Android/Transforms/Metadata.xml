@@ -11,18 +11,11 @@
   <remove-node path="//class['Impl' = substring(substring-before(@name,'.') , string-length(substring-before(@name,'.')) - 3)]" />
 
   <!-- Removes any "constructor" that any of its parameters uses any of the types contained in com.pspdfkit.internal.* -->
-  <!--<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.r1')]" />
+  <!-- <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.r1')]" />
   <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.dg')]" />
   <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.um')]" />
   <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.d1')]" />
-  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.j5')]" />-->
-  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.jni.NativeAnnotation')]" />
-  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.jni.NativeFormField')]" />
-  <remove-node path="//constructor/parameter[contains(@type, 'r.q1')]" />
-  <remove-node path="//constructor/parameter[contains(@type, 'z1.k')]" />
-  <remove-node path="//constructor/parameter[contains(@type, 'f1.a')]" />
-  <remove-node path="//constructor/parameter[contains(@type, 'e1.m')]" />
-  <remove-node path="//constructor/parameter[contains(@type, 'w4.j')]" />
+  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.j5')]" /> -->
   
   <!-- Not creating a general rule to avoid bug reported by David -->
   <!-- <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal')]" />-->
@@ -30,54 +23,13 @@
   <!-- Removes any "method" that any of its parameters uses any of the types contained in com.pspdfkit.internal.* -->
   <remove-node path="//method/parameter[contains(@type, 'com.pspdfkit.internal')]" />
   <remove-node path="//method[contains(@return, 'com.pspdfkit.internal')]" />
-  <remove-node path="//method[contains(@return, 'r.v1')]" />
-  <remove-node path="//method[contains(@return, 'v1.c0')]" />
-  <remove-node path="//method[contains(@return, 'v1.d0')]" />
-  <remove-node path="//method[contains(@return, 'u0.a')]" />
-  <remove-node path="//method[contains(@return, 'i.k')]" />
-  <remove-node path="//method[contains(@return, 'a1.m1')]" />
-  <remove-node path="//method[contains(@return, 'w0.j')]" />
-  <remove-node path="//method[contains(@return, 'h1.n')]" />
-  <remove-node path="//method[contains(@return, 'x3.g')]" />
-  <remove-node path="//method[contains(@return, 's.c')]" />
-  <remove-node path="//method[contains(@return, 'j4.g')]" />
-  <remove-node path="//method[contains(@return, 'a1.v1')]" />
-  <remove-node path="//method[contains(@return, 'r2.e')]" />
-  <remove-node path="//method[contains(@return, 'a1.l2')]" />
-  <remove-node path="//method[contains(@return, 'z2.l')]" />
-  <remove-node path="//method/parameter[contains(@type, 'r.q1')]" />
-  <remove-node path="//method/parameter[contains(@type, 'z1.k')]" />
-  <remove-node path="//method/parameter[contains(@type, 'f1.a')]" />
-  <remove-node path="//method/parameter[contains(@type, 'w4.i')]" />
-  <remove-node path="//method/parameter[contains(@type, 's.c')]" />
-  <remove-node path="//method/parameter[contains(@type, 'a1.v1')]" />
-  <remove-node path="//method/parameter[contains(@type, 'a1.l2')]" />
-  <remove-node path="//method/parameter[contains(@type, 'a1.k0')]" />
-  <remove-node path="//method/parameter[contains(@type, 'r2.e')]" />
-  <remove-node path="//method/parameter[contains(@type, 'b5.i')]" />
-  <remove-node path="//method/parameter[contains(@type, 'o3.o')]" />
 
   <!-- Removes any "field" of type com.pspdfkit.internal.* -->
   <remove-node path="//field[contains(@type, 'com.pspdfkit.internal')]" />
-  <remove-node path="//field[contains(@type, 'z1.k')]" />
 
   <!-- Removes any "interface" of type java.lang.Comparable -->
   <remove-node path="//implements[contains(@name, 'java.lang.Comparable')]" />
   <remove-node path="//implements[contains(@name, 'com.pspdfkit.internal')]" />
-  <remove-node path="//implements[contains(@name, 'z1.j')]" />
-  <remove-node path="//implements[contains(@name, 'e1.f')]" />
-  <remove-node path="//implements[contains(@name, 'p1.c')]" />
-  <remove-node path="//implements[contains(@name, 'h1.o')]" />
-  <remove-node path="//implements[contains(@name, 'i2.a')]" />
-  <remove-node path="//implements[contains(@name, 'r3.g')]" />
-  <remove-node path="//implements[contains(@name, 'x4.b')]" />
-  <remove-node path="//implements[contains(@name, 'k4.k')]" />
-  <remove-node path="//implements[contains(@name, 'd3.b')]" />
-  <remove-node path="//implements[contains(@name, 'r2.d')]" />
-  <remove-node path="//implements[contains(@name, 'b5.i')]" />
-  <remove-node path="//implements[contains(@name, 'h3.c')]" />
-  <remove-node path="//implements[contains(@name, 'y3.a')]" />
-  <remove-node path="//implements[contains(@name, 'o3.n')]" />
 
   <!-- C# friendly namespaces -->
   <attr path="/api/package[@name='com.pspdfkit']" name="managedName">PSPDFKit</attr>
@@ -197,8 +149,11 @@
   <attr path="/api/package[@name='com.pspdfkit.ui.toolbar']/class[@name='ContextualToolbar']/field[@name='closeButton']" name="managedName">CloseButtonField</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.toolbar']/class[@name='ToolbarCoordinatorLayout.LayoutParams']/field[@name='position']" name="managedName">PositionField</attr>
   <attr path="/api/package[@name='com.pspdfkit.document.download']/class[@name='DownloadProgressFragment']/field[@name='dialog']" name="managedName">DialogField</attr>
-  <attr path="/api/package[@name='com.pspdfkit.forms']/class[@name='FormElementConfiguration']/field[@name='b']" name="managedName">BField</attr>
-  <attr path="/api/package[@name='com.pspdfkit.forms']/class[@name='FormElementConfiguration']/field[@name='c']" name="managedName">CField</attr>
+  <attr path="/api/package[@name='com.pspdfkit.forms']/class[@name='FormElementConfiguration']/field[@name='boundingBox']" name="managedName">BoundingBoxField</attr>
+  <attr path="/api/package[@name='com.pspdfkit.forms']/class[@name='FormElementConfiguration']/field[@name='nextElement']" name="managedName">NextElementField</attr>
+  <attr path="/api/package[@name='com.pspdfkit.forms']/class[@name='FormElementConfiguration']/field[@name='pageIndex']" name="managedName">PageIndexField</attr>
+  <attr path="/api/package[@name='com.pspdfkit.forms']/class[@name='FormElementConfiguration']/field[@name='previousElement']" name="managedName">PreviousElementField</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui.signatures']/class[@name='SignaturePickerFragment']/field[@name='Companion']" name="managedName">CompanionField</attr>
 
   <!-- Some API modifications -->
   <attr path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='AbstractPdfSearchView']" name="extends">android.widget.FrameLayout</attr>
@@ -244,7 +199,6 @@
   <attr path="/api/package[@name='com.pspdfkit.forms']/class[@name='FormElementConfiguration']" name="visibility">public</attr>
   <attr path="/api/package[@name='com.pspdfkit.signatures.signers']/class[@name='PrivateKeySigner']/method[@name='loadPrivateKey' and count(parameter)=3 and parameter[1][@type='java.lang.String'] and parameter[2][@type='com.pspdfkit.signatures.signers.InteractiveSigner.LoadingFeedbackListener'] and parameter[3][@type='com.pspdfkit.signatures.signers.PrivateKeySigner.OnPrivateKeyLoadedCallback']]" name="visibility">public</attr>
   <attr path="/api/package[@name='com.pspdfkit.signatures.signers']/interface[@name='PrivateKeySigner.OnPrivateKeyLoadedCallback']" name="visibility">public</attr>
-  <attr path="/api/package[@name='com.pspdfkit.annotations']/class[@name='PolygonAnnotation']/method[@name='getLineEnds' and count(parameter)=0]" name="visibility">public</attr>
 
   <attr path="/api/package[@name='com.pspdfkit.annotations.configuration']/interface[@name='StampAnnotationConfiguration.Builder']/method[@name='build']" name="managedReturn">PSPDFKit.Annotations.Configuration.IAnnotationConfiguration</attr>
   <attr path="/api/package[@name='com.pspdfkit.annotations.configuration']/interface[@name='FileAnnotationConfiguration.Builder']/method[@name='build']" name="managedReturn">PSPDFKit.Annotations.Configuration.IAnnotationConfiguration</attr>
@@ -267,9 +221,6 @@
   <remove-node path="/api/package[@name='com.pspdfkit.annotations.configuration']/interface[@name='AnnotationOutlineColorConfiguration']/method[@name='customColorPickerEnabled']" />
 
   <remove-node path="/api/package[@name='com.pspdfkit.forms']/class[@name='FormElementConfiguration.BaseBuilder']/method[@name='build' and count(parameter)=0]" />
-  <remove-node path="/api/package[@name='com.pspdfkit.forms']/class[@name='FormElementConfiguration.BaseBuilder']/method[@name='a' and count(parameter)=0]" />
-
-  <remove-node path="/api/package[@name='com.pspdfkit.forms']/class[@name='FormElementConfiguration']/field[@name='a']" />
 
   <remove-node path="/api/package[@name='com.pspdfkit.document.image']/class[@name='BaseImagePickerFragment']/field[@name='lastActivityResult']" />
   <remove-node path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfActivity']/field[@name='internalPdfUi']" />
@@ -305,8 +256,6 @@
   <attr path="/api/package[@name='com.pspdfkit.datastructures']/class[@name='TextSelectionRectangles.CREATOR']/method[@name='newArray' and count(parameter)=1 and parameter[1][@type='int']]" name="return">java.lang.Object[]</attr>
   <attr path="/api/package[@name='com.pspdfkit.signatures']/class[@name='DigitalSignatureMetadata.CREATOR']/method[@name='newArray' and count(parameter)=1 and parameter[1][@type='int']]" name="return">java.lang.Object[]</attr>
   <attr path="/api/package[@name='com.pspdfkit.signatures']/class[@name='DigitalSignatureMetadata.CREATOR']/method[@name='createFromParcel' and count(parameter)=1 and parameter[1][@type='android.os.Parcel']]" name="return">java.lang.Object</attr>
-  <attr path="/api/package[@name='com.pspdfkit.signatures']/class[@name='TimestampData.CREATOR']/method[@name='newArray' and count(parameter)=1 and parameter[1][@type='int']]" name="return">java.lang.Object[]</attr>
-  <attr path="/api/package[@name='com.pspdfkit.signatures']/class[@name='TimestampData.CREATOR']/method[@name='createFromParcel' and count(parameter)=1 and parameter[1][@type='android.os.Parcel']]" name="return">java.lang.Object</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.toolbar']/class[@name='ContentEditingToolbar']/method[@name='bindController' and count(parameter)=1 and parameter[1][@type='com.pspdfkit.ui.special_mode.controller.ContentEditingController']]/parameter[1]" name="type">java.lang.Object</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfUiFragmentBuilder']/method[@name='configuration' and @return='java.lang.Object']" name="managedName">ConfigurationObject</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfUiFragmentBuilder']/method[@name='contentSignatures' and @return='java.lang.Object']" name="managedName">ContentSignaturesObject</attr>
@@ -320,7 +269,6 @@
   <attr path="/api/package[@name='com.pspdfkit.signatures.timestamp']/class[@name='TimestampData.CREATOR']/method[@name='newArray' and count(parameter)=1 and parameter[1][@type='int']]" name="return">java.lang.Object[]</attr>
   <attr path="/api/package[@name='com.pspdfkit.document.editor.page']/class[@name='NewPageDialog.ColorsAdapter']/method[@name='onCreateViewHolder' and count(parameter)=2 and parameter[1][@type='android.view.ViewGroup'] and parameter[2][@type='int']]" name="return">androidx.recyclerview.widget.RecyclerView.ViewHolder</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.inspector.views']/class[@name='OptionPickerInspectorView.OptionsAdapter']/method[@name='onCreateViewHolder' and count(parameter)=2 and parameter[1][@type='android.view.ViewGroup'] and parameter[2][@type='int']]" name="return">androidx.recyclerview.widget.RecyclerView.ViewHolder</attr>
-  <attr path="/api/package[@name='com.pspdfkit.ui.inspector.views']/class[@name='OptionPickerInspectorView.OptionsAdapter']/method[@name='onBindViewHolder' and count(parameter)=2 and parameter[1][@type='com.pspdfkit.ui.inspector.views.OptionPickerInspectorView.ViewHolder'] and parameter[2][@type='int']]/parameter[1]" name="type">androidx.recyclerview.widget.RecyclerView.ViewHolder</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.thumbnail']/class[@name='ThumbnailAdapter']/method[@name='onCreateViewHolder' and count(parameter)=2 and parameter[1][@type='android.view.ViewGroup'] and parameter[2][@type='int']]" name="return">androidx.recyclerview.widget.RecyclerView.ViewHolder</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.thumbnail']/class[@name='PdfStaticThumbnailBar.AddBorderToBitmap']/method[@name='apply' and count(parameter)=1 and parameter[1][@type='android.graphics.Bitmap']]" name="return">java.lang.Object</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.thumbnail']/class[@name='PdfStaticThumbnailBar.AddBorderToBitmap']/method[@name='apply' and count(parameter)=1 and parameter[1][@type='android.graphics.Bitmap']]/parameter[1]" name="type">java.lang.Object</attr>
