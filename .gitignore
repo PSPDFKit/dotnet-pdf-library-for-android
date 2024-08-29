@@ -20,4 +20,4 @@ Resource.designer.cs
 tools/
 .vs/
 nuget/pkgs/
-/samples/AndroidSample/AndroidSample.csproj.user
+*.csproj.user
