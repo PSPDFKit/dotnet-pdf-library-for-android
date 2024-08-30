@@ -20,3 +20,4 @@ Resource.designer.cs
 tools/
 .vs/
 nuget/pkgs/
+*.csproj.user
