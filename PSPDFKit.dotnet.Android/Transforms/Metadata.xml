@@ -561,4 +561,8 @@
     <method abstract="false" deprecated="not deprecated" final="false" name="hideView" native="false" return="void" static="false" synchronized="false" visibility="public">
     </method>
   </add-node>-->
+
+  <!-- Remove com.pspdfkit.listeners.scrolling.DocumentScrollListener.DocumentScrollListener because one was deprecated -->
+  <remove-node path="/api/package[@name='com.pspdfkit.listeners.scrolling']/interface[@name='DocumentScrollListener']/method[@name='onDocumentScrolled']" />
+  <remove-node path="/api/package[@name='com.pspdfkit.listeners.scrolling']/interface[@name='DocumentScrollListener']/method[@name='onScrollStateChanged']" />
 </metadata>
