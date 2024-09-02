@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using Android.Runtime;
+﻿using Android.Runtime;
 using Java.Interop;
-using Org.W3c.Dom;
 
 // Copied the necessary stuff from generated file - PSPDFKit.Listeners.Scrolling.IDocumentScrollListener.cs
 // and removed the same code subsequently by adding following in Transforms/Metadata.xml:
@@ -253,7 +250,9 @@ namespace PSPDFKit.Listeners.Scrolling
     // event args for com.pspdfkit.listeners.scrolling.DocumentScrollListener.onScrollStateChanged
     public partial class ScrollStateChangedEventArgs : global::System.EventArgs
     {
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         public ScrollStateChangedEventArgs(global::PSPDFKit.Listeners.Scrolling.ScrollState currX)
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         {
             this._currX = currX;
         }
@@ -265,7 +264,9 @@ namespace PSPDFKit.Listeners.Scrolling
             get { return _currX; }
         }
 
+#pragma warning disable CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         public ScrollStateChangedEventArgs(global::PSPDFKit.UI.PdfFragment fragment, global::PSPDFKit.Listeners.Scrolling.ScrollState state)
+#pragma warning restore CS8618 // Non-nullable field must contain a non-null value when exiting constructor. Consider declaring as nullable.
         {
             this._fragment = fragment;
             this._state = state;
