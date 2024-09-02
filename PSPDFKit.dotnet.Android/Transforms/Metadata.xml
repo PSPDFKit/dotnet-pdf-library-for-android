@@ -19,7 +19,6 @@
   <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.j5')]" /> -->
 
   <!-- Not creating a general rule to avoid bug reported by David -->
-  <!-- TODO: Why was this commented out? -->
    <!--<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal')]" />-->
 
   <!-- Removes any "method" that any of its parameters uses any of the types contained in com.pspdfkit.internal.* -->
