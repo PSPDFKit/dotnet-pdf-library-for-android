@@ -35,7 +35,7 @@
   <ItemGroup>
     <AndroidLibrary Include="Jars\relinker-1.4.5.jar" Bind="false" Pack="true" />
     <AndroidLibrary Include="Jars\yearclass-2.0.0.jar" Bind="false" Pack="true" />
-    <AndroidLibrary Include="Jars\pspdfkit-2024.2.0.aar" Bind="true" Pack="true" />
+    <AndroidLibrary Include="Jars\pspdfkit-2024.5.0.aar" Bind="true" Pack="true" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Org.Jetbrains.Kotlinx.KotlinxSerializationJson" Version="1.6.3.1" />

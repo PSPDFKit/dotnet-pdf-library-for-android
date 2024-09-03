@@ -19,8 +19,7 @@
   <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.j5')]" /> -->
 
   <!-- Not creating a general rule to avoid bug reported by David -->
-  <!-- TODO: Why was this commented out? -->
-   <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal')]" />
+   <!--<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal')]" />-->
 
   <!-- Removes any "method" that any of its parameters uses any of the types contained in com.pspdfkit.internal.* -->
   <remove-node path="//method/parameter[contains(@type, 'com.pspdfkit.internal')]" />
@@ -50,7 +49,12 @@
   <attr path="/api/package[@name='com.pspdfkit.annotations.sound']" name="managedName">PSPDFKit.Annotations.Sound</attr>
   <attr path="/api/package[@name='com.pspdfkit.annotations.stamps']" name="managedName">PSPDFKit.Annotations.Stamps</attr>
   <attr path="/api/package[@name='com.pspdfkit.bookmarks']" name="managedName">PSPDFKit.Bookmarks</attr>
+  <attr path="/api/package[@name='com.pspdfkit.compose.modifier']" name="managedName">PSPDFKit.Compose.Modifier</attr>
+  <attr path="/api/package[@name='com.pspdfkit.compose.provider']" name="managedName">PSPDFKit.Compose.Provider</attr>
+  <attr path="/api/package[@name='com.pspdfkit.compose.state']" name="managedName">PSPDFKit.Compose.State</attr>
+  <attr path="/api/package[@name='com.pspdfkit.compose.theme']" name="managedName">PSPDFKit.Compose.Theme</attr>
   <attr path="/api/package[@name='com.pspdfkit.compose.ui']" name="managedName">PSPDFKit.Compose.UI</attr>
+  <attr path="/api/package[@name='com.pspdfkit.compose.ui.components']" name="managedName">PSPDFKit.Compose.UI.Components</attr>
   <attr path="/api/package[@name='com.pspdfkit.configuration']" name="managedName">PSPDFKit.Configuration</attr>
   <attr path="/api/package[@name='com.pspdfkit.configuration.activity']" name="managedName">PSPDFKit.Configuration.Activity</attr>
   <attr path="/api/package[@name='com.pspdfkit.configuration.annotations']" name="managedName">PSPDFKit.Configuration.Annotations</attr>
@@ -106,10 +110,7 @@
   <attr path="/api/package[@name='com.pspdfkit.preferences']" name="managedName">PSPDFKit.Preferences</attr>
   <attr path="/api/package[@name='com.pspdfkit.projection']" name="managedName">PSPDFKit.Projection</attr>
   <attr path="/api/package[@name='com.pspdfkit.signatures']" name="managedName">PSPDFKit.Signatures</attr>
-  <attr path="/api/package[@name='com.pspdfkit.signatures.contents']" name="managedName">PSPDFKit.Signatures.Contents</attr>
   <attr path="/api/package[@name='com.pspdfkit.signatures.listeners']" name="managedName">PSPDFKit.Signatures.Listeners</attr>
-  <attr path="/api/package[@name='com.pspdfkit.signatures.provider']" name="managedName">PSPDFKit.Signatures.Provider</attr>
-  <attr path="/api/package[@name='com.pspdfkit.signatures.signers']" name="managedName">PSPDFKit.Signatures.Signers</attr>
   <attr path="/api/package[@name='com.pspdfkit.signatures.storage']" name="managedName">PSPDFKit.Signatures.Storage</attr>
   <attr path="/api/package[@name='com.pspdfkit.signatures.timestamp']" name="managedName">PSPDFKit.Signatures.TimeStamp</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui']" name="managedName">PSPDFKit.UI</attr>
@@ -157,19 +158,15 @@
   <attr path="/api/package[@name='com.pspdfkit.utils']" name="managedName">PSPDFKit.Utils</attr>
 
   <!-- Avoid colision in types -->
+  <attr path="//field[@name='Companion']" name="managedName">CompanionField</attr>
   <attr path="/api/package[@name='com.pspdfkit']/class[@name='PSPDFKit']" name="managedName">PSPDFKitGlobal</attr>
-  <attr path="/api/package[@name='com.pspdfkit.annotations.actions']/class[@name='ActionAccessors']/field[@name='Companion']" name="managedName">CompanionField</attr>
-  <attr path="/api/package[@name='com.pspdfkit.ui.toolbar']/class[@name='ContextualToolbar']/field[@name='closeButton']" name="managedName">CloseButtonField</attr>
-  <attr path="/api/package[@name='com.pspdfkit.ui.toolbar']/class[@name='ToolbarCoordinatorLayout.LayoutParams']/field[@name='position']" name="managedName">PositionField</attr>
-  <attr path="/api/package[@name='com.pspdfkit.ui.toolbar']/class[@name='AnnotationEditingToolbar']/field[@name='Companion']" name="managedName">CompanionField</attr>
-  <attr path="/api/package[@name='com.pspdfkit.document.download']/class[@name='DownloadProgressFragment']/field[@name='dialog']" name="managedName">DialogField</attr>
+  <attr path="/api/package[@name='com.pspdfkit.document.download']/class[@name='DownloadProgressFragment']/field[@name='dialog']" name="managedName">CurrentDialog</attr>
   <attr path="/api/package[@name='com.pspdfkit.forms']/class[@name='FormElementConfiguration']/field[@name='boundingBox']" name="managedName">BoundingBoxField</attr>
   <attr path="/api/package[@name='com.pspdfkit.forms']/class[@name='FormElementConfiguration']/field[@name='nextElement']" name="managedName">NextElementField</attr>
   <attr path="/api/package[@name='com.pspdfkit.forms']/class[@name='FormElementConfiguration']/field[@name='pageIndex']" name="managedName">PageIndexField</attr>
   <attr path="/api/package[@name='com.pspdfkit.forms']/class[@name='FormElementConfiguration']/field[@name='previousElement']" name="managedName">PreviousElementField</attr>
-  <attr path="/api/package[@name='com.pspdfkit.ui.signatures']/class[@name='SignaturePickerFragment']/field[@name='Companion']" name="managedName">CompanionField</attr>
-  <attr path="/api/package[@name='com.pspdfkit.ui.settings']/class[@name='SettingsState']/field[@name='Companion']" name="managedName">CompanionField</attr>
-  <attr path="/api/package[@name='com.pspdfkit.ui.settings']/class[@name='SettingsViewModel']/field[@name='Companion']" name="managedName">CompanionField</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui.toolbar']/class[@name='ContextualToolbar']/field[@name='closeButton']" name="managedName">CloseButtonField</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui.toolbar']/class[@name='ToolbarCoordinatorLayout.LayoutParams']/field[@name='position']" name="managedName">PositionField</attr>
 
   <!-- Some API modifications -->
   <attr path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='AbstractPdfSearchView']" name="extends">android.widget.FrameLayout</attr>
@@ -213,8 +210,6 @@
   <attr path="/api/package[@name='com.pspdfkit.ui']/interface[@name='PdfActivityComponentsApi']" name="visibility">public</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.thumbnail']/class[@name='ThumbnailAdapter.ThumbnailViewHolder']" name="visibility">public</attr>
   <attr path="/api/package[@name='com.pspdfkit.forms']/class[@name='FormElementConfiguration']" name="visibility">public</attr>
-  <attr path="/api/package[@name='com.pspdfkit.signatures.signers']/class[@name='PrivateKeySigner']/method[@name='loadPrivateKey' and count(parameter)=3 and parameter[1][@type='java.lang.String'] and parameter[2][@type='com.pspdfkit.signatures.signers.InteractiveSigner.LoadingFeedbackListener'] and parameter[3][@type='com.pspdfkit.signatures.signers.PrivateKeySigner.OnPrivateKeyLoadedCallback']]" name="visibility">public</attr>
-  <attr path="/api/package[@name='com.pspdfkit.signatures.signers']/interface[@name='PrivateKeySigner.OnPrivateKeyLoadedCallback']" name="visibility">public</attr>
 
   <attr path="/api/package[@name='com.pspdfkit.annotations.configuration']/interface[@name='StampAnnotationConfiguration.Builder']/method[@name='build']" name="managedReturn">PSPDFKit.Annotations.Configuration.IAnnotationConfiguration</attr>
   <attr path="/api/package[@name='com.pspdfkit.annotations.configuration']/interface[@name='FileAnnotationConfiguration.Builder']/method[@name='build']" name="managedReturn">PSPDFKit.Annotations.Configuration.IAnnotationConfiguration</attr>
@@ -251,10 +246,7 @@
   <attr path="/api/package[@name='com.pspdfkit.annotations.measurements']/class[@name='Scale']/field[@name='unitTo']" name="managedName">UnitToField</attr>
   <attr path="/api/package[@name='com.pspdfkit.annotations.measurements']/class[@name='MeasurementInfo']/field[@name='precision']" name="managedName">PrecisionField</attr>
   <attr path="/api/package[@name='com.pspdfkit.annotations.measurements']/class[@name='MeasurementInfo']/field[@name='scale']" name="managedName">ScaleField</attr>
-  <attr path="/api/package[@name='com.pspdfkit.annotations.sound']/class[@name='WavWriter']/field[@name='Companion']" name="managedName">CompanionField</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.note']/class[@name='NoteHinterDrawable']/field[@name='annotation']" name="managedName">AnnotationField</attr>
-  <attr path="/api/package[@name='com.pspdfkit.ui.settings']/class[@name='SettingsDialog']/field[@name='Companion']" name="managedName">CompanionField</attr>
-  <attr path="/api/package[@name='com.pspdfkit.ui.settings']/class[@name='SettingsOptions']/field[@name='Companion']" name="managedName">CompanionField</attr>
 
   <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='BasePdfUiBuilder']" name="visibility">public</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfActivityIntentBuilder']" name="extends">java.lang.Object</attr>
@@ -561,4 +553,8 @@
     <method abstract="false" deprecated="not deprecated" final="false" name="hideView" native="false" return="void" static="false" synchronized="false" visibility="public">
     </method>
   </add-node>-->
+
+  <!-- Remove com.pspdfkit.listeners.scrolling.DocumentScrollListener.DocumentScrollListener because one was deprecated -->
+  <remove-node path="/api/package[@name='com.pspdfkit.listeners.scrolling']/interface[@name='DocumentScrollListener']/method[@name='onDocumentScrolled']" />
+  <remove-node path="/api/package[@name='com.pspdfkit.listeners.scrolling']/interface[@name='DocumentScrollListener']/method[@name='onScrollStateChanged']" />
 </metadata>
