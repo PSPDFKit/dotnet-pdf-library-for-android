@@ -7,6 +7,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <NoWarn>0109,0618,0114,0108,0672,0169,XAOBS001,CS8603,CS8625,CS8764,CS8765,CS8766,CS8767</NoWarn>
     <AndroidGenerateResourceDesigner>false</AndroidGenerateResourceDesigner>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <PropertyGroup>
     <PackageId>PSPDFKit.dotnet.Android</PackageId>
@@ -28,14 +29,14 @@
   <ItemGroup>
     <None Include="..\LICENSE.md" Pack="true" PackagePath="LICENSE.md" />
     <None Include="..\nuget\icon.png" Pack="true" PackagePath="icon.png" />
-    <None Include="..\nuget\readme.txt" Pack="true" PackagePath="readme.txt" />
+    <None Include="..\nuget\README.md" Pack="true" PackagePath="README.md" />
     <None Include="..\nuget\PSPDFKit.dotnet.Android.targets" Pack="true" PackagePath="build/PSPDFKit.dotnet.Android.targets" />
     <None Include="..\samples\AndroidSample\pspdfkit-proguard.cfg" Pack="true" PackagePath="proguard/pspdfkit-proguard.cfg" />
   </ItemGroup>
   <ItemGroup>
     <AndroidLibrary Include="Jars\relinker-1.4.5.jar" Bind="false" Pack="true" />
     <AndroidLibrary Include="Jars\yearclass-2.0.0.jar" Bind="false" Pack="true" />
-    <AndroidLibrary Include="Jars\pspdfkit-2024.5.0.aar" Bind="true" Pack="true" />
+    <AndroidLibrary Include="Jars\pspdfkit-2024.5.1.aar" Bind="true" Pack="true" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Org.Jetbrains.Kotlinx.KotlinxSerializationJson" Version="1.6.3.1" />
