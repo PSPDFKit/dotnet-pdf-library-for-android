@@ -7,6 +7,7 @@
     <ImplicitUsings>enable</ImplicitUsings>
     <NoWarn>0109,0618,0114,0108,0672,0169,XAOBS001,CS8603,CS8625,CS8764,CS8765,CS8766,CS8767</NoWarn>
     <AndroidGenerateResourceDesigner>false</AndroidGenerateResourceDesigner>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <PropertyGroup>
     <PackageId>PSPDFKit.dotnet.Android</PackageId>
