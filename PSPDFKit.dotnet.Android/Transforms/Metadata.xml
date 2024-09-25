@@ -25,9 +25,6 @@
   <remove-node path="//method/parameter[contains(@type, 'com.pspdfkit.internal')]" />
   <remove-node path="//method[contains(@return, 'com.pspdfkit.internal')]" />
 
-  <!-- Removes any "method" that any of its parameters uses any of the types contained in com.pspdfkit.instant.internal.* -->
-  <remove-node path="//method[contains(@return, 'com.pspdfkit.instant.internal')]" />
-
   <!-- Removes any "field" of type com.pspdfkit.internal.* -->
   <remove-node path="//field[contains(@type, 'com.pspdfkit.internal')]" />
 
@@ -55,6 +52,7 @@
   <attr path="/api/package[@name='com.pspdfkit.compose.theme']" name="managedName">PSPDFKit.Compose.Theme</attr>
   <attr path="/api/package[@name='com.pspdfkit.compose.ui']" name="managedName">PSPDFKit.Compose.UI</attr>
   <attr path="/api/package[@name='com.pspdfkit.compose.ui.components']" name="managedName">PSPDFKit.Compose.UI.Components</attr>
+  <attr path="/api/package[@name='com.pspdfkit.compose.ui.screens']" name="managedName">PSPDFKit.Compose.UI.Screens</attr>
   <attr path="/api/package[@name='com.pspdfkit.configuration']" name="managedName">PSPDFKit.Configuration</attr>
   <attr path="/api/package[@name='com.pspdfkit.configuration.activity']" name="managedName">PSPDFKit.Configuration.Activity</attr>
   <attr path="/api/package[@name='com.pspdfkit.configuration.annotations']" name="managedName">PSPDFKit.Configuration.Annotations</attr>
