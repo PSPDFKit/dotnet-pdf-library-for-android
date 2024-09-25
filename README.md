@@ -1,6 +1,6 @@
 # PSPDFKit.NET (Android)
 
-.NET for Android C# Bindings for PSPDFKit `v2024.5.1`.
+.NET for Android C# Bindings for PSPDFKit `v2024.6.0`.
 
 #### PSPDFKit
 
@@ -11,6 +11,7 @@ The [PSPDFKit SDK](https://pspdfkit.com/) is a framework that allows you to view
 #### Related
 
 - PSPDFKit.NET (iOS): [PSPDFKit/dotnet-pdf-library-for-ios](https://github.com/PSPDFKit/dotnet-pdf-library-for-ios)
+- PSPDFKit.NET for mobiles (iOS & Android): [PSPDFKit/dotnet-pdf-library-for-mobiles](https://github.com/PSPDFKit/dotnet-pdf-library-for-mobiles)
 
 ## Support, Issues and License Questions
 
