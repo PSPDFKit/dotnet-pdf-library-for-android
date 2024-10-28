@@ -14,4 +14,6 @@ Visit https://pspdfkit.com/guides/android/dotnet/ for more information on how to
 
 ## Examples
 
-Examples are available at https://github.com/PSPDFKit/dotnet-pdf-library-for-android.
+Examples are available at 
+- https://github.com/PSPDFKit/dotnet-pdf-library-for-android
+- https://github.com/PSPDFKit/dotnet-pdf-library-for-mobiles/
