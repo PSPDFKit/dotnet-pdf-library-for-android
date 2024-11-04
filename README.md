@@ -1,6 +1,6 @@
 # PSPDFKit.NET (Android)
 
-.NET for Android C# Bindings for PSPDFKit `v2024.6.0`.
+.NET for Android C# Bindings for PSPDFKit `v2024.7.0`.
 
 #### PSPDFKit
 

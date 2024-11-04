@@ -46,17 +46,10 @@
   <attr path="/api/package[@name='com.pspdfkit.annotations.sound']" name="managedName">PSPDFKit.Annotations.Sound</attr>
   <attr path="/api/package[@name='com.pspdfkit.annotations.stamps']" name="managedName">PSPDFKit.Annotations.Stamps</attr>
   <attr path="/api/package[@name='com.pspdfkit.bookmarks']" name="managedName">PSPDFKit.Bookmarks</attr>
-  <attr path="/api/package[@name='com.pspdfkit.compose.modifier']" name="managedName">PSPDFKit.Compose.Modifier</attr>
-  <attr path="/api/package[@name='com.pspdfkit.compose.provider']" name="managedName">PSPDFKit.Compose.Provider</attr>
-  <attr path="/api/package[@name='com.pspdfkit.compose.state']" name="managedName">PSPDFKit.Compose.State</attr>
   <attr path="/api/package[@name='com.pspdfkit.compose.theme']" name="managedName">PSPDFKit.Compose.Theme</attr>
-  <attr path="/api/package[@name='com.pspdfkit.compose.ui']" name="managedName">PSPDFKit.Compose.UI</attr>
-  <attr path="/api/package[@name='com.pspdfkit.compose.ui.components']" name="managedName">PSPDFKit.Compose.UI.Components</attr>
-  <attr path="/api/package[@name='com.pspdfkit.compose.ui.screens']" name="managedName">PSPDFKit.Compose.UI.Screens</attr>
   <attr path="/api/package[@name='com.pspdfkit.configuration']" name="managedName">PSPDFKit.Configuration</attr>
   <attr path="/api/package[@name='com.pspdfkit.configuration.activity']" name="managedName">PSPDFKit.Configuration.Activity</attr>
   <attr path="/api/package[@name='com.pspdfkit.configuration.annotations']" name="managedName">PSPDFKit.Configuration.Annotations</attr>
-  <attr path="/api/package[@name='com.pspdfkit.configuration.compose']" name="managedName">PSPDFKit.Configuration.Compose</attr>
   <attr path="/api/package[@name='com.pspdfkit.configuration.forms']" name="managedName">PSPDFKit.Configuration.Forms</attr>
   <attr path="/api/package[@name='com.pspdfkit.configuration.rendering']" name="managedName">PSPDFKit.Configuration.Rendering</attr>
   <attr path="/api/package[@name='com.pspdfkit.configuration.search']" name="managedName">PSPDFKit.Configuration.Search</attr>
@@ -254,8 +247,23 @@
   <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='BasePdfUiBuilder']/method[@name='contentSignatures' and @return='T']" name="return">java.lang.Object</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='BasePdfUiBuilder']/method[@name='visibleDocument' and @return='T']" name="return">java.lang.Object</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='BasePdfUiBuilder']/method[@name='getThis' and @return='T']" name="return">java.lang.Object</attr>
+  
   <attr path="/api/package[@name='com.pspdfkit.datastructures']/class[@name='TextSelectionRectangles.CREATOR']/method[@name='createFromParcel' and count(parameter)=1 and parameter[1][@type='android.os.Parcel']]" name="return">java.lang.Object</attr>
   <attr path="/api/package[@name='com.pspdfkit.datastructures']/class[@name='TextSelectionRectangles.CREATOR']/method[@name='newArray' and count(parameter)=1 and parameter[1][@type='int']]" name="return">java.lang.Object[]</attr>
+  
+  <attr path="/api/package[@name='com.pspdfkit.ui.dialog']/class[@name='DocumentSharingDialogConfiguration.Creator']/method[@name='createFromParcel' and count(parameter)=1 and parameter[1][@type='android.os.Parcel']]" name="return">java.lang.Object</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui.dialog']/class[@name='DocumentSharingDialogConfiguration.Creator']/method[@name='newArray' and count(parameter)=1 and parameter[1][@type='int']]" name="return">java.lang.Object[]</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui.dialog']/class[@name='DocumentSharingDialogConfiguration.Creator']" name="managedName">DocumentSharingDialogConfigurationCreator</attr>
+
+
+  <attr path="/api/package[@name='com.pspdfkit.ui.signatures']/class[@name='SignatureOptions.Creator']/method[@name='createFromParcel' and count(parameter)=1 and parameter[1][@type='android.os.Parcel']]" name="return">java.lang.Object</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui.signatures']/class[@name='SignatureOptions.Creator']/method[@name='newArray' and count(parameter)=1 and parameter[1][@type='int']]" name="return">java.lang.Object[]</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui.signatures']/class[@name='SignatureOptions.Creator']" name="managedName">SignatureOptionsCreator</attr>
+  
+  <attr path="/api/package[@name='com.pspdfkit.ui.signatures']/class[@name='ElectronicSignatureOptions.Creator']/method[@name='createFromParcel' and count(parameter)=1 and parameter[1][@type='android.os.Parcel']]" name="return">java.lang.Object</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui.signatures']/class[@name='ElectronicSignatureOptions.Creator']/method[@name='newArray' and count(parameter)=1 and parameter[1][@type='int']]" name="return">java.lang.Object[]</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui.signatures']/class[@name='ElectronicSignatureOptions.Creator']" name="managedName">ElectronicSignatureOptionsCreator</attr>
+  
   <attr path="/api/package[@name='com.pspdfkit.signatures']/class[@name='DigitalSignatureMetadata.CREATOR']/method[@name='newArray' and count(parameter)=1 and parameter[1][@type='int']]" name="return">java.lang.Object[]</attr>
   <attr path="/api/package[@name='com.pspdfkit.signatures']/class[@name='DigitalSignatureMetadata.CREATOR']/method[@name='createFromParcel' and count(parameter)=1 and parameter[1][@type='android.os.Parcel']]" name="return">java.lang.Object</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.toolbar']/class[@name='ContentEditingToolbar']/method[@name='bindController' and count(parameter)=1 and parameter[1][@type='com.pspdfkit.ui.special_mode.controller.ContentEditingController']]/parameter[1]" name="type">java.lang.Object</attr>
