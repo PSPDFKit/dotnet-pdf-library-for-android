@@ -39,6 +39,7 @@
   <attr path="/api/package[@name='io.nutrient.presentation.theme']" name="managedName">Nutrient.Presentation.Theme</attr>
   <attr path="/api/package[@name='io.nutrient.presentation.utils.modifier']" name="managedName">Nutrient.Presentation.Utils.Modifier</attr>
   <attr path="/api/package[@name='io.nutrient.presentation.utils.touch']" name="managedName">Nutrient.Presentation.Utils.Touch</attr>
+  <attr path="/api/package[@name='io.nutrient.presentation.utils.viewmodel']" name="managedName">Nutrient.Presentation.Utils.ViewModel</attr>
   
   <attr path="/api/package[@name='com.pspdfkit']" name="managedName">PSPDFKit</attr>
   <attr path="/api/package[@name='com.pspdfkit.analytics']" name="managedName">PSPDFKit.AnalyticsSdk</attr>
@@ -72,6 +73,7 @@
   <attr path="/api/package[@name='com.pspdfkit.document']" name="managedName">PSPDFKit.Document</attr>
   <attr path="/api/package[@name='com.pspdfkit.document.checkpoint']" name="managedName">PSPDFKit.Document.Checkpoint</attr>
   <attr path="/api/package[@name='com.pspdfkit.document.download']" name="managedName">PSPDFKit.Document.Download</attr>
+  <attr path="/api/package[@name='com.pspdfkit.document.download.exceptions']" name="managedName">PSPDFKit.Document.Download.Exception</attr>
   <attr path="/api/package[@name='com.pspdfkit.document.download.source']" name="managedName">PSPDFKit.Document.Download.Source</attr>
   <attr path="/api/package[@name='com.pspdfkit.document.editor']" name="managedName">PSPDFKit.Document.Editor</attr>
   <attr path="/api/package[@name='com.pspdfkit.document.editor.page']" name="managedName">PSPDFKit.Document.Editor.Page</attr>
@@ -158,7 +160,7 @@
   <attr path="/api/package[@name='com.pspdfkit.undo.exceptions']" name="managedName">PSPDFKit.Undo.Exceptions</attr>
   <attr path="/api/package[@name='com.pspdfkit.utils']" name="managedName">PSPDFKit.Utils</attr>
 
-  <!-- Avoid colision in types -->
+  <!-- Avoid colision/duplicate in types -->
   <attr path="//field[@name='Companion']" name="managedName">CompanionField</attr>
   <attr path="/api/package[@name='com.pspdfkit']/class[@name='PSPDFKit']" name="managedName">PSPDFKitGlobal</attr>
   <attr path="/api/package[@name='com.pspdfkit.document.download']/class[@name='DownloadProgressFragment']/field[@name='dialog']" name="managedName">CurrentDialog</attr>
@@ -200,7 +202,6 @@
   <attr path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='PdfSearchViewLazy']" name="extends">android.widget.FrameLayout</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.thumbnail']/class[@name='PdfScrollableThumbnailBar']" name="extends">android.view.ViewGroup</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.thumbnail']/class[@name='PdfStaticThumbnailBar']" name="extends">android.view.ViewGroup</attr>
-  <attr path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='AbstractPdfSearchView']/field[@name='isDisplayed']" name="managedName">Displayed</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='AbstractPdfSearchView']/method[@name='onSearchStarted']" name="visibility">public</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='AbstractPdfSearchView']/method[@name='onMoreSearchResults']" name="visibility">public</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='AbstractPdfSearchView']/method[@name='onSearchComplete']" name="visibility">public</attr>
@@ -235,6 +236,8 @@
   <remove-node path="/api/package[@name='com.pspdfkit.forms']/class[@name='FormElementConfiguration.BaseBuilder']/method[@name='build' and count(parameter)=0]" />
 
   <remove-node path="/api/package[@name='com.pspdfkit.document.image']/class[@name='BaseImagePickerFragment']/field[@name='lastActivityResult']" />
+  <remove-node path="/api/package[@name='com.pspdfkit.document.providers']/interface[@name='ProgressDataProvider']/field[@name='Companion']" />
+
   <remove-node path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfActivity']/field[@name='internalPdfUi']" />
 
   <remove-node path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfThumbnailGrid']/method[@name='addOnPageClickListener' and count(parameter)=1 and parameter[1][@type='com.pspdfkit.ui.PdfThumbnailGrid.OnPageClickListener']]" />
