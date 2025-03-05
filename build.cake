@@ -1,11 +1,11 @@
 
-var target = Argument ("target", "Default");
+var target = Argument("target", "Default");
 
 // Nice online pom dependency explorer
 // https://jar-download.com/
 
-var PSPDFKIT_VERSION = "2024.9.0";
-var SERVICERELEASE_VERSION = "0"; // This is combined with the PSPDFKIT_VERSION variable for the NuGet Package version
+var NUTRIENT_VERSION = "10.0.2";
+var SERVICERELEASE_VERSION = "0"; // This is combined with the NUTRIENT_VERSION variable for the NuGet Package version
 var RXANDROID_VERSION = "2.1.0";
 var RXJAVA_VERSION = "2.2.4"; // Check Reactive-Streams if updated.
 var REACTIVESTREAMS_VERSION = "1.0.2";
@@ -21,7 +21,7 @@ var OKHTTP3LOGGING_VERSION = "3.9.0";
 var OKIO_VERSION = "1.13.0";
 
 
-var PSPDFKITURL = $"https://customers.pspdfkit.com/maven/com/pspdfkit/pspdfkit/{PSPDFKIT_VERSION}/pspdfkit-{PSPDFKIT_VERSION}.aar";
+var NUTRIENTURL = $"https://my.nutrient.io/maven/io/nutrient/nutrient/{NUTRIENT_VERSION}/nutrient-{NUTRIENT_VERSION}.aar";
 var RXANDROIDURL = $"http://search.maven.org/remotecontent?filepath=io/reactivex/rxjava2/rxandroid/{RXANDROID_VERSION}/rxandroid-{RXANDROID_VERSION}.aar";
 var RXJAVAURL = $"http://search.maven.org/remotecontent?filepath=io/reactivex/rxjava2/rxjava/{RXJAVA_VERSION}/rxjava-{RXJAVA_VERSION}.jar";
 var YOUTUBEURL = $"https://developers.google.com/youtube/android/player/downloads/YouTubeAndroidPlayerApi-{YOUTUBE_VERSION}.zip";
@@ -35,132 +35,148 @@ var KOTLINSTDLIBCOMMONURL = $"http://search.maven.org/remotecontent?filepath=org
 var KOTLIANNOTATIONSURL = $"http://search.maven.org/remotecontent?filepath=org/jetbrains/annotations/{KOTLIANNOTATIONS_VERSION}/annotations-{KOTLIANNOTATIONS_VERSION}.jar";
 var YEARCLASSURL = $"http://search.maven.org/remotecontent?filepath=com/facebook/device/yearclass/yearclass/{YEARCLASS_VERSION}/yearclass-{YEARCLASS_VERSION}.jar";
 
+var NUTRIENT_AAR_NAME = $"Nutrient-Android-SDK-AAR-{NUTRIENT_VERSION}.aar";
+
 var NUGET_API_KEY = EnvironmentVariable("NUGET_API_KEY");
 
-Task ("FetchDependencies")
-	.Does (() => {
+Task("FetchDependencies")
+	.Does(() =>
+	{
 
-		if(!DirectoryExists ($"./PSPDFKit.dotnet.Android/Jars"))
-			CreateDirectory ($"./PSPDFKit.dotnet.Android/Jars");
+		if (!DirectoryExists($"./PSPDFKit.dotnet.Android/Jars"))
+			CreateDirectory($"./PSPDFKit.dotnet.Android/Jars");
 
-		Information ("Downloading all the dependencies...");
-		DownloadFile (PSPDFKITURL, $"./PSPDFKit.dotnet.Android/Jars/pspdfkit-{PSPDFKIT_VERSION}.aar");
-		DownloadFile (RELINKERURL, $"./PSPDFKit.dotnet.Android/Jars/relinker-{RELINKER_VERSION}.aar");
-		DownloadFile (YEARCLASSURL, $"./PSPDFKit.dotnet.Android/Jars/yearclass-{YEARCLASS_VERSION}.jar");
-});
+		Information("Downloading all the dependencies...");
+		DownloadFile(NUTRIENTURL, $"./PSPDFKit.dotnet.Android/Jars/{NUTRIENT_AAR_NAME}");
+		DownloadFile(RELINKERURL, $"./PSPDFKit.dotnet.Android/Jars/relinker-{RELINKER_VERSION}.aar");
+		DownloadFile(YEARCLASSURL, $"./PSPDFKit.dotnet.Android/Jars/yearclass-{YEARCLASS_VERSION}.jar");
+	});
 
-Task ("ExtractAars")
-	.IsDependentOn ("FetchDependencies")
-	.Does (() => {
-		Information ("Unzipping needed dependencies...");
+Task("ExtractAars")
+	.IsDependentOn("FetchDependencies")
+	.Does(() =>
+	{
+		Information("Unzipping needed dependencies...");
 
 		var delDirSettings = new DeleteDirectorySettings { Recursive = true, Force = true };
-		if(DirectoryExists ($"./PSPDFKit.dotnet.Android/Jars/YouTubeAndroidPlayerApi-{YOUTUBE_VERSION}"))
-			DeleteDirectory ($"./PSPDFKit.dotnet.Android/Jars/YouTubeAndroidPlayerApi-{YOUTUBE_VERSION}", delDirSettings);
-		if(DirectoryExists ($"./PSPDFKit.dotnet.Android/Jars/rxandroid-{RXANDROID_VERSION}"))
-			DeleteDirectory ($"./PSPDFKit.dotnet.Android/Jars/rxandroid-{RXANDROID_VERSION}", delDirSettings);
-		if(DirectoryExists ($"./PSPDFKit.dotnet.Android/Jars/relinker-{RELINKER_VERSION}"))
-			DeleteDirectory ($"./PSPDFKit.dotnet.Android/Jars/relinker-{RELINKER_VERSION}", delDirSettings);
+		if (DirectoryExists($"./PSPDFKit.dotnet.Android/Jars/YouTubeAndroidPlayerApi-{YOUTUBE_VERSION}"))
+			DeleteDirectory($"./PSPDFKit.dotnet.Android/Jars/YouTubeAndroidPlayerApi-{YOUTUBE_VERSION}", delDirSettings);
+		if (DirectoryExists($"./PSPDFKit.dotnet.Android/Jars/rxandroid-{RXANDROID_VERSION}"))
+			DeleteDirectory($"./PSPDFKit.dotnet.Android/Jars/rxandroid-{RXANDROID_VERSION}", delDirSettings);
+		if (DirectoryExists($"./PSPDFKit.dotnet.Android/Jars/relinker-{RELINKER_VERSION}"))
+			DeleteDirectory($"./PSPDFKit.dotnet.Android/Jars/relinker-{RELINKER_VERSION}", delDirSettings);
 
-		Unzip ($"./PSPDFKit.dotnet.Android/Jars/relinker-{RELINKER_VERSION}.aar", $"./PSPDFKit.dotnet.Android/Jars/relinker-{RELINKER_VERSION}");
-  		CopyFile ($"./PSPDFKit.dotnet.Android/Jars/relinker-{RELINKER_VERSION}/classes.jar", $"./PSPDFKit.dotnet.Android/Jars/relinker-{RELINKER_VERSION}.jar");
+		Unzip($"./PSPDFKit.dotnet.Android/Jars/relinker-{RELINKER_VERSION}.aar", $"./PSPDFKit.dotnet.Android/Jars/relinker-{RELINKER_VERSION}");
+		CopyFile($"./PSPDFKit.dotnet.Android/Jars/relinker-{RELINKER_VERSION}/classes.jar", $"./PSPDFKit.dotnet.Android/Jars/relinker-{RELINKER_VERSION}.jar");
 
-		if(DirectoryExists ($"./PSPDFKit.dotnet.Android/Jars/relinker-{RELINKER_VERSION}")) {
-			DeleteDirectory ($"./PSPDFKit.dotnet.Android/Jars/relinker-{RELINKER_VERSION}", delDirSettings);
-			DeleteFile ($"./PSPDFKit.dotnet.Android/Jars/relinker-{RELINKER_VERSION}.aar");
+		if (DirectoryExists($"./PSPDFKit.dotnet.Android/Jars/relinker-{RELINKER_VERSION}"))
+		{
+			DeleteDirectory($"./PSPDFKit.dotnet.Android/Jars/relinker-{RELINKER_VERSION}", delDirSettings);
+			DeleteFile($"./PSPDFKit.dotnet.Android/Jars/relinker-{RELINKER_VERSION}.aar");
 		}
-});
+	});
 
-Task ("BuildPSPDFKit")
-	.Does (() => {
-		if (FileExists ($"./PSPDFKit.dotnet.Android/Jars/pspdfkit-{PSPDFKIT_VERSION}.aar")) {
-			Information ("Building PSPDFKit.dotnet.Android.dll");
-			Information ("PLEASE WAIT, it might take a few minutes to build...");
+Task("BuildPSPDFKit")
+	.Does(() =>
+	{
+		if (FileExists($"./PSPDFKit.dotnet.Android/Jars/{NUTRIENT_AAR_NAME}"))
+		{
+			Information("Building Nutrient.dotnet.Android.dll");
+			Information("PLEASE WAIT, it might take a few minutes to build...");
 
-			var msBuildSettings = new DotNetMSBuildSettings ()
-			.WithProperty ("AssemblyVersion", PSPDFKIT_VERSION);
+			var msBuildSettings = new DotNetMSBuildSettings()
+			.WithProperty("AssemblyVersion", NUTRIENT_VERSION);
 
-			var dotNetBuildSettings = new DotNetBuildSettings { 
+			var dotNetBuildSettings = new DotNetBuildSettings
+			{
 				Configuration = "Release",
-//				Verbosity = DotNetVerbosity.Diagnostic,
+				//				Verbosity = DotNetVerbosity.Diagnostic,
 				MSBuildSettings = msBuildSettings
 			};
-			DotNetBuild ("./PSPDFKit.dotnet.Android.sln", dotNetBuildSettings);
+			DotNetBuild("./PSPDFKit.dotnet.Android.sln", dotNetBuildSettings);
 
-			Information (@"DONE! You will find the PSPDFKit.dotnet.Android.dll inside the 'bin\Release' directory of 'PSPDFKit.dotnet.Android' folder.");
-		} else {
-			Warning ($"./PSPDFKit.dotnet.Android/Jars/pspdfkit-{PSPDFKIT_VERSION}.aar file not found.");
-			Warning ($"PSPDFKit.dotnet.Android.dll was not built.");
+			Information(@"DONE! You will find the Nutrient.dotnet.Android.dll inside the 'bin\Release' directory of 'PSPDFKit.dotnet.Android' folder.");
 		}
-});
+		else
+		{
+			Warning($"./PSPDFKit.dotnet.Android/Jars/{NUTRIENT_AAR_NAME} file not found.");
+			Warning($"Nutrient.dotnet.Android.dll was not built.");
+		}
+	});
 
-Task ("Default")
-	.IsDependentOn ("ExtractAars")
-	.IsDependentOn ("BuildPSPDFKit")
-	.Does (() => {
-		Information ("Build Done!");
-});
+Task("Default")
+	.IsDependentOn("ExtractAars")
+	.IsDependentOn("BuildPSPDFKit")
+	.Does(() =>
+	{
+		Information("Build Done!");
+	});
 
-Task ("NuGet")
+Task("NuGet")
 	.IsDependentOn("Default")
-	.Does (() =>
+	.Does(() =>
 {
-	if(!DirectoryExists("./nuget/pkgs/"))
+	if (!DirectoryExists("./nuget/pkgs/"))
 		CreateDirectory("./nuget/pkgs");
 
-	var commit = GetGitShortCommit ();
-	Console.WriteLine ($"Commit: {commit}");
+	var commit = GetGitShortCommit();
+	Console.WriteLine($"Commit: {commit}");
 
-	XmlPoke ("Directory.Build.props", "/Project/PropertyGroup/PSVersion", $"{PSPDFKIT_VERSION}.{SERVICERELEASE_VERSION}+sha.{commit}");
+	XmlPoke("Directory.Build.props", "/Project/PropertyGroup/PSVersion", $"{NUTRIENT_VERSION}.{SERVICERELEASE_VERSION}+sha.{commit}");
 
-	var dotNetPackSettings = new DotNetPackSettings {
+	var dotNetPackSettings = new DotNetPackSettings
+	{
 		Configuration = "Release",
 		NoRestore = true,
 		NoBuild = true,
 		OutputDirectory = "./nuget/pkgs",
-//		Verbosity = DotNeVerbosity.Diagnostic,
+		//		Verbosity = DotNeVerbosity.Diagnostic,
 	};
 
-	DotNetPack ("./PSPDFKit.dotnet.Android.sln", dotNetPackSettings);
+	DotNetPack("./PSPDFKit.dotnet.Android.sln", dotNetPackSettings);
 });
 
-Task ("NuGet-Push")
+Task("NuGet-Push")
 	.IsDependentOn("Nuget")
-	.Does (() =>
+	.Does(() =>
 {
-	var package = "./nuget/pkgs/PSPDFKit.dotnet.Android." + PSPDFKIT_VERSION +".nupkg";
-	NuGetPush(package, new NuGetPushSettings {
-			Source = "https://api.nuget.org/v3/index.json",
-			ApiKey = NUGET_API_KEY
+	var package = "./nuget/pkgs/Nutrient.dotnet.Android." + NUTRIENT_VERSION + ".nupkg";
+	NuGetPush(package, new NuGetPushSettings
+	{
+		Source = "https://api.nuget.org/v3/index.json",
+		ApiKey = NUGET_API_KEY
 	});
 });
 
-Task ("Clean")
-	.Does (() => {
-		if (FileExists ("./PSPDFKit.dotnet.Android.dll"))
-			DeleteFile ("./PSPDFKit.dotnet.Android.dll");
+Task("Clean")
+	.Does(() =>
+	{
+		if (FileExists("./Nutrient.dotnet.Android.dll"))
+			DeleteFile("./Nutrient.dotnet.Android.dll");
 
 		var delDirSettings = new DeleteDirectorySettings { Recursive = true, Force = true };
 
-		if (DirectoryExists ("./packages/"))
-			DeleteDirectory ("./packages", delDirSettings);
+		if (DirectoryExists("./packages/"))
+			DeleteDirectory("./packages", delDirSettings);
 
-		if (DirectoryExists ("./PSPDFKit.dotnet.Android/bin/"))
-			DeleteDirectory ("./PSPDFKit.dotnet.Android/bin", delDirSettings);
+		if (DirectoryExists("./PSPDFKit.dotnet.Android/bin/"))
+			DeleteDirectory("./PSPDFKit.dotnet.Android/bin", delDirSettings);
 
-		if (DirectoryExists ("./PSPDFKit.dotnet.Android/obj/"))
-			DeleteDirectory ("./PSPDFKit.dotnet.Android/obj", delDirSettings);
+		if (DirectoryExists("./PSPDFKit.dotnet.Android/obj/"))
+			DeleteDirectory("./PSPDFKit.dotnet.Android/obj", delDirSettings);
 
-		if (DirectoryExists ("./PSPDFKit.dotnet.Android/Jars/")) {
-			DeleteDirectory ("./PSPDFKit.dotnet.Android/Jars", delDirSettings);
+		if (DirectoryExists("./PSPDFKit.dotnet.Android/Jars/"))
+		{
+			DeleteDirectory("./PSPDFKit.dotnet.Android/Jars", delDirSettings);
 		}
-});
+	});
 
-Task ("Clean-obj-bin")
-	.Does (() => {
+Task("Clean-obj-bin")
+	.Does(() =>
+	{
 		var delDirSettings = new DeleteDirectorySettings { Recursive = true, Force = true };
 
-		var dirs = new [] {
+		var dirs = new[] {
 			"./PSPDFKit.dotnet.Android",
 			"./samples/AndroidSample/AndroidSample",
 			"./samples/PSPDFCatalog",
@@ -168,22 +184,24 @@ Task ("Clean-obj-bin")
 			"./samples/XamarinForms/XFSample",
 		};
 
-		foreach (var dir in dirs) {
-			if (DirectoryExists ($"{dir}/bin/"))
-				DeleteDirectory ($"{dir}/bin", delDirSettings);
+		foreach (var dir in dirs)
+		{
+			if (DirectoryExists($"{dir}/bin/"))
+				DeleteDirectory($"{dir}/bin", delDirSettings);
 
-			if (DirectoryExists ($"{dir}/obj/"))
-				DeleteDirectory ($"{dir}/obj", delDirSettings);
+			if (DirectoryExists($"{dir}/obj/"))
+				DeleteDirectory($"{dir}/obj", delDirSettings);
 		}
-});
+	});
 
-string GetGitShortCommit ()
+string GetGitShortCommit()
 {
-	StartProcess ("git", new ProcessSettings {
+	StartProcess("git", new ProcessSettings
+	{
 		Arguments = "rev-parse --short HEAD",
 		RedirectStandardOutput = true
 	}, out var lines);
-	return lines.FirstOrDefault ();
+	return lines.FirstOrDefault();
 }
 
-RunTarget (target);
+RunTarget(target);
