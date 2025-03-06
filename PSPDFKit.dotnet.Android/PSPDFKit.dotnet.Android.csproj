@@ -31,7 +31,6 @@
     <None Include="..\nuget\icon.png" Pack="true" PackagePath="icon.png" />
     <None Include="..\nuget\README.md" Pack="true" PackagePath="README.md" />
     <None Include="..\nuget\PSPDFKit.dotnet.Android.targets" Pack="true" PackagePath="build/PSPDFKit.dotnet.Android.targets" />
-    <None Include="..\samples\AndroidSample\pspdfkit-proguard.cfg" Pack="true" PackagePath="proguard/pspdfkit-proguard.cfg" />
   </ItemGroup>
   <ItemGroup>
     <AndroidLibrary Include="Jars\relinker-1.4.5.jar" Bind="false" Pack="true" />
