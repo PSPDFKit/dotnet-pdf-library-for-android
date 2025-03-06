@@ -10,15 +10,15 @@
     <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
   <PropertyGroup>
-    <PackageId>PSPDFKit.dotnet.Android</PackageId>
-    <Title>PSPDFKit.NET (Android)</Title>
+    <PackageId>Nutrient.dotnet.Android</PackageId>
+    <Title>Nutrient.NET (Android)</Title>
     <Summary>A high-performance viewer, extensive annotation and document editing tools, digital signatures, and more. All engineered for the best possible user and developer experience. PSPDFKit — the Android PDF SDK made for you.</Summary>
     <Description>The leading framework for displaying, annotating and editing PDFs on iOS, Android, Windows, Electron and the Web.</Description>
     <Authors>PSPDFKit GmbH</Authors>
     <Owners>PSPDFKit GmbH</Owners>
-    <Copyright>PSPDFKit GmbH. Copyright 2010-2023</Copyright>
+    <Copyright>Nutrient. Copyright 2010-2025</Copyright>
     <PackageIcon>icon.png</PackageIcon>
-    <PackageProjectUrl>https://pspdfkit.com/</PackageProjectUrl>
+    <PackageProjectUrl>https://www.nutrient.io/</PackageProjectUrl>
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageTags>pdf-viewer , pdf-editor , dotnet , csharp , net-android , android , pdf , library , maui</PackageTags>

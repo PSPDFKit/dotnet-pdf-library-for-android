@@ -13,7 +13,6 @@
     <PackageReference Include="AndHUD" Version="2.0.1" />
   </ItemGroup>
   <ItemGroup>
-    <ProguardConfiguration Include="pspdfkit-proguard.cfg" />
     <AndroidResource Include="Resources\mipmap-hdpi\xamagon.png" />
     <AndroidResource Include="Resources\mipmap-mdpi\xamagon.png" />
     <AndroidResource Include="Resources\mipmap-xhdpi\xamagon.png" />
