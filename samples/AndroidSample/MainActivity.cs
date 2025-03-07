@@ -137,7 +137,7 @@ public class MainActivity : Activity
         if (message != null)
         {
             alert.SetNeutralButton("Visit", (sender, e) => {
-                var uri = Android.Net.Uri.Parse("https://pspdfkit.com/android/");
+                var uri = Android.Net.Uri.Parse("https://www.nutrient.io/sdk/android");
                 var intent = new Intent (Intent.ActionView, uri);
                 StartActivity(intent);
             });

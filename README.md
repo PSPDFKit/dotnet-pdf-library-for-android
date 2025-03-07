@@ -60,25 +60,25 @@ Visual Studio will use the default Java, but this can be customized in Preferenc
 
 You have two options to get it:
 
-#### Build from PSPDFKit.dotnet.Android.sln
+#### Build from Nutrient.dotnet.Android.sln
 
-1. Open `PSPDFKit.dotnet.Android.sln` in `Visual Studio`.
+1. Open `Nutrient.dotnet.Android.sln` in `Visual Studio`.
 2. Build the project.
-3. Get the dll from the `PSPDFKit.dotnet.Android/bin` folder.
+3. Get the dll from the `Nutrient.dotnet.Android/bin` folder.
 4. Enjoy.
 
 #### Build from Terminal
 
-1. Just grab `PSPDFKit.dotnet.Android.dll` from the `PSPDFKit.dotnet.Android/bin` folder, if you successfuly followed **Step 1** it should be there.
+1. Just grab `Nutrient.dotnet.Android.dll` from the `Nutrient.dotnet.Android/bin` folder, if you successfuly followed **Step 1** it should be there.
 2. Enjoy.
 
 #### Integrating the dlls into your own Project
 
-In order to use **PSPDFKit.dotnet.Android.dll** with your own project you will need to add the dll as a reference to your project. You can achieve this by doing the following:
+In order to use **Nutrient.dotnet.Android.dll** with your own project you will need to add the dll as a reference to your project. You can achieve this by doing the following:
 
 1. Right click in your **References** folder from your project and select **Edit References...**
 2. Select **.Net Assembly** tab and click **Browse**
-3. Locate your **PSPDFKit.dotnet.Android.dll** copy and add it.
+3. Locate your **Nutrient.dotnet.Android.dll** copy and add it.
 
 ## Usage
 
@@ -96,7 +96,7 @@ You can include Nutrient into applications which will be distributed to devices 
 try {
 	PSPDFKitGlobal.Initialize(this, licenseKey: null);
 } catch (PSPDFKitInitializationFailedException ex) {
-	Console.WriteLine ("Current device is not compatible with PSPDFKit: {0}", ex.Message);
+	Console.WriteLine ("Current device is not compatible with Nutrient: {0}", ex.Message);
 }
 ```
 

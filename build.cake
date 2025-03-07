@@ -43,13 +43,13 @@ Task("FetchDependencies")
 	.Does(() =>
 	{
 
-		if (!DirectoryExists($"./PSPDFKit.dotnet.Android/Jars"))
-			CreateDirectory($"./PSPDFKit.dotnet.Android/Jars");
+		if (!DirectoryExists($"./Nutrient.dotnet.Android/Jars"))
+			CreateDirectory($"./Nutrient.dotnet.Android/Jars");
 
 		Information("Downloading all the dependencies...");
-		DownloadFile(NUTRIENTURL, $"./PSPDFKit.dotnet.Android/Jars/{NUTRIENT_AAR_NAME}");
-		DownloadFile(RELINKERURL, $"./PSPDFKit.dotnet.Android/Jars/relinker-{RELINKER_VERSION}.aar");
-		DownloadFile(YEARCLASSURL, $"./PSPDFKit.dotnet.Android/Jars/yearclass-{YEARCLASS_VERSION}.jar");
+		DownloadFile(NUTRIENTURL, $"./Nutrient.dotnet.Android/Jars/{NUTRIENT_AAR_NAME}");
+		DownloadFile(RELINKERURL, $"./Nutrient.dotnet.Android/Jars/relinker-{RELINKER_VERSION}.aar");
+		DownloadFile(YEARCLASSURL, $"./Nutrient.dotnet.Android/Jars/yearclass-{YEARCLASS_VERSION}.jar");
 	});
 
 Task("ExtractAars")
@@ -59,27 +59,27 @@ Task("ExtractAars")
 		Information("Unzipping needed dependencies...");
 
 		var delDirSettings = new DeleteDirectorySettings { Recursive = true, Force = true };
-		if (DirectoryExists($"./PSPDFKit.dotnet.Android/Jars/YouTubeAndroidPlayerApi-{YOUTUBE_VERSION}"))
-			DeleteDirectory($"./PSPDFKit.dotnet.Android/Jars/YouTubeAndroidPlayerApi-{YOUTUBE_VERSION}", delDirSettings);
-		if (DirectoryExists($"./PSPDFKit.dotnet.Android/Jars/rxandroid-{RXANDROID_VERSION}"))
-			DeleteDirectory($"./PSPDFKit.dotnet.Android/Jars/rxandroid-{RXANDROID_VERSION}", delDirSettings);
-		if (DirectoryExists($"./PSPDFKit.dotnet.Android/Jars/relinker-{RELINKER_VERSION}"))
-			DeleteDirectory($"./PSPDFKit.dotnet.Android/Jars/relinker-{RELINKER_VERSION}", delDirSettings);
+		if (DirectoryExists($"./Nutrient.dotnet.Android/Jars/YouTubeAndroidPlayerApi-{YOUTUBE_VERSION}"))
+			DeleteDirectory($"./Nutrient.dotnet.Android/Jars/YouTubeAndroidPlayerApi-{YOUTUBE_VERSION}", delDirSettings);
+		if (DirectoryExists($"./Nutrient.dotnet.Android/Jars/rxandroid-{RXANDROID_VERSION}"))
+			DeleteDirectory($"./Nutrient.dotnet.Android/Jars/rxandroid-{RXANDROID_VERSION}", delDirSettings);
+		if (DirectoryExists($"./Nutrient.dotnet.Android/Jars/relinker-{RELINKER_VERSION}"))
+			DeleteDirectory($"./Nutrient.dotnet.Android/Jars/relinker-{RELINKER_VERSION}", delDirSettings);
 
-		Unzip($"./PSPDFKit.dotnet.Android/Jars/relinker-{RELINKER_VERSION}.aar", $"./PSPDFKit.dotnet.Android/Jars/relinker-{RELINKER_VERSION}");
-		CopyFile($"./PSPDFKit.dotnet.Android/Jars/relinker-{RELINKER_VERSION}/classes.jar", $"./PSPDFKit.dotnet.Android/Jars/relinker-{RELINKER_VERSION}.jar");
+		Unzip($"./Nutrient.dotnet.Android/Jars/relinker-{RELINKER_VERSION}.aar", $"./Nutrient.dotnet.Android/Jars/relinker-{RELINKER_VERSION}");
+		CopyFile($"./Nutrient.dotnet.Android/Jars/relinker-{RELINKER_VERSION}/classes.jar", $"./Nutrient.dotnet.Android/Jars/relinker-{RELINKER_VERSION}.jar");
 
-		if (DirectoryExists($"./PSPDFKit.dotnet.Android/Jars/relinker-{RELINKER_VERSION}"))
+		if (DirectoryExists($"./Nutrient.dotnet.Android/Jars/relinker-{RELINKER_VERSION}"))
 		{
-			DeleteDirectory($"./PSPDFKit.dotnet.Android/Jars/relinker-{RELINKER_VERSION}", delDirSettings);
-			DeleteFile($"./PSPDFKit.dotnet.Android/Jars/relinker-{RELINKER_VERSION}.aar");
+			DeleteDirectory($"./Nutrient.dotnet.Android/Jars/relinker-{RELINKER_VERSION}", delDirSettings);
+			DeleteFile($"./Nutrient.dotnet.Android/Jars/relinker-{RELINKER_VERSION}.aar");
 		}
 	});
 
-Task("BuildPSPDFKit")
+Task("BuildNutrient")
 	.Does(() =>
 	{
-		if (FileExists($"./PSPDFKit.dotnet.Android/Jars/{NUTRIENT_AAR_NAME}"))
+		if (FileExists($"./Nutrient.dotnet.Android/Jars/{NUTRIENT_AAR_NAME}"))
 		{
 			Information("Building Nutrient.dotnet.Android.dll");
 			Information("PLEASE WAIT, it might take a few minutes to build...");
@@ -93,20 +93,20 @@ Task("BuildPSPDFKit")
 				//				Verbosity = DotNetVerbosity.Diagnostic,
 				MSBuildSettings = msBuildSettings
 			};
-			DotNetBuild("./PSPDFKit.dotnet.Android.sln", dotNetBuildSettings);
+			DotNetBuild("./Nutrient.dotnet.Android.sln", dotNetBuildSettings);
 
-			Information(@"DONE! You will find the Nutrient.dotnet.Android.dll inside the 'bin\Release' directory of 'PSPDFKit.dotnet.Android' folder.");
+			Information(@"DONE! You will find the Nutrient.dotnet.Android.dll inside the 'bin\Release' directory of 'Nutrient.dotnet.Android' folder.");
 		}
 		else
 		{
-			Warning($"./PSPDFKit.dotnet.Android/Jars/{NUTRIENT_AAR_NAME} file not found.");
+			Warning($"./Nutrient.dotnet.Android/Jars/{NUTRIENT_AAR_NAME} file not found.");
 			Warning($"Nutrient.dotnet.Android.dll was not built.");
 		}
 	});
 
 Task("Default")
 	.IsDependentOn("ExtractAars")
-	.IsDependentOn("BuildPSPDFKit")
+	.IsDependentOn("BuildNutrient")
 	.Does(() =>
 	{
 		Information("Build Done!");
@@ -133,7 +133,7 @@ Task("NuGet")
 		//		Verbosity = DotNeVerbosity.Diagnostic,
 	};
 
-	DotNetPack("./PSPDFKit.dotnet.Android.sln", dotNetPackSettings);
+	DotNetPack("./Nutrient.dotnet.Android.sln", dotNetPackSettings);
 });
 
 Task("NuGet-Push")
@@ -159,15 +159,15 @@ Task("Clean")
 		if (DirectoryExists("./packages/"))
 			DeleteDirectory("./packages", delDirSettings);
 
-		if (DirectoryExists("./PSPDFKit.dotnet.Android/bin/"))
-			DeleteDirectory("./PSPDFKit.dotnet.Android/bin", delDirSettings);
+		if (DirectoryExists("./Nutrient.dotnet.Android/bin/"))
+			DeleteDirectory("./Nutrient.dotnet.Android/bin", delDirSettings);
 
-		if (DirectoryExists("./PSPDFKit.dotnet.Android/obj/"))
-			DeleteDirectory("./PSPDFKit.dotnet.Android/obj", delDirSettings);
+		if (DirectoryExists("./Nutrient.dotnet.Android/obj/"))
+			DeleteDirectory("./Nutrient.dotnet.Android/obj", delDirSettings);
 
-		if (DirectoryExists("./PSPDFKit.dotnet.Android/Jars/"))
+		if (DirectoryExists("./Nutrient.dotnet.Android/Jars/"))
 		{
-			DeleteDirectory("./PSPDFKit.dotnet.Android/Jars", delDirSettings);
+			DeleteDirectory("./Nutrient.dotnet.Android/Jars", delDirSettings);
 		}
 	});
 
@@ -177,7 +177,7 @@ Task("Clean-obj-bin")
 		var delDirSettings = new DeleteDirectorySettings { Recursive = true, Force = true };
 
 		var dirs = new[] {
-			"./PSPDFKit.dotnet.Android",
+			"./Nutrient.dotnet.Android",
 			"./samples/AndroidSample/AndroidSample",
 			"./samples/PSPDFCatalog",
 			"./samples/XamarinForms/Droid",
