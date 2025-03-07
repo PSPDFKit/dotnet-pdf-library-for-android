@@ -14,8 +14,8 @@
     <Title>Nutrient.NET (Android)</Title>
     <Summary>A high-performance viewer, extensive annotation and document editing tools, digital signatures, and more. All engineered for the best possible user and developer experience. Nutrient — the Android PDF SDK made for you.</Summary>
     <Description>The leading framework for displaying, annotating and editing PDFs on iOS, Android, Windows, Electron and the Web.</Description>
-    <Authors>PSPDFKit GmbH</Authors>
-    <Owners>PSPDFKit GmbH</Owners>
+    <Authors>PSPDFKit GmbH d/b/a Nutrient</Authors>
+    <Owners>PSPDFKit GmbH d/b/a Nutrient</Owners>
     <Copyright>Nutrient. Copyright 2010-2025</Copyright>
     <PackageIcon>icon.png</PackageIcon>
     <PackageProjectUrl>https://www.nutrient.io/</PackageProjectUrl>

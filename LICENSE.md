@@ -8,7 +8,7 @@ disclaimer as stated in the license.
 You will require a commercial Nutrient License to run these examples
 in non-demo mode. Please refer to sales@nutrient.io for details.
 
-Copyright (c) 2010-2025, PSPDFKit GmbH.
+Copyright (c) 2010-2025, PSPDFKit GmbH d/b/a Nutrient.
 All rights reserved.
 
 Redistribution and use in source or binary forms,
@@ -26,7 +26,7 @@ that the following conditions are met:
 - Redistributions of Nutrient Samples must include attribution to
   Nutrient, either in documentation or other appropriate media.
 
-- Neither the name of the Nutrient, PSPDFKit GmbH, nor its developers 
+- Neither the name of the Nutrient, PSPDFKit GmbH d/b/a Nutrient, nor its developers 
   may be used to endorse or promote products derived from
   this software without specific prior written permission. 
 
