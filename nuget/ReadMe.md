@@ -1,6 +1,6 @@
 # PSPDFKit.NET (Android)
 
-**Note:** As a part of rebranding, this package has been renamed to **Nutrient.dotnet.Android** (https://www.nuget.org/packages/Nutrient.dotnet.Android). Please use the new package for future updates and support.
+**Note:** As a part of our rebranding, this package has been renamed to **Nutrient.dotnet.Android** (https://www.nuget.org/packages/Nutrient.dotnet.Android). Please use the new package for future updates and support.
 
 The PSPDFKit SDK is a framework that allows you to view, annotate, sign, and fill PDF forms on iOS, Android, Windows, macOS, and Web.
 
