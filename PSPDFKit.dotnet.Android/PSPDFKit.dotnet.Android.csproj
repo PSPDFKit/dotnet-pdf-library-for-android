@@ -22,7 +22,9 @@
     <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageTags>pdf-viewer , pdf-editor , dotnet , csharp , net-android , android , pdf , library , maui</PackageTags>
-    <PackageReleaseNotes>For changelog go to: https://pspdfkit.com/changelog/android/</PackageReleaseNotes>
+    <PackageReleaseNotes>
+      • Adds a note about renaming of package in the ReadMe file. Please use **Nutrient.dotnet.Android** (https://www.nuget.org/packages/Nutrient.dotnet.Android) for future updates and support.
+    </PackageReleaseNotes>
     <RepositoryUrl>https://github.com/PSPDFKit/dotnet-pdf-library-for-android</RepositoryUrl>
     <PackageVersion>$(PSVersion)</PackageVersion>
   </PropertyGroup>
