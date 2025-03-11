@@ -1,5 +1,7 @@
 # PSPDFKit.NET (Android)
 
+**Note:** As a part of rebranding, this package has been renamed to **Nutrient.dotnet.Android** (https://www.nuget.org/packages/Nutrient.dotnet.Android). Please use the new package for future updates and support.
+
 .NET for Android C# Bindings for PSPDFKit `v2024.9.0`.
 
 #### PSPDFKit
