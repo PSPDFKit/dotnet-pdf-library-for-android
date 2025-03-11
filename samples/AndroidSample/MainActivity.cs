@@ -81,10 +81,10 @@ public class MainActivity : Activity
     {
         // Show Document using PSPDFKit activity
         var pspdfkitConfiguration = new PdfActivityConfiguration.Builder(ApplicationContext)
-            .ScrollDirection(PageScrollDirection.Horizontal)
-            .ShowPageNumberOverlay()
-            .ShowThumbnailGrid()
-            .FitMode(PageFitMode.FitToWidth)
+            .ScrollDirection(PageScrollDirection.Horizontal!)
+            .PageLabelsEnabled(true)
+            .ThumbnailGridEnabled(true)
+            .FitMode(PageFitMode.FitToWidth!)
             .Build();
 
         if (!PSPDFKitGlobal.IsOpenableUri(this, docUri))
@@ -137,7 +137,7 @@ public class MainActivity : Activity
         if (message != null)
         {
             alert.SetNeutralButton("Visit", (sender, e) => {
-                var uri = Android.Net.Uri.Parse("https://pspdfkit.com/android/");
+                var uri = Android.Net.Uri.Parse("https://www.nutrient.io/sdk/android");
                 var intent = new Intent (Intent.ActionView, uri);
                 StartActivity(intent);
             });

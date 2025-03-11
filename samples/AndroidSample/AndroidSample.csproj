@@ -1,11 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net8.0-android</TargetFramework>
     <SupportedOSPlatformVersion>21</SupportedOSPlatformVersion>
     <OutputType>Exe</OutputType>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
-    <ApplicationId>com.pspdfkit.AndroidSample</ApplicationId>
+    <ApplicationId>io.nutrient.AndroidSample</ApplicationId>
     <ApplicationVersion>1</ApplicationVersion>
     <ApplicationDisplayVersion>1.0</ApplicationDisplayVersion>
   </PropertyGroup>
@@ -13,7 +13,6 @@
     <PackageReference Include="AndHUD" Version="2.0.1" />
   </ItemGroup>
   <ItemGroup>
-    <ProguardConfiguration Include="pspdfkit-proguard.cfg" />
     <AndroidResource Include="Resources\mipmap-hdpi\xamagon.png" />
     <AndroidResource Include="Resources\mipmap-mdpi\xamagon.png" />
     <AndroidResource Include="Resources\mipmap-xhdpi\xamagon.png" />
@@ -21,6 +20,6 @@
     <AndroidResource Include="Resources\mipmap-xxxhdpi\xamagon.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\PSPDFKit.dotnet.Android\PSPDFKit.dotnet.Android.csproj" />
+    <ProjectReference Include="..\..\Nutrient.dotnet.Android\Nutrient.dotnet.Android.csproj" />
   </ItemGroup>
 </Project>
