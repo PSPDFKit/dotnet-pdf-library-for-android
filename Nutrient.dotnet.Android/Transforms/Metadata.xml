@@ -33,13 +33,10 @@
   <remove-node path="//implements[contains(@name, 'com.pspdfkit.internal')]" />
 
   <!-- C# friendly namespaces --> 
-  <attr path="/api/package[@name='io.nutrient.presentation.bookmarks']" name="managedName">Nutrient.Presentation.Bookmarks</attr>
-  <attr path="/api/package[@name='io.nutrient.presentation.documentinfo']" name="managedName">Nutrient.Presentation.Documentinfo</attr>
-  <attr path="/api/package[@name='io.nutrient.presentation.settings']" name="managedName">Nutrient.Presentation.Settings</attr>
-  <attr path="/api/package[@name='io.nutrient.presentation.theme']" name="managedName">Nutrient.Presentation.Theme</attr>
-  <attr path="/api/package[@name='io.nutrient.presentation.utils.modifier']" name="managedName">Nutrient.Presentation.Utils.Modifier</attr>
-  <attr path="/api/package[@name='io.nutrient.presentation.utils.touch']" name="managedName">Nutrient.Presentation.Utils.Touch</attr>
-  <attr path="/api/package[@name='io.nutrient.presentation.utils.viewmodel']" name="managedName">Nutrient.Presentation.Utils.ViewModel</attr>
+  <attr path="/api/package[@name='io.nutrient.data.models']" name="managedName">Nutrient.Data.Models</attr>
+  
+  <attr path="/api/package[@name='io.nutrient.domain']" name="managedName">Nutrient.Domain</attr>
+  <attr path="/api/package[@name='io.nutrient.domain.ai']" name="managedName">Nutrient.Domain.AI</attr>
   
   <attr path="/api/package[@name='com.pspdfkit']" name="managedName">PSPDFKit</attr>
   <attr path="/api/package[@name='com.pspdfkit.analytics']" name="managedName">PSPDFKit.AnalyticsSdk</attr>
@@ -153,6 +150,9 @@
   <attr path="/api/package[@name='com.pspdfkit.ui.toolbar.popup']" name="managedName">PSPDFKit.UI.Toolbar.Popup</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.toolbar.rx']" name="managedName">PSPDFKit.UI.Toolbar.Rx</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.transition']" name="managedName">PSPDFKit.UI.Toolbar.Transition</attr>
+  <attr path="/api/package[@name='io.nutrient.ui.settings']" name="managedName">Nutrient.UI.Settings</attr>
+  <attr path="/api/package[@name='io.nutrient.ui.theme']" name="managedName">Nutrient.UI.Theme</attr>
+  
   <attr path="/api/package[@name='com.pspdfkit.undo']" name="managedName">PSPDFKit.Undo</attr>
   <attr path="/api/package[@name='com.pspdfkit.undo.edit']" name="managedName">PSPDFKit.Undo.Edit</attr>
   <attr path="/api/package[@name='com.pspdfkit.undo.edit.annotations']" name="managedName">PSPDFKit.Undo.Edit.Annotations</attr>
