@@ -162,7 +162,11 @@
 
   <!-- Avoid colision/duplicate in types -->
   <attr path="//field[@name='Companion']" name="managedName">CompanionField</attr>
+  
+  <attr path="/api/package[@name='com.pspdfkit']/class[@name='Nutrient']" name="managedName">NutrientGlobal</attr>
+  <remove-node path="/api/package[@name='com.pspdfkit']/class[@name='Nutrient']/method[@name='initialize' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String']]" />
   <attr path="/api/package[@name='com.pspdfkit']/class[@name='PSPDFKit']" name="managedName">PSPDFKitGlobal</attr>
+  
   <attr path="/api/package[@name='com.pspdfkit.document.download']/class[@name='DownloadProgressFragment']/field[@name='dialog']" name="managedName">CurrentDialog</attr>
   <attr path="/api/package[@name='com.pspdfkit.forms']/class[@name='FormElementConfiguration']/field[@name='boundingBox']" name="managedName">BoundingBoxField</attr>
   <attr path="/api/package[@name='com.pspdfkit.forms']/class[@name='FormElementConfiguration']/field[@name='nextElement']" name="managedName">NextElementField</attr>

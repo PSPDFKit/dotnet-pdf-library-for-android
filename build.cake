@@ -4,7 +4,7 @@ var target = Argument("target", "Default");
 // Nice online pom dependency explorer
 // https://jar-download.com/
 
-var NUTRIENT_VERSION = "10.1.0";
+var NUTRIENT_VERSION = "10.1.1";
 var SERVICERELEASE_VERSION = "0"; // This is combined with the NUTRIENT_VERSION variable for the NuGet Package version
 var RXANDROID_VERSION = "2.1.0";
 var RXJAVA_VERSION = "2.2.4"; // Check Reactive-Streams if updated.
