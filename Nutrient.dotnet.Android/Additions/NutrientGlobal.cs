@@ -13,12 +13,15 @@ namespace PSPDFKit
 
 		internal static CrossPlatformTechnology ProductIdentifier = CrossPlatformTechnology.DotNetBindings;
 
-		public static void Initialize (Context context, string? licenseKey, IList<string>? fontPaths = null)
+		public static void Initialize (Context context, string? licenseKey, IList<string>? fontPaths)
 		{
 			if (context is null)
 				throw new NullReferenceException (nameof (context));
 
-            var options = new InitializationOptions(licenseKey: licenseKey, fontPaths: fontPaths ?? [], crossPlatformTechnology: ProductIdentifier, applicationPolicy: null);
+            if (fontPaths is null)
+                throw new NullReferenceException(nameof(fontPaths));
+
+            var options = new InitializationOptions(licenseKey: licenseKey, fontPaths: fontPaths, crossPlatformTechnology: ProductIdentifier, applicationPolicy: null);
             Initialize (context, options);
 		}
 

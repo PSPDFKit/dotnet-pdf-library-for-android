@@ -164,6 +164,7 @@
   <attr path="//field[@name='Companion']" name="managedName">CompanionField</attr>
   
   <attr path="/api/package[@name='com.pspdfkit']/class[@name='Nutrient']" name="managedName">NutrientGlobal</attr>
+  <!--Removed Initialize method with context and license key to avoid colision with NutrientGlobal.Initialize we have in .NET Android-->
   <remove-node path="/api/package[@name='com.pspdfkit']/class[@name='Nutrient']/method[@name='initialize' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String']]" />
   <attr path="/api/package[@name='com.pspdfkit']/class[@name='PSPDFKit']" name="managedName">PSPDFKitGlobal</attr>
   

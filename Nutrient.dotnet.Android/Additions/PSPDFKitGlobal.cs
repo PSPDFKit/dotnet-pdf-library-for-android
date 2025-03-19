@@ -1,17 +1,14 @@
-using System;
-using System.Collections.Generic;
-using Android.Runtime;
 using Android.Content;
-using Java.Interop;
 
-[assembly: MetaData (
-	name: "pspdfkit_automatic_initialize",
-	Value = "false"
+[assembly: MetaData(
+    name: "pspdfkit_automatic_initialize",
+    Value = "false"
 )]
 
-namespace PSPDFKit {
+namespace PSPDFKit
+{
 
-	public sealed partial class PSPDFKitGlobal {
+    public sealed partial class PSPDFKitGlobal {
 
 		internal const string ProductIdentifier = "DotNetBindingsAndroid";
 
