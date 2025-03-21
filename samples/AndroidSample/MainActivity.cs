@@ -39,7 +39,7 @@ public class MainActivity : Activity
         base.OnCreate(savedInstanceState);
 
         // Set your licenseKey key here and Initialize PSPDFKit.
-        PSPDFKitGlobal.Initialize(this, licenseKey: null);
+        NutrientGlobal.Initialize(this, licenseKey: null);
 
         // Set our view from the "main" layout resource
         SetContentView(Resource.Layout.activity_main);
@@ -87,7 +87,7 @@ public class MainActivity : Activity
             .FitMode(PageFitMode.FitToWidth!)
             .Build();
 
-        if (!PSPDFKitGlobal.IsOpenableUri(this, docUri))
+        if (!NutrientGlobal.IsOpenableUri(this, docUri))
             ShowError("This document uri cannot be opened \n " + docUri.ToString());
         else
             PdfActivity.ShowDocument(this, docUri, pspdfkitConfiguration);
@@ -101,7 +101,7 @@ public class MainActivity : Activity
         {
             // Only document accessible as files are openable directly with PSPDFKit so we have to
             // transfer other documents to application cache
-            if (!PSPDFKitGlobal.IsOpenableUri(this, data.Data))
+            if (!NutrientGlobal.IsOpenableUri(this, data.Data))
             {
                 AndHUD.Shared.Show(this, "Downloading file", 0);
 
