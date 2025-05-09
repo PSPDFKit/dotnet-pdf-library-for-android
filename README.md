@@ -50,7 +50,7 @@ Now you are done and can skip to [Adding additional resources](https://github.co
 
 #### Step 1 - Get Nutrient .aar File
 
-Run `./build.sh` (on macOS) or `./build.ps1` (on Windows, PowerShell) command from root directory. This will download all the required resources needed by the binding. Note that running this will require you to have [The android workload](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-workload-install) already installed on your computer.
+Run `./build.sh --nutrient-version=${NUTRIENT_VERSION}` (on macOS) or `./build.ps1 --nutrient-version=${NUTRIENT_VERSION}` (on Windows, PowerShell) command from root directory. This will download all the required resources needed by the binding. Note that running this will require you to have [The android workload](https://learn.microsoft.com/en-us/dotnet/core/tools/dotnet-workload-install) already installed on your computer.
 
 **💡 Note:** Ensure the files are really named `Nutrient-Android-SDK-AAR-x.x.x.aar` so there is no hidden `.zip` file ending. OS X likes to add these things and doesn't show them by default. Use the Inspector to be sure.
 
