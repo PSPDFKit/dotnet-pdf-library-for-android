@@ -242,7 +242,7 @@ namespace PSPDFKit.Listeners.Scrolling
 
         public int ExtendY
         {
-            get { return ExtendY; }
+            get { return _extendY; }
         }
 
     }

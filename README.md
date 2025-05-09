@@ -1,6 +1,6 @@
 # Nutrient.NET (Android)
 
-.NET for Android C# Bindings for Nutrient `v10.0.2`.
+.NET for Android C# Bindings for Nutrient `v10.1.1`.
 
 #### Nutrient
 

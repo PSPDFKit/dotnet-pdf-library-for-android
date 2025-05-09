@@ -1,41 +1,31 @@
-
+var NUTRIENT_VERSION = Argument<string>("nutrient-version", null);
 var target = Argument("target", "Default");
+
+if (string.IsNullOrEmpty(NUTRIENT_VERSION))
+{
+	throw new ArgumentException("nutrient-version argument is required. Please provide it using --nutrient-version=X.X.X");
+}
+
+// Extract service release version from NUTRIENT_VERSION if it exists (e.g. "10.1.2.3" -> "3")
+var versionParts = NUTRIENT_VERSION.Split('.');
+
+// Android version is first 3 parts of the NUTRIENT_VERSION
+var ANDROID_VERSION = string.Join(".", versionParts.Take(3));
+var SERVICERELEASE_VERSION = versionParts.Length == 4 ? versionParts[3] : "0"; // This is combined with the NUTRIENT_VERSION variable for the NuGet Package version
 
 // Nice online pom dependency explorer
 // https://jar-download.com/
-
-var NUTRIENT_VERSION = "10.1.1";
-var SERVICERELEASE_VERSION = "0"; // This is combined with the NUTRIENT_VERSION variable for the NuGet Package version
-var RXANDROID_VERSION = "2.1.0";
-var RXJAVA_VERSION = "2.2.4"; // Check Reactive-Streams if updated.
-var REACTIVESTREAMS_VERSION = "1.0.2";
-var YOUTUBE_VERSION = "1.2.2";
 var RELINKER_VERSION = "1.4.5";
-var KOTLINSTDLIB_VERSION = "1.3.50"; // Check Annotations version if updated.
-var KOTLIANNOTATIONS_VERSION = "13.0";
-var KOTLINSTDLIBCOMMON_VERSION = "1.3.50";
 var YEARCLASS_VERSION = "2.0.0";
-
-var OKHTTP3_VERSION = "3.9.0"; // Check OKIO version if updated.
-var OKHTTP3LOGGING_VERSION = "3.9.0";
-var OKIO_VERSION = "1.13.0";
+var IMMUTABLE_COLLECTIONS_VERSION = "0.3.8";
 
 
-var NUTRIENTURL = $"https://my.nutrient.io/maven/io/nutrient/nutrient/{NUTRIENT_VERSION}/nutrient-{NUTRIENT_VERSION}.aar";
-var RXANDROIDURL = $"http://search.maven.org/remotecontent?filepath=io/reactivex/rxjava2/rxandroid/{RXANDROID_VERSION}/rxandroid-{RXANDROID_VERSION}.aar";
-var RXJAVAURL = $"http://search.maven.org/remotecontent?filepath=io/reactivex/rxjava2/rxjava/{RXJAVA_VERSION}/rxjava-{RXJAVA_VERSION}.jar";
-var YOUTUBEURL = $"https://developers.google.com/youtube/android/player/downloads/YouTubeAndroidPlayerApi-{YOUTUBE_VERSION}.zip";
-var REACTIVESTREAMSURL = $"http://search.maven.org/remotecontent?filepath=org/reactivestreams/reactive-streams/{REACTIVESTREAMS_VERSION}/reactive-streams-{REACTIVESTREAMS_VERSION}.jar";
+var NUTRIENTURL = $"https://my.nutrient.io/maven/io/nutrient/nutrient/{ANDROID_VERSION}/nutrient-{ANDROID_VERSION}.aar";
 var RELINKERURL = $"https://search.maven.org/remotecontent?filepath=com/getkeepsafe/relinker/relinker/{RELINKER_VERSION}/relinker-{RELINKER_VERSION}.aar";
-var OKHTTP3URL = $"http://search.maven.org/remotecontent?filepath=com/squareup/okhttp3/okhttp/{OKHTTP3_VERSION}/okhttp-{OKHTTP3_VERSION}.jar";
-var OKHTTP3LOGGINGURL = $"https://search.maven.org/remotecontent?filepath=com/squareup/okhttp3/logging-interceptor/{OKHTTP3LOGGING_VERSION}/logging-interceptor-{OKHTTP3LOGGING_VERSION}.jar";
-var OKIOURL = $"http://search.maven.org/remotecontent?filepath=com/squareup/okio/okio/{OKIO_VERSION}/okio-{OKIO_VERSION}.jar";
-var KOTLINSTDLIBURL = $"http://search.maven.org/remotecontent?filepath=org/jetbrains/kotlin/kotlin-stdlib/{KOTLINSTDLIB_VERSION}/kotlin-stdlib-{KOTLINSTDLIB_VERSION}.jar";
-var KOTLINSTDLIBCOMMONURL = $"http://search.maven.org/remotecontent?filepath=org/jetbrains/kotlin/kotlin-stdlib-common/{KOTLINSTDLIBCOMMON_VERSION}/kotlin-stdlib-common-{KOTLINSTDLIBCOMMON_VERSION}.jar";
-var KOTLIANNOTATIONSURL = $"http://search.maven.org/remotecontent?filepath=org/jetbrains/annotations/{KOTLIANNOTATIONS_VERSION}/annotations-{KOTLIANNOTATIONS_VERSION}.jar";
 var YEARCLASSURL = $"http://search.maven.org/remotecontent?filepath=com/facebook/device/yearclass/yearclass/{YEARCLASS_VERSION}/yearclass-{YEARCLASS_VERSION}.jar";
+var IMMUTABLE_COLLECTIONS_URL = $"https://search.maven.org/remotecontent?filepath=org/jetbrains/kotlinx/kotlinx-collections-immutable/{IMMUTABLE_COLLECTIONS_VERSION}/kotlinx-collections-immutable-{IMMUTABLE_COLLECTIONS_VERSION}.jar";
 
-var NUTRIENT_AAR_NAME = $"Nutrient-Android-SDK-AAR-{NUTRIENT_VERSION}.aar";
+var NUTRIENT_AAR_NAME = $"Nutrient-Android-SDK-AAR-{ANDROID_VERSION}.aar";
 
 var NUGET_API_KEY = EnvironmentVariable("NUGET_API_KEY");
 
@@ -50,6 +40,7 @@ Task("FetchDependencies")
 		DownloadFile(NUTRIENTURL, $"./Nutrient.dotnet.Android/Jars/{NUTRIENT_AAR_NAME}");
 		DownloadFile(RELINKERURL, $"./Nutrient.dotnet.Android/Jars/relinker-{RELINKER_VERSION}.aar");
 		DownloadFile(YEARCLASSURL, $"./Nutrient.dotnet.Android/Jars/yearclass-{YEARCLASS_VERSION}.jar");
+		DownloadFile(IMMUTABLE_COLLECTIONS_URL, $"./Nutrient.dotnet.Android/Jars/kotlinx-collections-immutable-{IMMUTABLE_COLLECTIONS_VERSION}.jar");
 	});
 
 Task("ExtractAars")
@@ -59,10 +50,6 @@ Task("ExtractAars")
 		Information("Unzipping needed dependencies...");
 
 		var delDirSettings = new DeleteDirectorySettings { Recursive = true, Force = true };
-		if (DirectoryExists($"./Nutrient.dotnet.Android/Jars/YouTubeAndroidPlayerApi-{YOUTUBE_VERSION}"))
-			DeleteDirectory($"./Nutrient.dotnet.Android/Jars/YouTubeAndroidPlayerApi-{YOUTUBE_VERSION}", delDirSettings);
-		if (DirectoryExists($"./Nutrient.dotnet.Android/Jars/rxandroid-{RXANDROID_VERSION}"))
-			DeleteDirectory($"./Nutrient.dotnet.Android/Jars/rxandroid-{RXANDROID_VERSION}", delDirSettings);
 		if (DirectoryExists($"./Nutrient.dotnet.Android/Jars/relinker-{RELINKER_VERSION}"))
 			DeleteDirectory($"./Nutrient.dotnet.Android/Jars/relinker-{RELINKER_VERSION}", delDirSettings);
 
@@ -85,7 +72,7 @@ Task("BuildNutrient")
 			Information("PLEASE WAIT, it might take a few minutes to build...");
 
 			var msBuildSettings = new DotNetMSBuildSettings()
-			.WithProperty("AssemblyVersion", NUTRIENT_VERSION);
+			.WithProperty("AssemblyVersion", ANDROID_VERSION);
 
 			var dotNetBuildSettings = new DotNetBuildSettings
 			{
@@ -122,7 +109,7 @@ Task("NuGet")
 	var commit = GetGitShortCommit();
 	Console.WriteLine($"Commit: {commit}");
 
-	XmlPoke("Directory.Build.props", "/Project/PropertyGroup/PSVersion", $"{NUTRIENT_VERSION}.{SERVICERELEASE_VERSION}+sha.{commit}");
+	XmlPoke("Directory.Build.props", "/Project/PropertyGroup/PSVersion", $"{ANDROID_VERSION}.{SERVICERELEASE_VERSION}+sha.{commit}");
 
 	var dotNetPackSettings = new DotNetPackSettings
 	{
@@ -140,7 +127,7 @@ Task("NuGet-Push")
 	.IsDependentOn("Nuget")
 	.Does(() =>
 {
-	var package = "./nuget/pkgs/Nutrient.dotnet.Android." + NUTRIENT_VERSION + ".nupkg";
+	var package = "./nuget/pkgs/Nutrient.dotnet.Android." + ANDROID_VERSION + ".nupkg";
 	NuGetPush(package, new NuGetPushSettings
 	{
 		Source = "https://api.nuget.org/v3/index.json",

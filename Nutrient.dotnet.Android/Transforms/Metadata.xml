@@ -65,7 +65,10 @@
   <attr path="/api/package[@name='com.pspdfkit.configuration.page']" name="managedName">PSPDFKit.Configuration.Page</attr>
   <attr path="/api/package[@name='com.pspdfkit.configuration.policy']" name="managedName">PSPDFKit.Configuration.Policy</attr>
   <attr path="/api/package[@name='com.pspdfkit.contentediting']" name="managedName">PSPDFKit.ContentEditing</attr>
-  <attr path="/api/package[@name='com.pspdfkit.contentediting.defaults']" name="managedName">PSPDFKit.ContentEditing.Defaults</attr>
+  <attr path="/api/package[@name='com.pspdfkit.contentediting.inspector']" name="managedName">PSPDFKit.ContentEditing.Inspector</attr>
+  <attr path="/api/package[@name='com.pspdfkit.contentediting.inspector.defaults']" name="managedName">PSPDFKit.ContentEditing.Inspector.Defaults</attr>
+  <attr path="/api/package[@name='com.pspdfkit.contentediting.models']" name="managedName">PSPDFKit.ContentEditing.Models</attr>
+  <attr path="/api/package[@name='com.pspdfkit.contentediting.models.serializer']" name="managedName">PSPDFKit.ContentEditing.Models.Serializer</attr>
   <attr path="/api/package[@name='com.pspdfkit.datastructures']" name="managedName">PSPDFKit.Datastructures</attr>
   <attr path="/api/package[@name='com.pspdfkit.document']" name="managedName">PSPDFKit.Document</attr>
   <attr path="/api/package[@name='com.pspdfkit.document.checkpoint']" name="managedName">PSPDFKit.Document.Checkpoint</attr>
@@ -261,6 +264,7 @@
   <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfActivityIntentBuilder']" name="extends">java.lang.Object</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfUiFragmentBuilder']" name="extends">java.lang.Object</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='BasePdfUiBuilder']/method[@name='configuration' and @return='T']" name="return">java.lang.Object</attr>
+  <attr path="/api/package[@name='com.pspdfkit.contentediting.models.serializer']/class[@name='ColorSerializer']/method[@name='deserialize' and count(parameter)=1 and parameter[1][@type='kotlinx.serialization.encoding.Decoder']]" name="managedReturn" value="Java.Lang.Object" />
   <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='BasePdfUiBuilder']/method[@name='passwords' and @return='T']" name="return">java.lang.Object</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='BasePdfUiBuilder']/method[@name='contentSignatures' and @return='T']" name="return">java.lang.Object</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='BasePdfUiBuilder']/method[@name='visibleDocument' and @return='T']" name="return">java.lang.Object</attr>
@@ -604,4 +608,40 @@
   <!-- Remove com.pspdfkit.listeners.scrolling.DocumentScrollListener.DocumentScrollListener because one was deprecated -->
   <remove-node path="/api/package[@name='com.pspdfkit.listeners.scrolling']/interface[@name='DocumentScrollListener']/method[@name='onDocumentScrolled']" />
   <remove-node path="/api/package[@name='com.pspdfkit.listeners.scrolling']/interface[@name='DocumentScrollListener']/method[@name='onScrollStateChanged']" />
+
+
+  <!--error CS0738: 'ColorSerializer' does not implement interface member 'IDeserializationStrategy.Deserialize(IDecoder)'. 'ColorSerializer.Deserialize(IDecoder)' cannot implement 'IDeserializationStrategy.Deserialize(IDecoder)' because it does not have the matching return type of 'Object'.-->
+  <remove-node path="/api/package[@name='com.pspdfkit.contentediting.models.serializer']/class[@name='ColorSerializer']/method[@name='deserialize' and count(parameter)=1 and parameter[1][@type='kotlinx.serialization.encoding.Decoder']]" />
+  <add-node path="/api/package[@name='com.pspdfkit.contentediting.models.serializer']/class[@name='ColorSerializer']">
+    <method abstract="false" final="false" name="deserialize" return="java.lang.Object" static="false" visibility="public">
+      <parameter name="decoder" type="kotlinx.serialization.encoding.Decoder" />
+    </method>
+  </add-node>
+  <remove-node path="/api/package[@name='com.pspdfkit.contentediting.models.serializer']/class[@name='ColorSerializer']/method[@name='serialize' and count(parameter)=2 and parameter[1][@type='kotlinx.serialization.encoding.Encoder'] and parameter[2][@type='int']]" />
+  <add-node path="/api/package[@name='com.pspdfkit.contentediting.models.serializer']/class[@name='ColorSerializer']">
+    <method abstract="false" final="false" name="serialize" return="void" static="false" visibility="public">
+      <parameter name="encoder" type="kotlinx.serialization.encoding.Encoder" />
+      <parameter name="value" type="java.lang.Object" />
+    </method>
+  </add-node>
+  <remove-node path="/api/package[@name='com.pspdfkit.signatures']/class[@name='Signature.Companion']/method[@name='create' and count(parameter)=1 and parameter[1][@type='android.os.Parcel']]" />
+  <add-node path="/api/package[@name='com.pspdfkit.signatures']/class[@name='Signature.Companion']">
+    <method abstract="false" final="false" name="create" return="java.lang.Object" static="false" visibility="public">
+      <parameter name="parcel" type="android.os.Parcel" />
+    </method>
+  </add-node>
+  <remove-node path="/api/package[@name='com.pspdfkit.signatures']/class[@name='Signature.Companion']/method[@name='write' and count(parameter)=3 and parameter[1][@type='com.pspdfkit.signatures.Signature'] and parameter[2][@type='android.os.Parcel'] and parameter[3][@type='int']]" />
+  <add-node path="/api/package[@name='com.pspdfkit.signatures']/class[@name='Signature.Companion']">
+    <method abstract="false" final="false" name="write" return="void" static="false" visibility="public">
+      <parameter name="_this_write" type="java.lang.Object" />
+      <parameter name="parcel" type="android.os.Parcel" />
+      <parameter name="flags" type="int" />
+    </method>
+  </add-node>
+  <remove-node path="/api/package[@name='com.pspdfkit.signatures']/class[@name='Signature.Companion']/method[@name='newArray' and count(parameter)=1 and parameter[1][@type='int']]" />
+  <add-node path="/api/package[@name='com.pspdfkit.signatures']/class[@name='Signature.Companion']">
+    <method abstract="false" final="false" name="newArray" return="java.lang.Object[]" static="false" visibility="public">
+      <parameter name="size" type="int" />
+    </method>
+  </add-node>
 </metadata>
