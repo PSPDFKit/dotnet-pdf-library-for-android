@@ -24,6 +24,7 @@ var NUTRIENTURL = $"https://my.nutrient.io/maven/io/nutrient/nutrient/{ANDROID_V
 var RELINKERURL = $"https://search.maven.org/remotecontent?filepath=com/getkeepsafe/relinker/relinker/{RELINKER_VERSION}/relinker-{RELINKER_VERSION}.aar";
 var YEARCLASSURL = $"http://search.maven.org/remotecontent?filepath=com/facebook/device/yearclass/yearclass/{YEARCLASS_VERSION}/yearclass-{YEARCLASS_VERSION}.jar";
 var IMMUTABLE_COLLECTIONS_URL = $"https://search.maven.org/remotecontent?filepath=org/jetbrains/kotlinx/kotlinx-collections-immutable/{IMMUTABLE_COLLECTIONS_VERSION}/kotlinx-collections-immutable-{IMMUTABLE_COLLECTIONS_VERSION}.jar";
+var IMMUTABLE_COLLECTIONS_JVM_URL = $"https://search.maven.org/remotecontent?filepath=org/jetbrains/kotlinx/kotlinx-collections-immutable-jvm/{IMMUTABLE_COLLECTIONS_VERSION}/kotlinx-collections-immutable-jvm-{IMMUTABLE_COLLECTIONS_VERSION}.jar";
 
 var NUTRIENT_AAR_NAME = $"Nutrient-Android-SDK-AAR-{ANDROID_VERSION}.aar";
 
@@ -41,6 +42,7 @@ Task("FetchDependencies")
 		DownloadFile(RELINKERURL, $"./Nutrient.dotnet.Android/Jars/relinker-{RELINKER_VERSION}.aar");
 		DownloadFile(YEARCLASSURL, $"./Nutrient.dotnet.Android/Jars/yearclass-{YEARCLASS_VERSION}.jar");
 		DownloadFile(IMMUTABLE_COLLECTIONS_URL, $"./Nutrient.dotnet.Android/Jars/kotlinx-collections-immutable-{IMMUTABLE_COLLECTIONS_VERSION}.jar");
+		DownloadFile(IMMUTABLE_COLLECTIONS_JVM_URL, $"./Nutrient.dotnet.Android/Jars/kotlinx-collections-immutable-jvm-{IMMUTABLE_COLLECTIONS_VERSION}.jar");
 	});
 
 Task("ExtractAars")

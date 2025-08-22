@@ -1,5 +1,8 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <metadata>
+  <!--Remove APIs from KotlinX collections immutable-->
+  <remove-node path="/api/package[contains(@name, 'kotlinx.collections.immutable')]" />
+  
   <!-- Remove non public Api namespaces -->
   <!-- TODO: Can make it more generic -->
   <remove-node path="/api/package[contains(@name, 'com.pspdfkit.internal')]" />
@@ -69,6 +72,7 @@
   <attr path="/api/package[@name='com.pspdfkit.contentediting.inspector.defaults']" name="managedName">PSPDFKit.ContentEditing.Inspector.Defaults</attr>
   <attr path="/api/package[@name='com.pspdfkit.contentediting.models']" name="managedName">PSPDFKit.ContentEditing.Models</attr>
   <attr path="/api/package[@name='com.pspdfkit.contentediting.models.serializer']" name="managedName">PSPDFKit.ContentEditing.Models.Serializer</attr>
+  <attr path="/api/package[@name='com.pspdfkit.contentediting.models.serializer']/class[@name='ColorSerializer']/method[@name='deserialize' and count(parameter)=1]" name="managedReturn">Java.Lang.Object</attr>
   <attr path="/api/package[@name='com.pspdfkit.datastructures']" name="managedName">PSPDFKit.Datastructures</attr>
   <attr path="/api/package[@name='com.pspdfkit.document']" name="managedName">PSPDFKit.Document</attr>
   <attr path="/api/package[@name='com.pspdfkit.document.checkpoint']" name="managedName">PSPDFKit.Document.Checkpoint</attr>
@@ -113,6 +117,8 @@
   <attr path="/api/package[@name='com.pspdfkit.signatures.listeners']" name="managedName">PSPDFKit.Signatures.Listeners</attr>
   <attr path="/api/package[@name='com.pspdfkit.signatures.storage']" name="managedName">PSPDFKit.Signatures.Storage</attr>
   <attr path="/api/package[@name='com.pspdfkit.signatures.timestamp']" name="managedName">PSPDFKit.Signatures.TimeStamp</attr>
+  <attr path="/api/package[@name='com.pspdfkit.signatures']/class[@name='Signature.Companion']/method[@name='create' and count(parameter)=1]" name="managedReturn">Java.Lang.Object</attr>
+  <attr path="/api/package[@name='com.pspdfkit.signatures']/class[@name='Signature.Companion']/method[@name='newArray' and count(parameter)=1]" name="managedReturn">Java.Lang.Object[]</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui']" name="managedName">PSPDFKit.UI</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.actionmenu']" name="managedName">PSPDFKit.UI.ActionMenuSdk</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.annotations']" name="managedName">PSPDFKit.UI.Annotations</attr>
