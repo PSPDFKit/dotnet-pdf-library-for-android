@@ -40,8 +40,9 @@
   
   <attr path="/api/package[@name='io.nutrient.domain']" name="managedName">Nutrient.Domain</attr>
   <attr path="/api/package[@name='io.nutrient.domain.ai']" name="managedName">Nutrient.Domain.AI</attr>
-  
+
   <attr path="/api/package[@name='com.pspdfkit']" name="managedName">PSPDFKit</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ai']" name="managedName">PSPDFKit.AI</attr>
   <attr path="/api/package[@name='com.pspdfkit.analytics']" name="managedName">PSPDFKit.AnalyticsSdk</attr>
   <attr path="/api/package[@name='com.pspdfkit.annotations']" name="managedName">PSPDFKit.Annotations</attr>
   <attr path="/api/package[@name='com.pspdfkit.annotations.actions']" name="managedName">PSPDFKit.Annotations.Actions</attr>

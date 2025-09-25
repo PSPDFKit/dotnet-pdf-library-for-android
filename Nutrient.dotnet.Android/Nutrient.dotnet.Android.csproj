@@ -36,7 +36,7 @@
     <AndroidLibrary Include="Jars\yearclass-2.0.0.jar" Bind="false" Pack="true" />
     <AndroidLibrary Include="Jars\kotlinx-collections-immutable-0.3.8.jar"/>
     <AndroidLibrary Include="Jars\kotlinx-collections-immutable-jvm-0.3.8.jar"/>
-    <AndroidLibrary Include="Jars\Nutrient-Android-SDK-AAR-10.4.1.aar" Bind="true" Pack="true" />
+    <AndroidLibrary Include="Jars\Nutrient-Android-SDK-AAR-10.7.0.aar" Bind="true" Pack="true" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.AndroidX.AppCompat" Version="1.7.0.4" />
@@ -74,9 +74,6 @@
     <PackageReference Include="Xamarin.AndroidX.Browser" Version="1.8.0" />
     <PackageReference Include="Square.OkHttp3" Version="4.12.0.2" />
     <PackageReference Include="Xamarin.AndroidX.Compose.UI.Geometry" Version="1.7.8" />
-
-    <!-- Resolving conflict of version -->
-    <PackageReference Include="Xamarin.AndroidX.Activity.Ktx" Version="1.10.0" />
   </ItemGroup>
 </Project>
  

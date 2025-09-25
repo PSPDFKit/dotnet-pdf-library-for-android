@@ -10,8 +10,8 @@ The [Nutrient SDK](https://nutrient.io/) is a framework that allows you to view,
 
 #### Related
 
-- Nutrient.NET (iOS): [PSPDFKit/dotnet-pdf-library-for-ios](https://github.com/PSPDFKit/dotnet-pdf-library-for-ios)
-- Nutrient.NET for mobiles (iOS & Android): [PSPDFKit/dotnet-pdf-library-for-mobiles](https://github.com/PSPDFKit/dotnet-pdf-library-for-mobiles)
+- Nutrient .NET for Mobile (iOS): [PSPDFKit/dotnet-pdf-library-for-ios](https://github.com/PSPDFKit/dotnet-pdf-library-for-ios)
+- Nutrient .NET for Mobile (iOS & Android): [PSPDFKit/dotnet-pdf-library-for-mobiles](https://github.com/PSPDFKit/dotnet-pdf-library-for-mobiles)
 
 ## Support, Issues and License Questions
 
