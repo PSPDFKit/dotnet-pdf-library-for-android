@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net8.0-android</TargetFramework>
-    <SupportedOSPlatformVersion>21</SupportedOSPlatformVersion>
+    <SupportedOSPlatformVersion>23</SupportedOSPlatformVersion>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <NoWarn>0109,0618,0114,0108,0672,0169,XAOBS001,CS8603,CS8625,CS8764,CS8765,CS8766,CS8767</NoWarn>
@@ -36,7 +36,7 @@
     <AndroidLibrary Include="Jars\yearclass-2.0.0.jar" Bind="false" Pack="true" />
     <AndroidLibrary Include="Jars\kotlinx-collections-immutable-0.3.8.jar"/>
     <AndroidLibrary Include="Jars\kotlinx-collections-immutable-jvm-0.3.8.jar"/>
-    <AndroidLibrary Include="Jars\Nutrient-Android-SDK-AAR-10.7.0.aar" Bind="true" Pack="true" />
+    <AndroidLibrary Include="Jars\Nutrient-Android-SDK-AAR-10.8.0.aar" Bind="true" Pack="true" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.AndroidX.AppCompat" Version="1.7.0.4" />
@@ -58,10 +58,10 @@
     <PackageReference Include="Xamarin.Google.Android.Material" Version="1.12.0" />
     <PackageReference Include="Xamarin.Android.ReactiveX.RxJava3.RxAndroid" Version="3.0.2.8" />
     <PackageReference Include="Xamarin.Android.ReactiveX.RxJava3.RxJava" Version="3.1.10.1" />
-    <PackageReference Include="Xamarin.Kotlin.StdLib.Jdk8" Version="2.0.21.2" />
-    <PackageReference Include="Xamarin.Kotlin.StdLib" Version="2.0.21.2" />
+    <PackageReference Include="Xamarin.Kotlin.StdLib.Jdk8" Version="2.0.21.4" />
+    <PackageReference Include="Xamarin.Kotlin.StdLib" Version="2.0.21.4" />
     <PackageReference Include="Xamarin.Kotlin.Parcelize.Runtime" Version="2.0.20" />
-    <PackageReference Include="Org.Jetbrains.Kotlinx.KotlinxSerializationJson" Version="1.7.3" />
+    <PackageReference Include="Org.Jetbrains.Kotlinx.KotlinxSerializationJson" Version="1.7.3.1" />
 
     <PackageReference Include="Xamarin.AndroidX.Core" Version="1.15.0.2" />
     <PackageReference Include="Xamarin.AndroidX.Fragment" Version="1.8.5.1" />

@@ -651,4 +651,15 @@
       <parameter name="size" type="int" />
     </method>
   </add-node>
+  
+  <!-- Fix visibility of Copy methods in annotation classes for SDK 10.8.0 -->
+  <attr path="/api/package[@name='com.pspdfkit.annotations']/class[@name='CircleAnnotation']/method[@name='getCopy']" name="visibility">protected</attr>
+  <attr path="/api/package[@name='com.pspdfkit.annotations']/class[@name='FreeTextAnnotation']/method[@name='getCopy']" name="visibility">protected</attr>
+  <attr path="/api/package[@name='com.pspdfkit.annotations']/class[@name='InkAnnotation']/method[@name='getCopy']" name="visibility">protected</attr>
+  <attr path="/api/package[@name='com.pspdfkit.annotations']/class[@name='LineAnnotation']/method[@name='getCopy']" name="visibility">protected</attr>
+  <attr path="/api/package[@name='com.pspdfkit.annotations']/class[@name='NoteAnnotation']/method[@name='getCopy']" name="visibility">protected</attr>
+  <attr path="/api/package[@name='com.pspdfkit.annotations']/class[@name='PolylineAnnotation']/method[@name='getCopy']" name="visibility">protected</attr>
+  <attr path="/api/package[@name='com.pspdfkit.annotations']/class[@name='PolygonAnnotation']/method[@name='getCopy']" name="visibility">protected</attr>
+  <attr path="/api/package[@name='com.pspdfkit.annotations']/class[@name='SquareAnnotation']/method[@name='getCopy']" name="visibility">protected</attr>
+  <attr path="/api/package[@name='com.pspdfkit.annotations']/class[@name='StampAnnotation']/method[@name='getCopy']" name="visibility">protected</attr>
 </metadata>
