@@ -132,7 +132,7 @@ namespace PSPDFKit.Listeners.Scrolling
         public unsafe void OnDocumentScrolled(int currX, int currY, int maxX, int maxY, int extendX, int extendY)
         {
             if (_id_onDocumentScrolled_IIIIII == IntPtr.Zero)
-                _id_onDocumentScrolled_IIIIII = JNIEnv.GetMethodID(class_ref, "onDocumentScrolled", "(IIIIII)V");
+                _id_onDocumentScrolled_IIIIII = JNIEnv.GetMethodID(_members_com_pspdfkit_listeners_scrolling_DocumentScrollListener.JniPeerType.PeerReference.Handle, "onDocumentScrolled", "(IIIIII)V");
             JValue* __args = stackalloc JValue[6];
             __args[0] = new JValue(currX);
             __args[1] = new JValue(currY);
@@ -164,7 +164,7 @@ namespace PSPDFKit.Listeners.Scrolling
         public unsafe void OnScrollStateChanged(global::PSPDFKit.Listeners.Scrolling.ScrollState currX)
         {
             if (_id_onScrollStateChanged_Lcom_pspdfkit_listeners_scrolling_ScrollState_ == IntPtr.Zero)
-                _id_onScrollStateChanged_Lcom_pspdfkit_listeners_scrolling_ScrollState_ = JNIEnv.GetMethodID(class_ref, "onScrollStateChanged", "(Lcom/pspdfkit/listeners/scrolling/ScrollState;)V");
+                _id_onScrollStateChanged_Lcom_pspdfkit_listeners_scrolling_ScrollState_ = JNIEnv.GetMethodID(_members_com_pspdfkit_listeners_scrolling_DocumentScrollListener.JniPeerType.PeerReference.Handle, "onScrollStateChanged", "(Lcom/pspdfkit/listeners/scrolling/ScrollState;)V");
             JValue* __args = stackalloc JValue[1];
             __args[0] = new JValue((currX == null) ? IntPtr.Zero : ((global::Java.Lang.Object)currX).Handle);
             JNIEnv.CallVoidMethod(((global::Java.Lang.Object)this).Handle, _id_onScrollStateChanged_Lcom_pspdfkit_listeners_scrolling_ScrollState_, __args);

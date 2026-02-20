@@ -1,0 +1,13 @@
+﻿<Project>
+  <!-- Workaround for https://github.com/dotnet/android-libraries/issues/1341
+       Xamarin.AndroidX.Compose.Runtime.Annotation ships both .Android (AAR) and .Jvm (JAR)
+       NuGet variants containing identical classes (e.g. androidx.compose.runtime.Immutable).
+       NuGet lacks Kotlin Multiplatform resolution, so both variants are included as transitive
+       dependencies (via Activity, Fragment, etc.), causing D8/R8 "Type is defined multiple
+       times" errors at build time. -->
+  <Target Name="_RemoveDuplicateComposeRuntimeAnnotationJvm" BeforeTargets="_DetermineJavaLibrariesToCompile">
+    <ItemGroup>
+      <AndroidJavaLibrary Remove="@(AndroidJavaLibrary)" Condition="$([System.String]::Copy('%(Identity)').Contains('compose.runtime.annotation.jvm'))" />
+    </ItemGroup>
+  </Target>
+</Project>

@@ -14,15 +14,13 @@
   <!-- Removes any "subclass name" that ends with *Impl.* since it should not be public. This matches for example "PSPDFKitActivityImpl.1" -->
   <remove-node path="//class['Impl' = substring(substring-before(@name,'.') , string-length(substring-before(@name,'.')) - 3)]" />
 
-  <!-- Removes any "constructor" that any of its parameters uses any of the types contained in com.pspdfkit.internal.* -->
-  <!-- <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.r1')]" />
-  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.dg')]" />
-  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.um')]" />
-  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.d1')]" />
-  <remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal.j5')]" /> -->
-
-  <!-- Not creating a general rule to avoid bug reported by David -->
-   <!--<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal')]" />-->
+  <!-- General rule to remove constructors with internal types — MUST STAY DISABLED.
+       Bug confirmed in 11.0.0 update (Feb 2026): this rule strips internal parameters from
+       constructors that also have non-internal parameters, creating duplicate constructor signatures.
+       Example: AnnotationCreationToolbarGroupingRule(Context, EnumSet<internal.m>) becomes
+       AnnotationCreationToolbarGroupingRule(Context) which conflicts with an existing constructor.
+       The BG8800 warnings for these constructors are harmless and should be ignored. -->
+  <!--<remove-node path="//constructor/parameter[contains(@type, 'com.pspdfkit.internal')]" />-->
 
   <!-- Removes any "method" that any of its parameters uses any of the types contained in com.pspdfkit.internal.* -->
   <remove-node path="//method/parameter[contains(@type, 'com.pspdfkit.internal')]" />
@@ -652,7 +650,7 @@
     </method>
   </add-node>
   
-  <!-- Fix visibility of Copy methods in annotation classes for SDK 10.8.0 -->
+  <!-- Fix visibility of Copy methods in annotation classes for SDK 11.0.0 -->
   <attr path="/api/package[@name='com.pspdfkit.annotations']/class[@name='CircleAnnotation']/method[@name='getCopy']" name="visibility">protected</attr>
   <attr path="/api/package[@name='com.pspdfkit.annotations']/class[@name='FreeTextAnnotation']/method[@name='getCopy']" name="visibility">protected</attr>
   <attr path="/api/package[@name='com.pspdfkit.annotations']/class[@name='InkAnnotation']/method[@name='getCopy']" name="visibility">protected</attr>
