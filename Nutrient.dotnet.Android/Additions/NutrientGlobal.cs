@@ -11,7 +11,8 @@ namespace PSPDFKit
 
     public sealed partial class NutrientGlobal {
 
-		internal static CrossPlatformTechnology ProductIdentifier = CrossPlatformTechnology.DotNetBindings;
+		internal static CrossPlatformTechnology ProductIdentifier = CrossPlatformTechnology.DotNetBindings
+			?? throw new InvalidOperationException("CrossPlatformTechnology.DotNetBindings is unavailable.");
 
 		public static void Initialize (Context context, string? licenseKey, IList<string>? fontPaths)
 		{

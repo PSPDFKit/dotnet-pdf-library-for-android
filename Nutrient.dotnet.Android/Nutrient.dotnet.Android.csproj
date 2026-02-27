@@ -37,8 +37,13 @@
     <AndroidLibrary Include="Jars\kotlinx-collections-immutable-0.4.0.jar"/>
     <AndroidLibrary Include="Jars\kotlinx-collections-immutable-jvm-0.4.0.jar"/>
     <AndroidLibrary Include="Jars\fragment-compose-1.8.9.jar" Bind="false" Pack="true" />
-    <AndroidLibrary Include="Jars\Nutrient-Android-SDK-AAR-11.0.0.aar" Bind="true" Pack="true" />
+    <AndroidLibrary Include="Jars\Nutrient-Android-SDK-AAR-11.1.0.aar" Bind="true" Pack="true" />
   </ItemGroup>
+  <PropertyGroup>
+    <BindingWarningCheckLogFile>$(MSBuildProjectDirectory)/obj/$(Configuration)/$(TargetFramework)/build-output.log</BindingWarningCheckLogFile>
+    <BindingWarningReportFile>$(MSBuildProjectDirectory)/obj/$(Configuration)/$(TargetFramework)/critical-binding-warnings.txt</BindingWarningReportFile>
+    <BindingWarningCheckScript>$(MSBuildProjectDirectory)/../scripts/check-critical-binding-warnings.sh</BindingWarningCheckScript>
+  </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Xamarin.AndroidX.AppCompat" Version="1.7.1.2" />
     <PackageReference Include="Xamarin.AndroidX.CardView" Version="1.0.0.37" />
@@ -77,5 +82,31 @@
     <PackageReference Include="Square.OkHttp3" Version="4.12.0.2" />
     <PackageReference Include="Xamarin.AndroidX.Compose.UI.Geometry" Version="1.10.0.1" />
   </ItemGroup>
+
+  <Target Name="CheckCriticalBindingWarnings" AfterTargets="Build" Condition="'$(SkipCriticalBindingWarningCheck)' != 'true'">
+    <PropertyGroup>
+      <_ResolvedBindingWarningLogFile Condition="Exists('$(BindingWarningCheckLogFile)')">$(BindingWarningCheckLogFile)</_ResolvedBindingWarningLogFile>
+      <_ResolvedBindingWarningLogFile Condition="'$(_ResolvedBindingWarningLogFile)' == '' AND Exists('$(MSBuildProjectDirectory)/msbuild.log')">$(MSBuildProjectDirectory)/msbuild.log</_ResolvedBindingWarningLogFile>
+      <_ResolvedBindingWarningLogFile Condition="'$(_ResolvedBindingWarningLogFile)' == '' AND '$(SolutionDir)' != '' AND Exists('$(SolutionDir)msbuild.log')">$(SolutionDir)msbuild.log</_ResolvedBindingWarningLogFile>
+    </PropertyGroup>
+
+    <Exec
+      Command="bash &quot;$(BindingWarningCheckScript)&quot; &quot;$(_ResolvedBindingWarningLogFile)&quot; &quot;$(BindingWarningReportFile)&quot;"
+      Condition="'$(_ResolvedBindingWarningLogFile)' != '' AND Exists('$(BindingWarningCheckScript)')"
+      StandardOutputImportance="high"
+      StandardErrorImportance="high"
+      IgnoreExitCode="true">
+      <Output TaskParameter="ExitCode" PropertyName="_BindingWarningCheckExitCode" />
+    </Exec>
+
+    <Error
+      Condition="'$(_BindingWarningCheckExitCode)' != '' AND '$(_BindingWarningCheckExitCode)' != '0'"
+      Text="Critical binding warning check failed. See $(BindingWarningReportFile) for details." />
+
+    <Message
+      Condition="'$(_ResolvedBindingWarningLogFile)' == ''"
+      Importance="high"
+      Text="Skipping critical binding warning check because no build log was found. Expected one of: $(BindingWarningCheckLogFile), $(MSBuildProjectDirectory)/msbuild.log, or $(SolutionDir)msbuild.log. Build with /fl or /fl /flp:logfile=$(BindingWarningCheckLogFile);verbosity=normal;append=false." />
+  </Target>
 </Project>
- 
+  

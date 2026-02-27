@@ -1,6 +1,7 @@
 ﻿<resources>
     <string name="app_name">Nutrient Example</string>
     <string name="main_open_example">Open example PDF</string>
+    <string name="main_open_example_fragment">Open example PDF with PdfFragment</string>
     <string name="main_open_other">Open other document</string>
 </resources>
 

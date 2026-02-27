@@ -142,7 +142,7 @@ Task("NuGet")
 });
 
 Task("NuGet-Push")
-	.IsDependentOn("Nuget")
+	.IsDependentOn("NuGet")
 	.Does(() =>
 {
 	var package = "./nuget/pkgs/Nutrient.dotnet.Android." + ANDROID_VERSION + ".nupkg";

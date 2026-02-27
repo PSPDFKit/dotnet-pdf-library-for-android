@@ -2,13 +2,9 @@
 using System;
 using System.IO;
 
-using Android;
 using Android.App;
 using Android.Content;
-using Android.Content.PM;
 using Android.OS;
-using AndroidX.Core.App;
-using AndroidX.Core.Content;
 using Android.Widget;
 
 using PSPDFKit;
@@ -27,12 +23,11 @@ public class MainActivity : Activity
     const string sampleDoc = "demo.pdf";
     const int RequestOpenDocument = 1;
 
-    // On Marshmallow+ devices this is used to ask for the necessary write permission.
-    const int RequestWritePermission = 2;
-    readonly string[] PermissionsExternalStorage = {
-            Manifest.Permission.ReadExternalStorage,
-            Manifest.Permission.WriteExternalStorage
-        };
+    enum AssetOpenTarget
+    {
+        PdfActivity,
+        PdfFragmentActivity
+    }
 
     protected override void OnCreate(Bundle savedInstanceState)
     {
@@ -45,20 +40,14 @@ public class MainActivity : Activity
         SetContentView(Resource.Layout.activity_main);
 
         var openDemoDocumentButton = FindViewById<Button>(Resource.Id.main_btn_open_example);
+        var openDemoDocumentWithFragmentButton = FindViewById<Button>(Resource.Id.main_btn_open_example_fragment);
         var openDocumentButton = FindViewById<Button>(Resource.Id.main_btn_open_document);
 
-        // Opens a demo document from assets directory
-        openDemoDocumentButton.Click += (sender, e) => {
-            // On Marshmallow devices the user must grant write permission to the extrnal storage.
-            const string permission = Manifest.Permission.WriteExternalStorage;
-            if (ContextCompat.CheckSelfPermission(this, permission) == (int)Permission.Granted)
-            {
-                ShowDocumentFromAssets();
-                return;
-            }
+        // Opens a demo document from assets directory using PdfActivity.
+        openDemoDocumentButton.Click += (sender, e) => OpenDocumentFromAssets(AssetOpenTarget.PdfActivity);
 
-            ActivityCompat.RequestPermissions(this, PermissionsExternalStorage, RequestWritePermission);
-        };
+        // Opens a demo document from assets directory using PdfFragment.
+        openDemoDocumentWithFragmentButton.Click += (sender, e) => OpenDocumentFromAssets(AssetOpenTarget.PdfFragmentActivity);
 
         // Opens a document from Android document provider
         openDocumentButton.Click += (sender, e) => {
@@ -69,12 +58,26 @@ public class MainActivity : Activity
         };
     }
 
+    void OpenDocumentFromAssets(AssetOpenTarget target)
+    {
+        if (target == AssetOpenTarget.PdfFragmentActivity)
+            ShowDocumentFromAssetsWithFragment();
+        else
+            ShowDocumentFromAssets();
+    }
+
     void ShowDocumentFromAssets()
     {
         // Extract the pdf from assets if not already extracted
         var docUri = Utils.ExtractAsset(this, sampleDoc);
         ShowPdfDocument(docUri);
-        return;
+    }
+
+    void ShowDocumentFromAssetsWithFragment()
+    {
+        // Extract the pdf from assets if not already extracted
+        var docUri = Utils.ExtractAsset(this, sampleDoc);
+        ShowPdfFragmentDocument(docUri);
     }
 
     void ShowPdfDocument(Android.Net.Uri docUri)
@@ -91,6 +94,17 @@ public class MainActivity : Activity
             ShowError("This document uri cannot be opened \n " + docUri.ToString());
         else
             PdfActivity.ShowDocument(this, docUri, pspdfkitConfiguration);
+    }
+
+    void ShowPdfFragmentDocument(Android.Net.Uri docUri)
+    {
+        if (!NutrientGlobal.IsOpenableUri(this, docUri))
+        {
+            ShowError("This document uri cannot be opened \n " + docUri.ToString());
+            return;
+        }
+
+        StartActivity(PdfFragmentActivity.CreateIntent(this, docUri));
     }
 
     protected async override void OnActivityResult(int requestCode, Result resultCode, Intent data)
@@ -115,12 +129,6 @@ public class MainActivity : Activity
             else
                 ShowPdfDocument(data.Data);
         }
-    }
-
-    public override void OnRequestPermissionsResult(int requestCode, string[] permissions, Permission[] grantResults)
-    {
-        if (requestCode == RequestWritePermission)
-            ShowDocumentFromAssets();
     }
 
     void ShowError (string message = null)

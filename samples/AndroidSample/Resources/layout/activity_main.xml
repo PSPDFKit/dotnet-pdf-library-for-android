@@ -21,6 +21,11 @@
             android:layout_height="wrap_content"
             android:text="@string/main_open_example" />
         <Button
+            android:id="@+id/main_btn_open_example_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/main_open_example_fragment" />
+        <Button
             android:text="@string/main_open_other"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

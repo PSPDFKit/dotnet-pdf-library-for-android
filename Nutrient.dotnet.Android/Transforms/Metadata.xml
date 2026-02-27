@@ -15,7 +15,7 @@
   <remove-node path="//class['Impl' = substring(substring-before(@name,'.') , string-length(substring-before(@name,'.')) - 3)]" />
 
   <!-- General rule to remove constructors with internal types — MUST STAY DISABLED.
-       Bug confirmed in 11.0.0 update (Feb 2026): this rule strips internal parameters from
+       Bug confirmed in 11.1.0 update (Feb 2026): this rule strips internal parameters from
        constructors that also have non-internal parameters, creating duplicate constructor signatures.
        Example: AnnotationCreationToolbarGroupingRule(Context, EnumSet<internal.m>) becomes
        AnnotationCreationToolbarGroupingRule(Context) which conflicts with an existing constructor.
@@ -152,6 +152,7 @@
   <attr path="/api/package[@name='com.pspdfkit.ui.special_mode.manager']" name="managedName">PSPDFKit.UI.SpecialMode.Manager</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.tabs']" name="managedName">PSPDFKit.UI.Tabs</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.thumbnail']" name="managedName">PSPDFKit.UI.Thumbnail</attr>
+  <attr path="/api/package[@name='com.pspdfkit.ui.thumbnail.compose']" name="managedName">PSPDFKit.UI.Thumbnail.Compose</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.toolbar']" name="managedName">PSPDFKit.UI.Toolbar</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.toolbar.grouping']" name="managedName">PSPDFKit.UI.Toolbar.Grouping</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.toolbar.grouping.presets']" name="managedName">PSPDFKit.UI.Toolbar.Grouping.Presets</attr>
@@ -213,8 +214,6 @@
   <attr path="/api/package[@name='com.pspdfkit.ui.inspector.views']/class[@name='BorderStylePickerInspectorView']" name="extends">android.widget.FrameLayout</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.inspector.views']/class[@name='LineEndTypePickerInspectorView']" name="extends">android.widget.FrameLayout</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='PdfSearchViewLazy']" name="extends">android.widget.FrameLayout</attr>
-  <attr path="/api/package[@name='com.pspdfkit.ui.thumbnail']/class[@name='PdfScrollableThumbnailBar']" name="extends">android.view.ViewGroup</attr>
-  <attr path="/api/package[@name='com.pspdfkit.ui.thumbnail']/class[@name='PdfStaticThumbnailBar']" name="extends">android.view.ViewGroup</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='AbstractPdfSearchView']/method[@name='onSearchStarted']" name="visibility">public</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='AbstractPdfSearchView']/method[@name='onMoreSearchResults']" name="visibility">public</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='AbstractPdfSearchView']/method[@name='onSearchComplete']" name="visibility">public</attr>
@@ -223,7 +222,6 @@
   <attr path="/api/package[@name='com.pspdfkit.document.image']/class[@name='BaseImagePickerFragment']/method[@name='getRequestCode' and count(parameter)=0]" name="visibility">public</attr>
   <attr path="/api/package[@name='com.pspdfkit.document.image']/class[@name='CameraImagePickerFragment']/method[@name='getRequestCode' and count(parameter)=0]" name="visibility">public</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui']/interface[@name='PdfActivityComponentsApi']" name="visibility">public</attr>
-  <attr path="/api/package[@name='com.pspdfkit.ui.thumbnail']/class[@name='ThumbnailAdapter.ThumbnailViewHolder']" name="visibility">public</attr>
   <attr path="/api/package[@name='com.pspdfkit.forms']/class[@name='FormElementConfiguration']" name="visibility">public</attr>
 
   <attr path="/api/package[@name='com.pspdfkit.annotations.configuration']/interface[@name='StampAnnotationConfiguration.Builder']/method[@name='build']" name="managedReturn">PSPDFKit.Annotations.Configuration.IAnnotationConfiguration</attr>
@@ -329,11 +327,6 @@
   <attr path="/api/package[@name='com.pspdfkit.signatures.timestamp']/class[@name='TimestampData.CREATOR']/method[@name='newArray' and count(parameter)=1 and parameter[1][@type='int']]" name="return">java.lang.Object[]</attr>
   <attr path="/api/package[@name='com.pspdfkit.document.editor.page']/class[@name='NewPageDialog.ColorsAdapter']/method[@name='onCreateViewHolder' and count(parameter)=2 and parameter[1][@type='android.view.ViewGroup'] and parameter[2][@type='int']]" name="return">androidx.recyclerview.widget.RecyclerView.ViewHolder</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.inspector.views']/class[@name='OptionPickerInspectorView.OptionsAdapter']/method[@name='onCreateViewHolder' and count(parameter)=2 and parameter[1][@type='android.view.ViewGroup'] and parameter[2][@type='int']]" name="return">androidx.recyclerview.widget.RecyclerView.ViewHolder</attr>
-  <attr path="/api/package[@name='com.pspdfkit.ui.thumbnail']/class[@name='ThumbnailAdapter']/method[@name='onCreateViewHolder' and count(parameter)=2 and parameter[1][@type='android.view.ViewGroup'] and parameter[2][@type='int']]" name="return">androidx.recyclerview.widget.RecyclerView.ViewHolder</attr>
-  <attr path="/api/package[@name='com.pspdfkit.ui.thumbnail']/class[@name='PdfStaticThumbnailBar.AddBorderToBitmap']/method[@name='apply' and count(parameter)=1 and parameter[1][@type='android.graphics.Bitmap']]" name="return">java.lang.Object</attr>
-  <attr path="/api/package[@name='com.pspdfkit.ui.thumbnail']/class[@name='PdfStaticThumbnailBar.AddBorderToBitmap']/method[@name='apply' and count(parameter)=1 and parameter[1][@type='android.graphics.Bitmap']]/parameter[1]" name="type">java.lang.Object</attr>
-  <attr path="/api/package[@name='com.pspdfkit.ui.thumbnail']/class[@name='ThumbnailAdapter.AddBorderToBitmap']/method[@name='apply' and count(parameter)=1 and parameter[1][@type='android.graphics.Bitmap']]" name="return">java.lang.Object</attr>
-  <attr path="/api/package[@name='com.pspdfkit.ui.thumbnail']/class[@name='ThumbnailAdapter.AddBorderToBitmap']/method[@name='apply' and count(parameter)=1 and parameter[1][@type='android.graphics.Bitmap']]/parameter[1]" name="type">java.lang.Object</attr>
 
   <remove-node path="/api/package[@name='com.pspdfkit']/class[@name='PSPDFKit']/method[@name='initialize' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String']]" />
   <remove-node path="/api/package[@name='com.pspdfkit']/class[@name='PSPDFKit']/method[@name='initialize' and count(parameter)=3 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='com.pspdfkit.configuration.policy.ApplicationPolicy']]" />
@@ -350,26 +343,10 @@
   <remove-node path="/api/package[@name='com.pspdfkit.bookmarks']/interface[@name='Bookmark.OnBookmarkUpdatedListener']" />
   <!--	<remove-node path="//implements[contains(@name, 'com.pspdfkit.bookmarks.Bookmark.OnBookmarkUpdatedListener')]" />-->
 
-  <add-node path="/api/package[@name='com.pspdfkit.ui.thumbnail']/class[@name='ThumbnailAdapter']">
-    <method abstract="false" deprecated="not deprecated" final="true" name="onBindViewHolder" native="false" return="void" static="false" synchronized="false" visibility="public">
-      <parameter name="viewHolder" type="androidx.recyclerview.widget.RecyclerView.ViewHolder"></parameter>
-      <parameter name="position" type="int"></parameter>
-    </method>
-  </add-node>
   <add-node path="/api/package[@name='com.pspdfkit.document.editor.page']/class[@name='NewPageDialog.ColorsAdapter']">
     <method abstract="false" deprecated="not deprecated" final="true" name="onBindViewHolder" native="false" return="void" static="false" synchronized="false" visibility="public">
       <parameter name="viewHolder" type="androidx.recyclerview.widget.RecyclerView.ViewHolder"></parameter>
       <parameter name="position" type="int"></parameter>
-    </method>
-  </add-node>
-  <add-node path="/api/package[@name='com.pspdfkit.ui.thumbnail']/class[@name='PdfStaticThumbnailBar']">
-    <method abstract="false" deprecated="not deprecated" final="false" name="setBackgroundColor" native="false" return="void" static="false" synchronized="false" visibility="public">
-      <parameter name="p0" type="int"></parameter>
-    </method>
-  </add-node>
-  <add-node path="/api/package[@name='com.pspdfkit.ui.thumbnail']/class[@name='PdfScrollableThumbnailBar']">
-    <method abstract="false" deprecated="not deprecated" final="false" name="setBackgroundColor" native="false" return="void" static="false" synchronized="false" visibility="public">
-      <parameter name="p0" type="int"></parameter>
     </method>
   </add-node>
   <add-node path="/api/package[@name='com.pspdfkit.ui.transition']/class[@name='EpicenterTranslateClipReveal.StateEvaluator']">
@@ -384,13 +361,6 @@
       <parameter name="obj" type="java.lang.Object"></parameter>
     </method>
   </add-node>
-  <add-node path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfThumbnailBar.ConvertToDrawable']">
-    <method abstract="false" deprecated="not deprecated" final="false" name="apply" jni-signature="(Ljava/lang/Object;)Ljava/lang/Object;" bridge="false" native="false" return="java.lang.Object" jni-return="Ljava/lang/Object;" static="false" synchronized="false" synthetic="false" visibility="public">
-      <parameter name="p0" type="java.lang.Object" jni-type="Ljava/lang/Object;">
-      </parameter>
-    </method>
-  </add-node>
-
   <add-node path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfUiFragment']">
     <method abstract="false" deprecated="not deprecated" final="false" name="getPropertyInspectorCoordinator" jni-signature="()Lcom/pspdfkit/ui/inspector/PropertyInspectorCoordinatorLayout;" bridge="false" native="false" return="com.pspdfkit.ui.inspector.PropertyInspectorCoordinatorLayout" jni-return="Lcom/pspdfkit/ui/inspector/PropertyInspectorCoordinatorLayout;" static="false" synchronized="false" synthetic="false" visibility="public" />
 
@@ -610,10 +580,6 @@
     </method>
   </add-node>-->
 
-  <!-- Remove com.pspdfkit.listeners.scrolling.DocumentScrollListener.DocumentScrollListener because one was deprecated -->
-  <remove-node path="/api/package[@name='com.pspdfkit.listeners.scrolling']/interface[@name='DocumentScrollListener']/method[@name='onDocumentScrolled']" />
-  <remove-node path="/api/package[@name='com.pspdfkit.listeners.scrolling']/interface[@name='DocumentScrollListener']/method[@name='onScrollStateChanged']" />
-
 
   <!--error CS0738: 'ColorSerializer' does not implement interface member 'IDeserializationStrategy.Deserialize(IDecoder)'. 'ColorSerializer.Deserialize(IDecoder)' cannot implement 'IDeserializationStrategy.Deserialize(IDecoder)' because it does not have the matching return type of 'Object'.-->
   <remove-node path="/api/package[@name='com.pspdfkit.contentediting.models.serializer']/class[@name='ColorSerializer']/method[@name='deserialize' and count(parameter)=1 and parameter[1][@type='kotlinx.serialization.encoding.Decoder']]" />
@@ -650,7 +616,7 @@
     </method>
   </add-node>
   
-  <!-- Fix visibility of Copy methods in annotation classes for SDK 11.0.0 -->
+  <!-- Fix visibility of Copy methods in annotation classes for SDK 11.1.0 -->
   <attr path="/api/package[@name='com.pspdfkit.annotations']/class[@name='CircleAnnotation']/method[@name='getCopy']" name="visibility">protected</attr>
   <attr path="/api/package[@name='com.pspdfkit.annotations']/class[@name='FreeTextAnnotation']/method[@name='getCopy']" name="visibility">protected</attr>
   <attr path="/api/package[@name='com.pspdfkit.annotations']/class[@name='InkAnnotation']/method[@name='getCopy']" name="visibility">protected</attr>
