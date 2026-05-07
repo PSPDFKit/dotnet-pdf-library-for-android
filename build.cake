@@ -13,20 +13,9 @@ var versionParts = NUTRIENT_VERSION.Split('.');
 var ANDROID_VERSION = string.Join(".", versionParts.Take(3));
 var SERVICERELEASE_VERSION = versionParts.Length == 4 ? versionParts[3] : "0"; // This is combined with the NUTRIENT_VERSION variable for the NuGet Package version
 
-// Nice online pom dependency explorer
-// https://jar-download.com/
-var RELINKER_VERSION = "1.4.5";
-var YEARCLASS_VERSION = "2.0.0";
-var IMMUTABLE_COLLECTIONS_VERSION = "0.4.0";
-var FRAGMENT_COMPOSE_VERSION = "1.8.9";
-
-
+// The Nutrient AAR is hosted on an authenticated Maven registry that
+// <AndroidMavenLibrary> does not support, so it has to be fetched manually.
 var NUTRIENTURL = $"https://my.nutrient.io/maven/io/nutrient/nutrient/{ANDROID_VERSION}/nutrient-{ANDROID_VERSION}.aar";
-var RELINKERURL = $"https://search.maven.org/remotecontent?filepath=com/getkeepsafe/relinker/relinker/{RELINKER_VERSION}/relinker-{RELINKER_VERSION}.aar";
-var YEARCLASSURL = $"http://search.maven.org/remotecontent?filepath=com/facebook/device/yearclass/yearclass/{YEARCLASS_VERSION}/yearclass-{YEARCLASS_VERSION}.jar";
-var IMMUTABLE_COLLECTIONS_URL = $"https://search.maven.org/remotecontent?filepath=org/jetbrains/kotlinx/kotlinx-collections-immutable/{IMMUTABLE_COLLECTIONS_VERSION}/kotlinx-collections-immutable-{IMMUTABLE_COLLECTIONS_VERSION}.jar";
-var IMMUTABLE_COLLECTIONS_JVM_URL = $"https://search.maven.org/remotecontent?filepath=org/jetbrains/kotlinx/kotlinx-collections-immutable-jvm/{IMMUTABLE_COLLECTIONS_VERSION}/kotlinx-collections-immutable-jvm-{IMMUTABLE_COLLECTIONS_VERSION}.jar";
-var FRAGMENT_COMPOSE_URL = $"https://dl.google.com/dl/android/maven2/androidx/fragment/fragment-compose/{FRAGMENT_COMPOSE_VERSION}/fragment-compose-{FRAGMENT_COMPOSE_VERSION}.aar";
 
 var NUTRIENT_AAR_NAME = $"Nutrient-Android-SDK-AAR-{ANDROID_VERSION}.aar";
 
@@ -35,50 +24,11 @@ var NUGET_API_KEY = EnvironmentVariable("NUGET_API_KEY");
 Task("FetchDependencies")
 	.Does(() =>
 	{
-
 		if (!DirectoryExists($"./Nutrient.dotnet.Android/Jars"))
 			CreateDirectory($"./Nutrient.dotnet.Android/Jars");
 
-		Information("Downloading all the dependencies...");
+		Information("Downloading the Nutrient SDK AAR...");
 		DownloadFile(NUTRIENTURL, $"./Nutrient.dotnet.Android/Jars/{NUTRIENT_AAR_NAME}");
-		DownloadFile(RELINKERURL, $"./Nutrient.dotnet.Android/Jars/relinker-{RELINKER_VERSION}.aar");
-		DownloadFile(YEARCLASSURL, $"./Nutrient.dotnet.Android/Jars/yearclass-{YEARCLASS_VERSION}.jar");
-		DownloadFile(IMMUTABLE_COLLECTIONS_URL, $"./Nutrient.dotnet.Android/Jars/kotlinx-collections-immutable-{IMMUTABLE_COLLECTIONS_VERSION}.jar");
-		DownloadFile(IMMUTABLE_COLLECTIONS_JVM_URL, $"./Nutrient.dotnet.Android/Jars/kotlinx-collections-immutable-jvm-{IMMUTABLE_COLLECTIONS_VERSION}.jar");
-		DownloadFile(FRAGMENT_COMPOSE_URL, $"./Nutrient.dotnet.Android/Jars/fragment-compose-{FRAGMENT_COMPOSE_VERSION}.aar");
-	});
-
-Task("ExtractAars")
-	.IsDependentOn("FetchDependencies")
-	.Does(() =>
-	{
-		Information("Unzipping needed dependencies...");
-
-		var delDirSettings = new DeleteDirectorySettings { Recursive = true, Force = true };
-		if (DirectoryExists($"./Nutrient.dotnet.Android/Jars/relinker-{RELINKER_VERSION}"))
-			DeleteDirectory($"./Nutrient.dotnet.Android/Jars/relinker-{RELINKER_VERSION}", delDirSettings);
-
-		Unzip($"./Nutrient.dotnet.Android/Jars/relinker-{RELINKER_VERSION}.aar", $"./Nutrient.dotnet.Android/Jars/relinker-{RELINKER_VERSION}");
-		CopyFile($"./Nutrient.dotnet.Android/Jars/relinker-{RELINKER_VERSION}/classes.jar", $"./Nutrient.dotnet.Android/Jars/relinker-{RELINKER_VERSION}.jar");
-
-		if (DirectoryExists($"./Nutrient.dotnet.Android/Jars/relinker-{RELINKER_VERSION}"))
-		{
-			DeleteDirectory($"./Nutrient.dotnet.Android/Jars/relinker-{RELINKER_VERSION}", delDirSettings);
-			DeleteFile($"./Nutrient.dotnet.Android/Jars/relinker-{RELINKER_VERSION}.aar");
-		}
-
-		// Extract fragment-compose AAR to JAR
-		if (DirectoryExists($"./Nutrient.dotnet.Android/Jars/fragment-compose-{FRAGMENT_COMPOSE_VERSION}"))
-			DeleteDirectory($"./Nutrient.dotnet.Android/Jars/fragment-compose-{FRAGMENT_COMPOSE_VERSION}", delDirSettings);
-
-		Unzip($"./Nutrient.dotnet.Android/Jars/fragment-compose-{FRAGMENT_COMPOSE_VERSION}.aar", $"./Nutrient.dotnet.Android/Jars/fragment-compose-{FRAGMENT_COMPOSE_VERSION}");
-		CopyFile($"./Nutrient.dotnet.Android/Jars/fragment-compose-{FRAGMENT_COMPOSE_VERSION}/classes.jar", $"./Nutrient.dotnet.Android/Jars/fragment-compose-{FRAGMENT_COMPOSE_VERSION}.jar");
-
-		if (DirectoryExists($"./Nutrient.dotnet.Android/Jars/fragment-compose-{FRAGMENT_COMPOSE_VERSION}"))
-		{
-			DeleteDirectory($"./Nutrient.dotnet.Android/Jars/fragment-compose-{FRAGMENT_COMPOSE_VERSION}", delDirSettings);
-			DeleteFile($"./Nutrient.dotnet.Android/Jars/fragment-compose-{FRAGMENT_COMPOSE_VERSION}.aar");
-		}
 	});
 
 Task("BuildNutrient")
@@ -110,7 +60,7 @@ Task("BuildNutrient")
 	});
 
 Task("Default")
-	.IsDependentOn("ExtractAars")
+	.IsDependentOn("FetchDependencies")
 	.IsDependentOn("BuildNutrient")
 	.Does(() =>
 	{

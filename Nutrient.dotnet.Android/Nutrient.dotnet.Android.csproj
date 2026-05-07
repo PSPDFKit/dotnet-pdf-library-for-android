@@ -32,12 +32,35 @@
     <None Include="..\Directory.Build.targets" Pack="true" PackagePath="build/Nutrient.dotnet.Android.targets" />
   </ItemGroup>
   <ItemGroup>
-    <AndroidLibrary Include="Jars\relinker-1.4.5.jar" Bind="false" Pack="true" />
-    <AndroidLibrary Include="Jars\yearclass-2.0.0.jar" Bind="false" Pack="true" />
-    <AndroidLibrary Include="Jars\kotlinx-collections-immutable-0.4.0.jar"/>
-    <AndroidLibrary Include="Jars\kotlinx-collections-immutable-jvm-0.4.0.jar"/>
-    <AndroidLibrary Include="Jars\fragment-compose-1.8.9.jar" Bind="false" Pack="true" />
-    <AndroidLibrary Include="Jars\Nutrient-Android-SDK-AAR-11.1.1.aar" Bind="true" Pack="true" />
+    <AndroidMavenLibrary Include="com.getkeepsafe.relinker:relinker" Version="1.4.5"
+                         Bind="false" Pack="true" VerifyDependencies="false" />
+    <AndroidMavenLibrary Include="com.facebook.device.yearclass:yearclass" Version="2.0.0"
+                         Bind="false" Pack="true" VerifyDependencies="false" />
+    <AndroidMavenLibrary Include="org.jetbrains.kotlinx:kotlinx-collections-immutable" Version="0.4.0"
+                         VerifyDependencies="false" />
+    <AndroidMavenLibrary Include="org.jetbrains.kotlinx:kotlinx-collections-immutable-jvm" Version="0.4.0"
+                         VerifyDependencies="false" />
+    <AndroidMavenLibrary Include="androidx.fragment:fragment-compose" Version="1.8.9" Repository="Google"
+                         Bind="false" Pack="true" VerifyDependencies="false" />
+    <!-- compose.ui:ui-android is bound (Bind="true") because the SDK exposes
+         types that inherit from androidx.compose.ui.platform.AbstractComposeView.
+         The remaining Compose AARs are reference-only on the binding classpath
+         (Bind="false") so the generator can resolve transitively referenced
+         Compose types without re-binding them. -->
+    <AndroidMavenLibrary Include="androidx.compose.ui:ui-android" Version="1.10.0" Repository="Google" Bind="true" Pack="false" VerifyDependencies="false" />
+    <AndroidMavenLibrary Include="androidx.compose.runtime:runtime-android" Version="1.10.0" Repository="Google" Bind="false" Pack="false" VerifyDependencies="false" />
+    <AndroidMavenLibrary Include="androidx.compose.foundation:foundation-android" Version="1.10.0" Repository="Google" Bind="false" Pack="false" VerifyDependencies="false" />
+    <AndroidMavenLibrary Include="androidx.compose.foundation:foundation-layout-android" Version="1.10.0" Repository="Google" Bind="false" Pack="false" VerifyDependencies="false" />
+    <AndroidMavenLibrary Include="androidx.compose.animation:animation-android" Version="1.10.0" Repository="Google" Bind="false" Pack="false" VerifyDependencies="false" />
+    <AndroidMavenLibrary Include="androidx.compose.animation:animation-core-android" Version="1.10.0" Repository="Google" Bind="false" Pack="false" VerifyDependencies="false" />
+    <AndroidMavenLibrary Include="androidx.compose.ui:ui-unit-android" Version="1.10.0" Repository="Google" Bind="false" Pack="false" VerifyDependencies="false" />
+    <AndroidMavenLibrary Include="androidx.compose.ui:ui-graphics-android" Version="1.10.0" Repository="Google" Bind="false" Pack="false" VerifyDependencies="false" />
+    <AndroidMavenLibrary Include="androidx.compose.ui:ui-text-android" Version="1.10.0" Repository="Google" Bind="false" Pack="false" VerifyDependencies="false" />
+    <AndroidMavenLibrary Include="androidx.compose.ui:ui-util-android" Version="1.10.0" Repository="Google" Bind="false" Pack="false" VerifyDependencies="false" />
+    <AndroidMavenLibrary Include="androidx.compose.ui:ui-geometry-android" Version="1.10.0" Repository="Google" Bind="false" Pack="false" VerifyDependencies="false" />
+    <AndroidMavenLibrary Include="androidx.compose.runtime:runtime-saveable-android" Version="1.10.0" Repository="Google" Bind="false" Pack="false" VerifyDependencies="false" />
+    <AndroidMavenLibrary Include="androidx.collection:collection-jvm" Version="1.5.0" Repository="Google" Bind="false" Pack="false" VerifyDependencies="false" />
+    <AndroidLibrary Include="Jars\Nutrient-Android-SDK-AAR-11.4.0.aar" Bind="true" Pack="true" />
   </ItemGroup>
   <PropertyGroup>
     <BindingWarningCheckLogFile>$(MSBuildProjectDirectory)/obj/$(Configuration)/$(TargetFramework)/build-output.log</BindingWarningCheckLogFile>

@@ -2,7 +2,22 @@
 <metadata>
   <!--Remove APIs from KotlinX collections immutable-->
   <remove-node path="/api/package[contains(@name, 'kotlinx.collections.immutable')]" />
-  
+
+  <!-- Strip AndroidX Compose UI types whose Kotlin idioms (functional interfaces,
+       JVM-static overloads, CoroutineContext.Key patterns) don't translate to
+       valid C#, plus the androidx.compose.ui.modifier package whose C# name
+       collides with the androidx.compose.ui.Modifier interface. -->
+  <remove-node path="/api/package[@name='androidx.compose.ui.modifier']" />
+  <remove-node path="/api/package[@name='androidx.compose.ui']/class[@name='FrameRateKt']" />
+  <remove-node path="/api/package[@name='androidx.compose.ui.layout']/class[@name='ScaleFactorKt']" />
+  <remove-node path="/api/package[@name='androidx.compose.ui.node']/class[@name='ModifierNodeElement']" />
+  <remove-node path="/api/package[@name='androidx.compose.ui.input.pointer']/class[@name='RequestDisallowInterceptTouchEvent']" />
+  <remove-node path="/api/package[@name='androidx.compose.ui.layout']/class[@name='SubcomposeSlotReusePolicy.SlotIdsSet']" />
+  <remove-node path="/api/package[@name='androidx.compose.ui']/class[@name='Modifier.Node']" />
+  <remove-node path="/api/package[@name='androidx.compose.ui']/interface[@name='MotionDurationScale']" />
+  <remove-node path="/api/package[@name='androidx.compose.ui.platform']/interface[@name='InfiniteAnimationPolicy']" />
+
+
   <!-- Remove non public Api namespaces -->
   <!-- TODO: Can make it more generic -->
   <remove-node path="/api/package[contains(@name, 'com.pspdfkit.internal')]" />
@@ -152,7 +167,6 @@
   <attr path="/api/package[@name='com.pspdfkit.ui.special_mode.manager']" name="managedName">PSPDFKit.UI.SpecialMode.Manager</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.tabs']" name="managedName">PSPDFKit.UI.Tabs</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.thumbnail']" name="managedName">PSPDFKit.UI.Thumbnail</attr>
-  <attr path="/api/package[@name='com.pspdfkit.ui.thumbnail.compose']" name="managedName">PSPDFKit.UI.Thumbnail.Compose</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.toolbar']" name="managedName">PSPDFKit.UI.Toolbar</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.toolbar.grouping']" name="managedName">PSPDFKit.UI.Toolbar.Grouping</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.toolbar.grouping.presets']" name="managedName">PSPDFKit.UI.Toolbar.Grouping.Presets</attr>
@@ -223,6 +237,21 @@
   <attr path="/api/package[@name='com.pspdfkit.document.image']/class[@name='CameraImagePickerFragment']/method[@name='getRequestCode' and count(parameter)=0]" name="visibility">public</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui']/interface[@name='PdfActivityComponentsApi']" name="visibility">public</attr>
   <attr path="/api/package[@name='com.pspdfkit.forms']/class[@name='FormElementConfiguration']" name="visibility">public</attr>
+
+  <!-- Force onLayout(boolean,int,int,int,int) to protected to match the
+       Android.Views.ViewGroup.OnLayout it overrides; C# can't widen access. -->
+  <attr path="//class/method[@name='onLayout' and count(parameter)=5 and parameter[1][@type='boolean'] and @jni-signature='(ZIIII)V']" name="visibility">protected</attr>
+
+  <!-- Strip parent abstract methods whose Object-typed signatures (from Java
+       generic erasure) don't match the type-specialized subclass methods. -->
+  <remove-node path="/api/package[@name='com.pspdfkit.ui.toolbar']/class[@name='ContextualToolbar']/method[@name='bindController']" />
+  <remove-node path="/api/package[@name='com.pspdfkit.forms']/class[@name='FormElementConfiguration']/method[@name='createFormElement']" />
+
+  <!-- Strip inner classes whose Java generics / multi-overload patterns produce
+       uncompilable C#; none are part of the public API surface. -->
+  <remove-node path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfThumbnailBar.ConvertToDrawable']" />
+  <remove-node path="/api/package[@name='com.pspdfkit.configuration']/class[@name='LoadingIndicatorStyle.Creator']" />
+  <remove-node path="/api/package[@name='com.pspdfkit.ui.inspector.views']/class[@name='OptionPickerInspectorView.OptionsAdapter']" />
 
   <attr path="/api/package[@name='com.pspdfkit.annotations.configuration']/interface[@name='StampAnnotationConfiguration.Builder']/method[@name='build']" name="managedReturn">PSPDFKit.Annotations.Configuration.IAnnotationConfiguration</attr>
   <attr path="/api/package[@name='com.pspdfkit.annotations.configuration']/interface[@name='FileAnnotationConfiguration.Builder']/method[@name='build']" name="managedReturn">PSPDFKit.Annotations.Configuration.IAnnotationConfiguration</attr>
@@ -326,7 +355,6 @@
   <attr path="/api/package[@name='com.pspdfkit.signatures.timestamp']/class[@name='TimestampData.CREATOR']/method[@name='createFromParcel' and count(parameter)=1 and parameter[1][@type='android.os.Parcel']]" name="return">java.lang.Object</attr>
   <attr path="/api/package[@name='com.pspdfkit.signatures.timestamp']/class[@name='TimestampData.CREATOR']/method[@name='newArray' and count(parameter)=1 and parameter[1][@type='int']]" name="return">java.lang.Object[]</attr>
   <attr path="/api/package[@name='com.pspdfkit.document.editor.page']/class[@name='NewPageDialog.ColorsAdapter']/method[@name='onCreateViewHolder' and count(parameter)=2 and parameter[1][@type='android.view.ViewGroup'] and parameter[2][@type='int']]" name="return">androidx.recyclerview.widget.RecyclerView.ViewHolder</attr>
-  <attr path="/api/package[@name='com.pspdfkit.ui.inspector.views']/class[@name='OptionPickerInspectorView.OptionsAdapter']/method[@name='onCreateViewHolder' and count(parameter)=2 and parameter[1][@type='android.view.ViewGroup'] and parameter[2][@type='int']]" name="return">androidx.recyclerview.widget.RecyclerView.ViewHolder</attr>
 
   <remove-node path="/api/package[@name='com.pspdfkit']/class[@name='PSPDFKit']/method[@name='initialize' and count(parameter)=2 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String']]" />
   <remove-node path="/api/package[@name='com.pspdfkit']/class[@name='PSPDFKit']/method[@name='initialize' and count(parameter)=3 and parameter[1][@type='android.content.Context'] and parameter[2][@type='java.lang.String'] and parameter[3][@type='com.pspdfkit.configuration.policy.ApplicationPolicy']]" />
@@ -616,14 +644,4 @@
     </method>
   </add-node>
   
-  <!-- Fix visibility of Copy methods in annotation classes for SDK 11.1.0 -->
-  <attr path="/api/package[@name='com.pspdfkit.annotations']/class[@name='CircleAnnotation']/method[@name='getCopy']" name="visibility">protected</attr>
-  <attr path="/api/package[@name='com.pspdfkit.annotations']/class[@name='FreeTextAnnotation']/method[@name='getCopy']" name="visibility">protected</attr>
-  <attr path="/api/package[@name='com.pspdfkit.annotations']/class[@name='InkAnnotation']/method[@name='getCopy']" name="visibility">protected</attr>
-  <attr path="/api/package[@name='com.pspdfkit.annotations']/class[@name='LineAnnotation']/method[@name='getCopy']" name="visibility">protected</attr>
-  <attr path="/api/package[@name='com.pspdfkit.annotations']/class[@name='NoteAnnotation']/method[@name='getCopy']" name="visibility">protected</attr>
-  <attr path="/api/package[@name='com.pspdfkit.annotations']/class[@name='PolylineAnnotation']/method[@name='getCopy']" name="visibility">protected</attr>
-  <attr path="/api/package[@name='com.pspdfkit.annotations']/class[@name='PolygonAnnotation']/method[@name='getCopy']" name="visibility">protected</attr>
-  <attr path="/api/package[@name='com.pspdfkit.annotations']/class[@name='SquareAnnotation']/method[@name='getCopy']" name="visibility">protected</attr>
-  <attr path="/api/package[@name='com.pspdfkit.annotations']/class[@name='StampAnnotation']/method[@name='getCopy']" name="visibility">protected</attr>
 </metadata>
