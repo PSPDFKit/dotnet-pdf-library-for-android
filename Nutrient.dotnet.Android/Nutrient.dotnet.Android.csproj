@@ -60,7 +60,7 @@
     <AndroidMavenLibrary Include="androidx.compose.ui:ui-geometry-android" Version="1.10.0" Repository="Google" Bind="false" Pack="false" VerifyDependencies="false" />
     <AndroidMavenLibrary Include="androidx.compose.runtime:runtime-saveable-android" Version="1.10.0" Repository="Google" Bind="false" Pack="false" VerifyDependencies="false" />
     <AndroidMavenLibrary Include="androidx.collection:collection-jvm" Version="1.5.0" Repository="Google" Bind="false" Pack="false" VerifyDependencies="false" />
-    <AndroidLibrary Include="Jars\Nutrient-Android-SDK-AAR-11.4.0.aar" Bind="true" Pack="true" />
+    <AndroidLibrary Include="Jars\Nutrient-Android-SDK-AAR-11.5.1.aar" Bind="true" Pack="true" />
   </ItemGroup>
   <PropertyGroup>
     <BindingWarningCheckLogFile>$(MSBuildProjectDirectory)/obj/$(Configuration)/$(TargetFramework)/build-output.log</BindingWarningCheckLogFile>
