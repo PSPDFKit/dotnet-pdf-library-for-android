@@ -21,7 +21,6 @@ android/
 ├── build.cake / build.sh / build.ps1  # Cake build script and entry points
 ├── VERSION                            # Current Nutrient Android SDK version
 ├── Directory.Build.props              # Shared NuGet version (PSVersion)
-├── Directory.Build.targets            # MSBuild workarounds
 ├── Nutrient.dotnet.Android/           # Main binding project
 │   ├── Jars/                          # Downloaded AAR + dependency JARs
 │   ├── Transforms/                    # Binding customizations (Metadata.xml, enum mappings)
@@ -73,7 +72,7 @@ The `Additions/` directory contains hand-written C# extensions that supplement t
 
 ### MSBuild Workarounds
 
-`Directory.Build.targets` fixes Kotlin Multiplatform duplicate class conflicts (e.g., Compose Runtime Annotation JVM vs Android variants). This file is also packed into the NuGet as `build/Nutrient.dotnet.Android.targets` so the fix applies to NuGet consumers too.
+There are currently none. When a Kotlin Multiplatform duplicate class conflict needs a fix, add it to `Directory.Build.targets` and pack that file into the NuGet as `build/Nutrient.dotnet.Android.targets` so the fix applies to NuGet consumers too (see the `update-nutrient-android` skill, Step 7a).
 
 ### Sample Project
 

@@ -16,6 +16,7 @@
   <remove-node path="/api/package[@name='androidx.compose.ui']/class[@name='Modifier.Node']" />
   <remove-node path="/api/package[@name='androidx.compose.ui']/interface[@name='MotionDurationScale']" />
   <remove-node path="/api/package[@name='androidx.compose.ui.platform']/interface[@name='InfiniteAnimationPolicy']" />
+  <remove-node path="/api/package[@name='androidx.compose.ui.platform']/class[@name='AndroidUiFrameClock']" />
 
 
   <!-- Remove non public Api namespaces -->
@@ -69,6 +70,9 @@
   <attr path="/api/package[@name='com.pspdfkit.annotations.stamps']" name="managedName">PSPDFKit.Annotations.Stamps</attr>
   <attr path="/api/package[@name='com.pspdfkit.bookmarks']" name="managedName">PSPDFKit.Bookmarks</attr>
   <attr path="/api/package[@name='com.pspdfkit.compose.theme']" name="managedName">PSPDFKit.Compose.Theme</attr>
+  <attr path="/api/package[@name='com.pspdfkit.compose.toolbar.adapter']" name="managedName">PSPDFKit.Compose.Toolbar.Adapter</attr>
+  <attr path="/api/package[@name='com.pspdfkit.compose.toolbar.composables']" name="managedName">PSPDFKit.Compose.Toolbar.Composables</attr>
+  <attr path="/api/package[@name='com.pspdfkit.compose.toolbar.state']" name="managedName">PSPDFKit.Compose.Toolbar.State</attr>
   <attr path="/api/package[@name='com.pspdfkit.configuration']" name="managedName">PSPDFKit.Configuration</attr>
   <attr path="/api/package[@name='com.pspdfkit.configuration.activity']" name="managedName">PSPDFKit.Configuration.Activity</attr>
   <attr path="/api/package[@name='com.pspdfkit.configuration.annotations']" name="managedName">PSPDFKit.Configuration.Annotations</attr>
@@ -120,6 +124,7 @@
   <attr path="/api/package[@name='com.pspdfkit.javascript']" name="managedName">PSPDFKit.Javascript</attr>
   <attr path="/api/package[@name='com.pspdfkit.jetpack.compose.components']" name="managedName">PSPDFKit.Jetpack.Compose.Components</attr>
   <attr path="/api/package[@name='com.pspdfkit.jetpack.compose.interactors']" name="managedName">PSPDFKit.Jetpack.Compose.Interactors</attr>
+  <attr path="/api/package[@name='com.pspdfkit.jetpack.compose.toolbar']" name="managedName">PSPDFKit.Jetpack.Compose.Toolbar</attr>
   <attr path="/api/package[@name='com.pspdfkit.jetpack.compose.utilities']" name="managedName">PSPDFKit.Jetpack.Compose.Utilities</attr>
   <attr path="/api/package[@name='com.pspdfkit.jetpack.compose.views']" name="managedName">PSPDFKit.Jetpack.Compose.Views</attr>
   <attr path="/api/package[@name='com.pspdfkit.listeners']" name="managedName">PSPDFKit.Listeners</attr>
@@ -221,6 +226,8 @@
 
   <!-- Private clases that needs to be public + Manual fixes due to C# vs Java differences -->
   <attr path="/api/package[@name='com.pspdfkit.ui.inspector.annotation']/class[@name='AbstractAnnotationInspectorController']" name="visibility">public</attr>
+  <!-- The generic factory type is only ever an internal class, so the subclass overrides get stripped with the internal types; drop the abstract base method to match. -->
+  <remove-node path="/api/package[@name='com.pspdfkit.ui.inspector.annotation']/class[@name='AbstractAnnotationInspectorController']/method[@name='createInspectorFactory']" />
   <attr path="/api/package[@name='com.pspdfkit.ui.inspector']/class[@name='AbstractPropertyInspectorController']/method[@name='isBoundToController' and count(parameter)=0]" name="visibility">public</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui.search']/class[@name='AbstractPdfSearchView']" name="visibility">public</attr>
   <attr path="/api/package[@name='com.pspdfkit.annotations']/class[@name='BaseLineAnnotation']/method[@name='getLineEnds' and count(parameter)=0]" name="visibility">public</attr>
@@ -290,7 +297,6 @@
   <attr path="/api/package[@name='com.pspdfkit.annotations.measurements']/class[@name='Scale']/field[@name='unitTo']" name="managedName">UnitToField</attr>
   <attr path="/api/package[@name='com.pspdfkit.annotations.measurements']/class[@name='MeasurementInfo']/field[@name='precision']" name="managedName">PrecisionField</attr>
   <attr path="/api/package[@name='com.pspdfkit.annotations.measurements']/class[@name='MeasurementInfo']/field[@name='scale']" name="managedName">ScaleField</attr>
-  <attr path="/api/package[@name='com.pspdfkit.ui.note']/class[@name='NoteHinterDrawable']/field[@name='annotation']" name="managedName">AnnotationField</attr>
 
   <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='BasePdfUiBuilder']" name="visibility">public</attr>
   <attr path="/api/package[@name='com.pspdfkit.ui']/class[@name='PdfActivityIntentBuilder']" name="extends">java.lang.Object</attr>
